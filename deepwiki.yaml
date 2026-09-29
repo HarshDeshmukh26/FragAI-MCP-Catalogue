@@ -1,5 +1,5 @@
-﻿name: DeepWiki
-entryKey: deepwiki
+name: DeepWiki
+entryKey: fragai-deepwiki
 shortDescription: Explore and ask questions about public GitHub repository documentation
 description: |
   DeepWiki provides generated documentation and question answering for public GitHub repositories.
