@@ -1,0 +1,38 @@
+﻿name: DeepWiki
+entryKey: deepwiki
+shortDescription: Explore and ask questions about public GitHub repository documentation
+description: |
+  DeepWiki provides generated documentation and question answering for public GitHub repositories.
+
+  ## Features
+
+  - Browse the generated documentation structure for a repository
+  - Read repository documentation and architecture summaries
+  - Ask repository-specific technical questions
+
+  ## Connection requirements
+
+  No authentication or user-provided configuration is required for public repositories.
+
+  **Read only:** This connector reads DeepWiki documentation and does not modify the source repository.
+metadata:
+  categories: Documentation, Developer Tools, Retrieval & Search
+icon: https://deepwiki.com/favicon.ico
+repoURL: https://docs.devin.ai/work-with-devin/deepwiki-mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.deepwiki.com/mcp
+toolPreview:
+  - name: read_wiki_structure
+    description: Retrieve the documentation structure for a public GitHub repository
+    params:
+      repoName: GitHub repository in owner/repository format
+  - name: read_wiki_contents
+    description: Read the generated documentation for a public GitHub repository
+    params:
+      repoName: GitHub repository in owner/repository format
+  - name: ask_question
+    description: Ask a technical question about one or more public GitHub repositories
+    params:
+      repoName: GitHub repository in owner/repository format
+      question: Question to answer using the repository documentation
