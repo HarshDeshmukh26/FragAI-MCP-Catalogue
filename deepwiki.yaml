@@ -1,38 +1,39 @@
 name: DeepWiki
 entryKey: fragai-deepwiki
-shortDescription: Explore and ask questions about public GitHub repository documentation
+shortDescription: Explore AI-generated documentation for public GitHub repositories
 description: |
-  DeepWiki provides generated documentation and question answering for public GitHub repositories.
+  Connect FragAI to DeepWiki's public, no-authentication MCP server to understand the structure and implementation of a public GitHub repository.
 
-  ## Features
+  ## What you can do
+  - Browse the generated documentation outline for a repository
+  - Read documentation about architecture, components, and implementation details
+  - Ask a focused question about a repository and receive a contextual answer
 
-  - Browse the generated documentation structure for a repository
-  - Read repository documentation and architecture summaries
-  - Ask repository-specific technical questions
+  ## Before connecting
+  - No account, token, or other configuration is required for public repositories
+  - Supply repositories as `owner/repository`
+  - Treat generated explanations as a starting point and verify important details against the repository source
 
-  ## Connection requirements
-
-  No authentication or user-provided configuration is required for public repositories.
-
-  **Read only:** This connector reads DeepWiki documentation and does not modify the source repository.
+  DeepWiki exposes three remote tools for public repositories. See the [DeepWiki MCP repository](https://github.com/CognitionAI/deepwiki).
 metadata:
-  categories: Documentation, Developer Tools, Retrieval & Search
-icon: https://deepwiki.com/favicon.ico
-repoURL: https://docs.devin.ai/work-with-devin/deepwiki-mcp
+  categories: Documentation
+icon: https://mintcdn.com/cognitionai/k89q9Lsp7DOurdC0/logo/devin.png?fit=max&auto=format&n=k89q9Lsp7DOurdC0&q=85&s=e83fbc727ea2cae8f1b80442fa772c50
+repoURL: https://github.com/CognitionAI/deepwiki
+config: []
+toolPreview:
+- name: read_wiki_structure
+  description: List the generated documentation sections for a public GitHub repository.
+  params:
+    repoName: GitHub repository in owner/repo format (e.g. "facebook/react")
+- name: read_wiki_contents
+  description: Read the generated documentation for a public GitHub repository.
+  params:
+    repoName: GitHub repository in owner/repo format (e.g. "facebook/react")
+- name: ask_question
+  description: Ask a focused question and receive an answer based on the repository documentation.
+  params:
+    repoName: GitHub repository in owner/repo format (e.g. "facebook/react")
+    question: The question to ask about the repository
 runtime: remote
 remoteConfig:
   fixedURL: https://mcp.deepwiki.com/mcp
-toolPreview:
-  - name: read_wiki_structure
-    description: Retrieve the documentation structure for a public GitHub repository
-    params:
-      repoName: GitHub repository in owner/repository format
-  - name: read_wiki_contents
-    description: Read the generated documentation for a public GitHub repository
-    params:
-      repoName: GitHub repository in owner/repository format
-  - name: ask_question
-    description: Ask a technical question about one or more public GitHub repositories
-    params:
-      repoName: GitHub repository in owner/repository format
-      question: Question to answer using the repository documentation

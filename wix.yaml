@@ -1,0 +1,88 @@
+name: Wix
+entryKey: fragai-wix
+shortDescription: Access Wix APIs to manage sites, bookings, pricing plans, and CMS
+description: |
+  Use Wix APIs and documentation to build or manage sites, CMS content, bookings, pricing plans, stores, events, CRM, and other business solutions.
+
+  ## What you can do
+  - Search Wix developer documentation and retrieve full articles or API schemas
+  - List sites available to the connected Wix account
+  - Call supported Wix site APIs
+  - Create or manage business functionality such as CMS, bookings, pricing plans, e-commerce, events, blogs, and CRM
+  - Submit support feedback when the MCP workflow is blocked
+
+  ## Before connecting
+  - Sign in with a Wix account or create one during the connection flow
+  - Always load the WixREADME guidance and any relevant linked documentation before calling site APIs
+  - API calls can change production site content, commerce, bookings, payments, or customer data
+  - Review generated code and test it before going live, as validation depends on the connected AI client
+  - Confirm site, environment, API method, request body, financial impact, and publication intent before writes
+
+  See the official [Wix MCP documentation](https://www.wix.com/studio/developers/mcp-server) for supported business solutions and security guidance.
+metadata:
+  categories: Business, SaaS & API Integrations
+icon: https://img.icons8.com/?size=100&id=SfMKoUjPsT1Z&format=png&color=000000
+repoURL: https://www.wix.com/studio/developers/mcp-server
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.wix.com/mcp
+
+toolPreview:
+  - name: WixREADME
+    description: Mandatory first step for every Wix task. Load the Wix operating guidance, identify documentation links relevant to the request, and read those documents before calling other Wix tools.
+  - name: SearchWixWDSDocumentation
+    description: Search Wix Design System documentation for components, design patterns, and implementation guidance.
+    params:
+      maxResults: The maximum number of results to return, default is 5, max is 15
+      searchTerm: The search term to search for in the Wix Design System Documentation
+  - name: SearchWixRESTDocumentation
+    description: Search Wix REST API documentation for services, endpoints, parameters, and examples.
+    params:
+      maxResults: The maximum number of results to return, default is 5, max is 15
+      searchTerm: The search term to search for in the Wix REST API Documentation
+  - name: SearchWixSDKDocumentation
+    description: Search Wix SDK documentation for modules, methods, types, and implementation examples.
+    params:
+      maxResults: The maximum number of results to return, default is 5, max is 15
+      searchTerm: The search term to search for in the Wix SDK Documentation
+  - name: SearchBuildAppsDocumentation
+    description: Search Wix documentation for building and distributing Wix applications.
+    params:
+      maxResults: The maximum number of results to return, default is 5, max is 15
+      searchTerm: The search term to search for in the Build Apps Documentation
+  - name: SearchWixHeadlessDocumentation
+    description: Search Wix Headless documentation for APIs, SDKs, authentication, and external front-end integration.
+    params:
+      maxResults: The maximum number of results to return, default is 5, max is 15
+      searchTerm: The search term to search for in the Headless Documentation
+  - name: ReadFullDocsArticle
+    description: Retrieve the complete content of a relevant Wix documentation article returned by a documentation search.
+    params:
+      articleUrl: The URL of the docs article or method article to fetch. Should be something like https://dev.wix.com/docs/.../.../...
+  - name: ReadFullDocsMethodSchema
+    description: Retrieve the full request and response schema for a selected Wix API or SDK method.
+    params:
+      articleUrl: The URL of the documentation to fetch. Should be something like https://dev.wix.com/docs/.../.../...
+  - name: CallWixSiteAPI
+    description: Call an authorized Wix site API method with the supplied operation and request body.
+    params:
+      body: A string representing of a valid JSON object to describe the body of the request
+      method: The HTTP method to use for the API call (e.g. GET, POST, PUT, DELETE)
+      siteId: The id of the site selected using site selection tool
+      url: The url of the api to call - ALWAYS get the information from the Wix REST docs or from the conversation context, the URL MUST BE ABSOLUTE URL
+  - name: ListWixSites
+    description: List Wix sites accessible to the connected user, optionally filtered by site name.
+    params:
+      alwaysTrue: Always pass true to this parameter
+      nameSearch: optional filer by name, if not provided all sites will be returned
+  - name: ManageWixSite
+    description: Create or manage a Wix site and its supported configuration, business features, or application state.
+    params:
+      body: A string representing of a valid JSON object to describe the body of the request
+      method: The HTTP method to use for the API call (e.g. GET, POST, PUT, DELETE)
+      url: The url of the api to call - ALWAYS get the information from the Wix REST docs DONT GUESS IT, the URL MUST BE ABSOLUTE URL
+  - name: SupportAndFeedback
+    description: Send Wix MCP support information or product feedback when documentation or tools do not resolve the workflow.
+    params:
+      message: The message to send to Wix
+      requestId: request id if returned from the server in a failed API call to Wix

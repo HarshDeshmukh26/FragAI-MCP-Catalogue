@@ -1,0 +1,24 @@
+name: Base44
+entryKey: fragai-base44
+shortDescription: Create and edit Base44 projects, application data, and sandbox files
+description: |
+  Connect an AI assistant to Base44 to build or maintain applications in a selected workspace.
+
+  ## What you can do
+  - Create a Base44 project from a written description
+  - Edit projects and monitor background builds
+  - Inspect entity schemas and query, create, or update records
+  - Read, search, create, and modify files in an application's sandbox
+  - Run sandbox commands and create restore checkpoints
+
+  ## Before connecting
+  You need a Base44 Builder plan or higher. Sign in with Base44 OAuth and choose one workspace. Every operation inherits your role in that workspace.
+
+  This server can change code, data, and files and can run commands. Review write and command operations carefully. See the [official Base44 MCP guide](https://docs.base44.com/developers/backend/overview/mcp-server).
+metadata:
+  categories: Developer Tools, App Development, Productivity
+icon: https://app.base44.com/favicon.ico
+repoURL: https://docs.base44.com/developers/backend/overview/mcp-server
+runtime: remote
+remoteConfig:
+  fixedURL: https://app.base44.com/mcp

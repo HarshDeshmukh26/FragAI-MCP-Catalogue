@@ -1,0 +1,27 @@
+name: Scite
+entryKey: fragai-scite
+shortDescription: Search scientific literature and verify claims with Smart Citation evidence
+description: |
+  Search scientific literature and examine Smart Citation evidence showing whether later studies support, dispute, or mention a claim.
+
+  ## What you can do
+  - Search research by keyword, title, author, or DOI
+  - Retrieve focused excerpts from methods, results, and discussion sections
+  - Review supporting, contrasting, and mentioning citation statements
+  - Check retractions, corrections, and other editorial notices
+  - Return bibliographic metadata, DOI links, and available access options
+
+  ## Before connecting
+  - Sign in through Scite OAuth; new accounts may begin with a trial
+  - Full-text availability depends on open access, institutional access, publisher subscriptions, or purchase
+  - The connector is read-only
+  - Citation classifications and excerpts are research aids, so inspect the source paper and broader evidence before drawing high-impact conclusions
+
+  See the official [Scite MCP documentation](https://scite.ai/mcp) for setup, clients, and data coverage.
+metadata:
+  categories: Research, Education, Life Sciences
+icon: https://cdn.scite.ai/assets/images/favicon.ico
+repoURL: https://scite.ai/mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://api.scite.ai/mcp

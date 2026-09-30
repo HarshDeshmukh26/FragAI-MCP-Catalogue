@@ -1,0 +1,26 @@
+name: incident.io
+entryKey: fragai-incident-io
+shortDescription: Investigate and manage incidents, pages, follow-ups, and on-call work
+description: |
+  Connect FragAI to incident.io's remote MCP server to support incident response and operational analysis with the connected user's permissions.
+
+  ## What you can do
+  - Search, declare, update, and analyze incidents and follow-up work
+  - Review alerts, alert noise, workload, and escalation response
+  - Check on-call schedules and respond to escalations
+  - Query catalogue ownership, teams, telemetry, and investigation findings
+  - Run structured reviews using incident.io playbooks and report templates
+
+  ## Before connecting
+  - Sign in through incident.io OAuth and enable the remote server under **Settings > MCP**
+  - Ask an administrator to allow FragAI's redirect domain when required
+  - Require explicit confirmation before declaring incidents, changing status, creating follow-ups, or acknowledging or declining pages
+
+  Setup and permission details: [incident.io remote MCP documentation](https://docs.incident.io/ai/remote-mcp).
+metadata:
+  categories: Incident Management, Developer Tools, Monitoring
+icon: https://mintcdn.com/incidentio-18bb4170/wAjjotZaBNBJxKDy/incident-icon-alarmalade-light.svg
+repoURL: https://docs.incident.io/ai/remote-mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.incident.io/mcp

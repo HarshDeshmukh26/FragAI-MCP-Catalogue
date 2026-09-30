@@ -1,0 +1,31 @@
+name: Bigdata.com
+entryKey: fragai-bigdata-com
+shortDescription: Research companies and markets using licensed, source-linked financial information
+description: |
+  Connect an AI assistant to Bigdata.com for financial research grounded in licensed news, filings, transcripts, research, structured market data, and private documents.
+
+  ## What you can do
+  - Search financial news, filings, earnings calls, interviews, research, and uploaded documents
+  - Identify companies, funds, ETFs, and securities by name, ticker, or market identifier
+  - Build company, country, market, ETF, sentiment, and portfolio summaries
+  - Review fundamentals, holdings, risk measures, earnings events, and cited sentiment drivers
+
+  ## Before connecting
+  Create an API key in the Bigdata.com Developer Platform. Available sources and datasets depend on your organization's subscription and licenses.
+
+  Some tools can upload or organize private documents. Review those operations before approval. See the [official Bigdata.com MCP documentation](https://docs.bigdata.com/mcp-reference/introduction).
+metadata:
+  categories: Finance, Research, Data Analytics
+icon: "https://mintcdn.com/ravenpackinternational/O1z6qnY-XMCwjEFX/logo/bigdata_logo_v3c_dark.svg?fit=max&auto=format&n=O1z6qnY-XMCwjEFX&q=85&s=946489fc058b9cc72700f20c4a07234d"
+repoURL: https://docs.bigdata.com/mcp-reference/introduction
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.bigdata.com/
+
+config:
+  - name: Bigdata.com API Key
+    description: API key from the Bigdata.com Developer Platform used to authorize this connection
+    key: x-api-key
+    required: true
+    sensitive: true
+    usage: header

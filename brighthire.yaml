@@ -1,0 +1,23 @@
+name: BrightHire
+entryKey: fragai-brighthire
+shortDescription: Review interviews, transcripts, scorecards, and hiring context
+description: |
+  Connect FragAI to BrightHire so approved users can find and analyze interview information without leaving their AI workflow. Results follow the access rights of the signed-in BrightHire user.
+
+  ## What you can do
+  - Search interviews and candidate records
+  - Retrieve interview context, summaries, transcripts, and notes
+  - Review scorecards, job descriptions, interview guides, and coaching information
+
+  ## Before connecting
+  - Ask a BrightHire administrator to enable MCP access for your organization
+  - Sign in through OAuth; BrightHire permissions determine which records are available
+
+  Setup details: [BrightHire MCP guide](https://help.brighthire.ai/en/articles/14808753-brighthire-mcp).
+metadata:
+  categories: Human Resources, Recruiting, Productivity
+icon: https://brighthire.com/wp-content/uploads/2026/02/BrightHire-favicon.png
+repoURL: https://help.brighthire.ai/en/articles/14808753-brighthire-mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://app.brighthire.ai/mcp/v1

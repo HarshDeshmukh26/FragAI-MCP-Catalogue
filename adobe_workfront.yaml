@@ -1,0 +1,22 @@
+name: Adobe Workfront
+entryKey: fragai-adobe-workfront
+shortDescription: Find and manage Workfront projects, tasks, planning records, and approvals
+description: |
+  Connect an AI assistant to Adobe Workfront to find work, summarize project information, and perform permitted updates through natural-language requests.
+
+  ## What you can do
+  - Find and summarize projects, tasks, workspaces, and related records
+  - Create or update projects, tasks, fields, and planning records when write tools are enabled
+  - Review and work with approval processes
+
+  ## Before connecting
+  You need a Workfront account on an Adobe IMS-enabled instance. A Workfront administrator must enable MCP access. Read and write tools are controlled separately, and write tools are disabled by default. Workfront Planning tools require an eligible package.
+
+  Sign in with Adobe OAuth and select the correct Workfront profile and instance. See the [official Workfront MCP guide](https://experienceleague.adobe.com/en/docs/workfront/using/basics/workfront-mcp-server/configure-workfront-mcp-server).
+metadata:
+  categories: Project Management, Productivity, SaaS & API Integrations
+icon: https://developer.adobe.com/internals/mcp-registry-web-app/v1.11.0/default_card_icon.6bb9c3a2.svg
+repoURL: https://experienceleague.adobe.com/en/docs/workfront/using/basics/workfront-mcp-server/configure-workfront-mcp-server
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.workfront.adobe.com/mcp/v1/workfront

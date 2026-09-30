@@ -1,0 +1,27 @@
+name: Semrush
+entryKey: fragai-semrush
+shortDescription: Research SEO, keywords, competitors, traffic, backlinks, paid search, and site health
+description: |
+  Research SEO, keywords, domains, competitors, traffic, backlinks, paid search, and site health with live Semrush data.
+
+  ## What you can do
+  - Analyze keywords, organic rankings, domains, and competitors
+  - Examine backlinks, referring domains, and backlink gaps
+  - Compare website traffic, audiences, markets, and paid-search activity
+  - Inspect position tracking, shopping research, and site-audit results
+  - Retrieve read-only data from authorized Semrush projects
+
+  ## Before connecting
+  - Use an eligible Semrush subscription with the required Standard, Trends, or Projects API access
+  - Requests consume API units from your Semrush allocation
+  - Project data is read-only through this connector
+  - Confirm database, geography, date range, and unit cost before running broad or repeated analysis
+
+  See the official [Semrush MCP documentation](https://developer.semrush.com/api/v4/introduction/semrush-mcp/) for plans, supported data, and API-unit usage.
+metadata:
+  categories: Marketing, Data & Analytics, SaaS & API Integrations
+icon: https://oauth.semrush.com/favicon-light.svg
+repoURL: https://developer.semrush.com/api/v4/introduction/semrush-mcp/
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.semrush.com/v2/mcp

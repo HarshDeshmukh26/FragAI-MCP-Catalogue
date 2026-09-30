@@ -1,0 +1,27 @@
+name: Strava
+entryKey: fragai-strava
+shortDescription: Analyze your activities, fitness trends, training load, goals, and gear
+description: |
+  Analyze your Strava activities, fitness trends, training load, goals, clubs, zones, and gear with live account data.
+
+  ## What you can do
+  - Explore running, cycling, strength, and other activity history
+  - Compare training volume, pace, power, and performance trends
+  - Analyze fitness, readiness, training load, and cross-training patterns
+  - Review athlete profile information, heart-rate or power zones, gear, and clubs
+  - Plan goals and ask follow-up questions using current Strava data
+
+  ## Before connecting
+  - Sign in with a Strava account that has access to the MCP connector; availability depends on eligible subscription plans and rollout
+  - The connector is read-only and cannot upload, edit, or delete activities
+  - Activity, location, health, and performance data can be sensitive; avoid sharing derived results outside approved contexts
+  - Treat training analysis as general information rather than medical advice
+
+  See the official [Strava MCP documentation](https://support.strava.com/en-us/articles/15401531-strava-mcp-connector) for availability and current capabilities.
+metadata:
+  categories: Health & Fitness, Data & Analytics
+icon: https://d3nn82uaxijpm6.cloudfront.net/favicon-96x96.png?v=dLlWydWlG8
+repoURL: https://support.strava.com/en-us/articles/15401531-strava-mcp-connector
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.strava.com/mcp

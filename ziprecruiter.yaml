@@ -1,0 +1,27 @@
+name: ZipRecruiter
+entryKey: fragai-ziprecruiter
+shortDescription: Search live US and Canadian jobs by role, location, salary, work style, and experience
+description: |
+  Search current United States and Canadian job listings by role, company, location, salary, work style, employment type, and experience.
+
+  ## What you can do
+  - Search public job listings in the United States and Canada
+  - Filter by location and search radius
+  - Narrow results by salary, posting age, seniority, and employment type
+  - Select remote, hybrid, or on-site work
+  - Open a matching listing on ZipRecruiter to review and apply
+
+  ## Before connecting
+  - No ZipRecruiter account, OAuth flow, or API credential is required for search
+  - The connector searches public listings and does not submit applications
+  - Listings, salary ranges, and availability may change or contain inaccurate information
+  - Verify the employer, job page, compensation, location, privacy request, and application destination before sharing personal data
+
+  See the official [ZipRecruiter MCP documentation](https://api.ziprecruiter.com/mcp/docs) for supported filters and examples.
+metadata:
+  categories: Jobs, Search, Recruiting
+icon: https://www.ziprecruiter.com/favicon-144x144.png
+repoURL: https://api.ziprecruiter.com/mcp/docs
+runtime: remote
+remoteConfig:
+  fixedURL: https://api.ziprecruiter.com/mcp

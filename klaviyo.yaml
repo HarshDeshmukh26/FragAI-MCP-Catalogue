@@ -1,0 +1,55 @@
+name: Klaviyo
+entryKey: fragai-klaviyo
+shortDescription: Analyze Klaviyo marketing performance and manage permitted campaigns or audiences
+description: |
+  Connect FragAI to Klaviyo's hosted MCP server to work with live marketing, profile, audience, event, and catalogue data.
+
+  ## What you can do
+  - Review campaign, flow, conversion, and metric performance
+  - Search profiles, lists, segments, events, and catalogue content
+  - Create or update campaigns, templates, profiles, subscriptions, and catalogue data when write access is enabled
+  - Generate campaign and flow reports
+
+  ## Before connecting
+  - Use a Klaviyo account with the Owner, Admin, or Manager role
+  - Keep **Read only** enabled unless the workflow genuinely requires changes
+  - Keep user-generated-content tools disabled unless they are required, because retrieved content may contain untrusted instructions
+  - Require confirmation before marketing sends, subscription changes, or profile and catalogue updates
+
+  Setup and security details: [Klaviyo MCP documentation](https://developers.klaviyo.com/en/docs/klaviyo_mcp_server).
+metadata:
+  categories: Marketing, Data & Analytics, Communication
+icon: https://developers.klaviyo.com/favicon.ico
+repoURL: https://developers.klaviyo.com/en/docs/klaviyo_mcp_server
+config:
+  - name: Access Mode
+    key: READ_ONLY
+    description: Whether this connection exposes only retrieval tools or also permits Klaviyo changes
+    required: true
+    sensitive: false
+    options:
+      - name: Read only
+        value: "true"
+        description: Disable all tools that can perform write actions.
+      - name: Read and write
+        value: "false"
+        description: Enable campaign, profile, catalog, subscription, and other write
+          actions.
+    usage: env
+  - name: User-Generated Content
+    key: DISABLE_USER_CONTENT
+    description: Whether tools that can return untrusted user-generated content are exposed
+    required: true
+    sensitive: false
+    options:
+      - name: Disable these tools
+        value: "true"
+        description: Reduce prompt-injection exposure by excluding tools that return
+          user-generated content.
+      - name: Enable these tools
+        value: "false"
+        description: Include tools that may return untrusted user-generated content.
+    usage: env
+runtime: remote
+remoteConfig:
+  urlTemplate: https://mcp.klaviyo.com/mcp?read-only=${READ_ONLY}&disable-tools-with-user-generated-content=${DISABLE_USER_CONTENT}

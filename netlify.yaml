@@ -1,0 +1,25 @@
+name: Netlify
+entryKey: fragai-netlify
+shortDescription: Create, deploy, manage, and secure websites on Netlify
+description: |
+  Create, deploy, configure, and troubleshoot websites with Netlify's official remote MCP server.
+
+  ## What you can do
+  - Create and deploy Netlify sites and inspect deployment status
+  - Work with teams, projects, forms, extensions, and site services
+  - Manage supported environment and access-control settings
+  - Diagnose build or deployment problems using live Netlify context
+
+  ## Before connecting
+  - Sign in through Netlify OAuth
+  - The server can create deployments and change project configuration within your Netlify permissions
+  - Confirm the target team and site before approving deployments, environment changes, or access-control updates
+
+  See the official [Netlify agent setup documentation](https://docs.netlify.com/build/build-with-ai/netlify-mcp-server/) for supported clients and current capabilities.
+metadata:
+  categories: Developer Tools, Cloud Infrastructure, DevOps
+icon: https://www.netlify.com/favicon.ico
+repoURL: https://docs.netlify.com/build/build-with-ai/netlify-mcp-server/
+runtime: remote
+remoteConfig:
+  fixedURL: https://netlify-mcp.netlify.app/mcp

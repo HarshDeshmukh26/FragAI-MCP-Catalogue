@@ -1,0 +1,25 @@
+name: Consensus
+entryKey: fragai-consensus
+shortDescription: Find and summarize evidence from scientific papers
+description: |
+  Connect FragAI to Consensus to search peer-reviewed research and turn relevant papers into evidence summaries with source references.
+
+  ## What you can do
+  - Search scientific literature with natural-language questions
+  - Compare findings across relevant studies
+  - Prepare literature reviews, evidence summaries, and bibliographies
+  - Identify useful papers and possible research gaps
+
+  ## Before connecting
+  - Sign in through OAuth for access based on your Consensus account and plan
+  - Anonymous access may be available with lower usage limits
+  - Verify important conclusions in the cited papers before using them for high-impact decisions
+
+  Setup details: [Consensus MCP documentation](https://docs.consensus.app/consensus-mcp).
+metadata:
+  categories: Research, Data & Analytics, Education
+icon: https://consensus.app/favicon.ico
+repoURL: https://docs.consensus.app/docs/mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.consensus.app/mcp

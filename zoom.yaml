@@ -1,0 +1,27 @@
+name: Zoom
+entryKey: fragai-zoom
+shortDescription: Search meetings and retrieve Zoom recordings, transcripts, and notes
+description: |
+  Search Zoom meetings and retrieve authorized recordings, transcripts, summaries, notes, and Zoom Hub resources.
+
+  ## What you can do
+  - Search meetings with natural-language criteria
+  - Retrieve recordings, transcripts, summaries, and next steps
+  - Locate where a topic was discussed
+  - Create supported notes and follow-up content in Zoom Hub
+
+  ## Before connecting
+  - Use a Zoom account with the required meeting, recording, notes, and Hub access
+  - A Zoom administrator or developer must configure an OAuth app with FragAI's redirect URI and the required scopes
+  - Recordings and transcripts may contain confidential, biometric, or personal information
+  - Note creation changes Zoom Hub content; confirm meeting, participants, consent, retention, sharing, and target Hub location before approval
+
+  See the official [Zoom MCP documentation](https://developers.zoom.us/docs/mcp/zoom/) for OAuth configuration and current tools.
+metadata:
+  categories: Communication, Productivity, SaaS & API Integrations
+icon: https://zoom.us/favicon.ico
+repoURL: https://developers.zoom.us/docs/mcp/zoom/
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.zoom.us/mcp/zoom/streamable
+  staticOAuthRequired: true

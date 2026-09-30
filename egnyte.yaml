@@ -1,0 +1,25 @@
+name: Egnyte
+entryKey: fragai-egnyte
+shortDescription: Search and analyze files, projects, and knowledge available in Egnyte
+description: |
+  Connect FragAI to Egnyte's remote MCP server to work with governed enterprise content available to the signed-in user.
+
+  ## What you can do
+  - Search permitted files and folders with standard or advanced queries
+  - Retrieve, download, summarize, or ask questions about documents
+  - Query available Egnyte Copilot knowledge sources
+  - Inspect projects, workflows, tasks, comments, folder statistics, and shared-link details
+
+  ## Before connecting
+  - Sign in through Egnyte's domain-selection OAuth flow
+  - Use an account with access to the required domain content
+  - Follow your organization's handling rules when retrieved files contain confidential information
+
+  Egnyte permissions and compliance controls continue to limit results. Setup details: [Egnyte Remote MCP documentation](https://developers.egnyte.com/docs/Remote_MCP_Server).
+metadata:
+  categories: Document Management,Knowledge Management,Collaboration
+icon: https://www.egnyte.com/sites/default/files/2020-03/favicon-96x96.png
+repoURL: https://developers.egnyte.com/docs/Remote_MCP_Server
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp-server.egnyte.com/mcp

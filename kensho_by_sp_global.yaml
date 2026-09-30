@@ -1,0 +1,26 @@
+name: Kensho by S&P Global
+entryKey: fragai-sp-global-deterministic-retrieval
+shortDescription: Retrieve licensed S&P Global company, market, transaction, and financial data
+description: |
+  Connect FragAI to Kensho's deterministic retrieval service for structured S&P Global information available to the signed-in account.
+
+  ## What you can do
+  - Look up company descriptions, identifiers, competitors, capitalization, and relationships
+  - Retrieve financial statements, line items, historical prices, and segment data
+  - Find earnings events and cited earnings-call transcripts
+  - Research mergers, participants, advisers, securities, and transactions
+  - Compare structured results across companies
+
+  ## Before connecting
+  - Sign in through Kensho OAuth with an account licensed for the required S&P Global datasets
+  - Follow S&P Global licensing and redistribution restrictions
+  - Verify material financial or investment conclusions against authoritative sources
+
+  This is a read-only connection. Setup details: [Kensho MCP documentation](https://docs.kensho.com/llmreadyapi/mcp).
+metadata:
+  categories: Finance, Research
+icon: "https://images.squarespace-cdn.com/content/v1/6970e57a847a982ccab43554/a2fbb6b0-b249-49c4-a6e8-b4a348c748a7/favicon.ico?format=300w"
+repoURL: https://docs.kensho.com/llmreadyapi/mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://kfinance.kensho.com/integrations/mcp

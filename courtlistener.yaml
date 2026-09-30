@@ -1,0 +1,26 @@
+name: CourtListener
+entryKey: fragai-courtlistener
+shortDescription: Search U.S. case law, dockets, judges, arguments, and citations
+description: |
+  Connect FragAI to CourtListener to research U.S. legal records and manage permitted alerts or docket subscriptions in your account.
+
+  ## What you can do
+  - Search federal and state opinions, PACER dockets, judges, and oral arguments
+  - Retrieve individual records and page through larger result sets
+  - Extract citations from legal text and check them against CourtListener
+  - Access additional supported CourtListener API resources
+  - Create or delete search alerts and manage docket subscriptions
+
+  ## Before connecting
+  - Sign in to an individual CourtListener account through OAuth
+  - Search and retrieval tools are read-only, while alert and subscription tools change account preferences
+  - Verify legal research against official court records before relying on it
+
+  Setup details: [CourtListener MCP documentation](https://github.com/freelawproject/courtlistener-api-client/blob/main/MCP_README.md).
+metadata:
+  categories: Legal, Search, Research
+icon: https://mcp.courtlistener.com/favicon.svg
+repoURL: https://github.com/freelawproject/courtlistener-api-client/blob/main/MCP_README.md
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.courtlistener.com/

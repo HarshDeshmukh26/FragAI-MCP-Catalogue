@@ -1,0 +1,24 @@
+name: AWS Marketplace
+entryKey: fragai-aws-marketplace
+shortDescription: Find, research, and compare products in AWS Marketplace
+description: |
+  Use AWS Marketplace research tools to discover products and prepare structured comparisons or purchase evaluations.
+
+  ## What you can do
+  - Search Marketplace using natural-language requirements
+  - Retrieve product details and find related solutions
+  - Research features, pricing, reviews, limitations, integrations, and competitors
+  - Build recommendation, comparison, evaluation, or proposal reports
+  - Send feedback about a completed report
+
+  ## Before connecting
+  No authentication or AWS credentials are required. Calls are stateless, so each request must include the context needed for that operation. Most tools are read-only; the feedback tool submits information to AWS.
+
+  See the [official AWS Marketplace MCP guide](https://docs.aws.amazon.com/marketplace/latest/developerguide/marketplace-mcp-server.html).
+metadata:
+  categories: Cloud, Research, Productivity
+icon: https://docs.aws.amazon.com/assets/images/favicon.ico
+repoURL: https://docs.aws.amazon.com/marketplace/latest/developerguide/marketplace-mcp-server.html
+runtime: remote
+remoteConfig:
+  fixedURL: https://marketplace-mcp.us-east-1.api.aws/mcp

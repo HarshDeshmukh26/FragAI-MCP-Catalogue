@@ -1,0 +1,26 @@
+name: Sentry
+entryKey: fragai-sentry
+shortDescription: Search, investigate, and manage Sentry errors, issues, and projects
+description: |
+  Investigate Sentry errors and performance problems and manage supported organizations, projects, teams, and issue workflows.
+
+  ## What you can do
+  - Search errors, transactions, issues, releases, tags, and Sentry documentation
+  - Retrieve issue details, event evidence, and supported attachments
+  - Run Seer analysis for likely root causes and suggested fixes
+  - Create or update supported projects, teams, DSNs, and issue state
+
+  ## Before connecting
+  - Sign in through Sentry OAuth
+  - Available organizations, projects, and actions follow the connected user's Sentry permissions
+  - Event data and attachments may contain source code, credentials, personal data, or production payloads
+  - Confirm organization and project identifiers before changing issue state, teams, projects, or DSN-related configuration
+
+  See the official [Sentry MCP documentation](https://docs.sentry.io/product/sentry-mcp/) for authentication and current tools.
+metadata:
+  categories: Developer Tools, Monitoring & Observability, DevOps
+icon: https://sentry.io/favicon.ico
+repoURL: https://docs.sentry.io/product/sentry-mcp/
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.sentry.dev/mcp

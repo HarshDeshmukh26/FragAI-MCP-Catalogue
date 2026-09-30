@@ -1,0 +1,26 @@
+name: TickTick
+entryKey: fragai-ticktick
+shortDescription: Search and manage TickTick tasks, projects, habits, and focus sessions
+description: |
+  Search and manage TickTick tasks, projects, habits, focus sessions, and productivity records.
+
+  ## What you can do
+  - Find tasks and projects and inspect their details
+  - Create, update, complete, move, or delete supported tasks
+  - Work with habits and focus-session information
+  - Organize personal planning and follow-up work
+
+  ## Before connecting
+  - Sign in through TickTick OAuth with the account whose tasks you intend to manage
+  - Available tools and data follow the connected user's TickTick permissions and plan
+  - Task, project, habit, completion, and deletion operations change personal productivity records
+  - Confirm target IDs, dates, recurrence, project placement, and destructive actions before approval
+
+  See the official [TickTick MCP documentation](https://help.ticktick.com/articles/7438129581631995904) for current setup and capabilities.
+metadata:
+  categories: Task Management,Productivity,Personal Organization
+icon: https://d107mjio2rjf74.cloudfront.net/web/static/img/apple-touch-icon-120x120.png
+repoURL: https://help.ticktick.com/articles/7438129581631995904
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.ticktick.com

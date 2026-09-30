@@ -1,0 +1,25 @@
+name: MailerLite
+entryKey: fragai-mailerlite
+shortDescription: Manage MailerLite subscribers, campaigns, groups, automations, and forms
+description: |
+  Connect FragAI to MailerLite's hosted MCP server to work with email-marketing resources permitted for the signed-in user.
+
+  ## What you can do
+  - Create, update, search, import, and organize subscribers
+  - Build, schedule, cancel, and analyze campaigns
+  - Manage groups, segments, automations, forms, and webhooks
+  - Review subscriber activity
+
+  ## Before connecting
+  - Sign in with a MailerLite account that can access the required resources
+  - Require confirmation before importing subscribers, changing subscription data, scheduling or cancelling campaigns, or modifying automations and webhooks
+  - Follow consent, unsubscribe, and marketing-compliance requirements
+
+  Setup details: [MailerLite MCP documentation](https://developers.mailerlite.com/mcp).
+metadata:
+  categories: Marketing,Email,CRM
+icon: https://assets.mailerlite.com/images/favicon-32x32.png
+repoURL: https://developers.mailerlite.com/mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.mailerlite.com/mcp

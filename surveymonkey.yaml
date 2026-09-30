@@ -1,0 +1,28 @@
+name: SurveyMonkey
+entryKey: fragai-surveymonkey
+shortDescription: Build and edit surveys, publish collection links, and analyze responses
+description: |
+  Build and edit SurveyMonkey surveys, publish web-link collectors, and analyze submitted responses.
+
+  ## What you can do
+  - Search surveys and inspect pages, questions, and response counts
+  - Generate a survey plan and create structured pages and questions
+  - Add, edit, delete, and reorder questions
+  - Create a shareable web-link collector
+  - Retrieve detailed responses and summarize response trends
+
+  ## Before connecting
+  - Sign in through SurveyMonkey OAuth; MCP currently supports accounts with United States data residency
+  - Basic plans can connect but have response limits
+  - HIPAA and Enhanced Sensitive Data Protection enterprise accounts are disabled by default and require coordination with SurveyMonkey
+  - Publishing collectors contacts respondents and response data may contain personal or sensitive information
+  - Review wording, logic, audience, privacy notice, collection settings, and deletion actions before approval
+
+  See the official [SurveyMonkey MCP listing](https://www.surveymonkey.com/apps/BKcduxPnkCN4NFCRokUYCw_3D_3D/details/) for availability and limitations.
+metadata:
+  categories: Productivity, Forms, Data & Analytics
+icon: https://prod.smassets.net/us/uploads/prod/developerweb/pie/developerweb/33033ee2-4dee-406e-b8aa-cada65157026.png
+repoURL: https://www.surveymonkey.com/apps/BKcduxPnkCN4NFCRokUYCw_3D_3D/details/
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.surveymonkey.com/mcp

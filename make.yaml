@@ -1,0 +1,25 @@
+name: Make
+entryKey: fragai-make
+shortDescription: Run and manage Make scenarios, connections, teams, webhooks, and data stores
+description: |
+  Connect FragAI to Make's official MCP server to operate automation resources available to the signed-in user.
+
+  ## What you can do
+  - Create, update, activate, and run scenarios
+  - Manage connections, webhooks, data stores, and records
+  - Work with teams, organizations, users, folders, and executions
+  - Manage keys, data structures, and application modules
+
+  ## Before connecting
+  - Sign in to Make through OAuth
+  - Existing organization, team, and resource permissions continue to apply
+  - Review every scenario run, connection change, webhook, credential-related action, or data-store write because it can affect external systems
+
+  Setup details: [Make MCP documentation](https://developers.make.com/mcp-server).
+metadata:
+  categories: Automation, Productivity, SaaS & API Integrations
+icon: https://www.make.com/favicon.ico
+repoURL: https://developers.make.com/mcp-server/
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.make.com

@@ -1,0 +1,78 @@
+name: Asana
+entryKey: fragai-asana
+shortDescription: Find and manage Asana tasks, projects, portfolios, teams, and status updates
+upgradeNote: |
+  This entry uses Asana's V2 MCP server instead of the retired V1 beta endpoint.
+
+  Existing V1 connections must be reconnected. A FragAI administrator must configure the Asana OAuth client, and each user authorizes one Asana workspace per connection. V2 changes several tool names and combines many task changes into bulk create and update operations.
+description: |
+  Connect an AI assistant to the Asana Work Graph to find work, create tasks and projects, update existing work, and prepare summaries or status reports.
+
+  ## What you can do
+  - Search tasks, projects, portfolios, users, teams, tags, custom fields, and AI Teammates
+  - Review task details, comments, dependencies, subtasks, attachments, and project status
+  - Create projects and create or update tasks in batches
+  - Add comments and publish project or portfolio status updates
+
+  ## Before connecting
+  A FragAI administrator must register an Asana MCP OAuth application, add FragAI's callback URL, and configure its client ID and secret. The app must be allowed by the target workspace.
+
+  Each user signs in with Asana and chooses one workspace. The server uses that user's existing permissions. See the [official Asana MCP guide](https://developers.asana.com/docs/using-asanas-mcp-server).
+metadata:
+  categories: Business, Developer Tools
+  allow-multiple: "true"
+icon: https://avatars.githubusercontent.com/u/1472111?s=200&v=4
+repoURL: https://developers.asana.com/docs/using-asanas-mcp-server
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.asana.com/v2/mcp
+  staticOAuthRequired: true
+toolPreview:
+  - name: search_objects
+    description: Find matching tasks, projects, portfolios, goals, teams, users, tags, custom fields, and AI Teammates in Asana.
+  - name: get_task
+    description: Open one task and return its main details, project memberships, dependencies, subtasks, custom fields, and comments.
+  - name: get_tasks
+    description: Return tasks from a project, section, tag, user task list, or assignee, with optional completion and date filters.
+  - name: get_my_tasks
+    description: Show tasks assigned to the connected Asana user, with an optional completion filter.
+  - name: search_tasks
+    description: Find tasks by searching names, descriptions, and comments; advanced filters require an eligible Asana plan.
+  - name: get_project
+    description: Open a project and return its details, members, task totals, and optionally its sections.
+  - name: get_projects
+    description: List projects available in the connected workspace, optionally narrowed by team or archive status.
+  - name: get_portfolio
+    description: Open a portfolio and return its details together with the projects it contains.
+  - name: get_portfolios
+    description: List portfolios owned by the connected user in the authorized workspace.
+  - name: get_items_for_portfolio
+    description: Show the projects and goals included in a selected portfolio.
+  - name: get_status_overview
+    description: Summarize project or portfolio health using recent updates, task totals, and reported blockers.
+  - name: get_attachments
+    description: Show files and other attachments associated with a task, project, or project brief.
+  - name: get_user
+    description: Find an Asana user using a GID, email address, or the special value me.
+  - name: get_me
+    description: Return the connected user profile and that user's workspace memberships.
+  - name: get_users
+    description: List users in the authorized workspace, optionally limited to a team.
+  - name: get_teams
+    description: List workspace teams, optionally limited to teams containing a particular user.
+  - name: get_agent
+    description: Open the complete record for one Asana AI Teammate using its GID.
+  - name: get_workspace_agents
+    description: List the AI Teammates configured for the authorized workspace.
+  - name: create_tasks
+    description: Create as many as 50 tasks or subtasks in one request, including assignments, dates, followers, and custom fields.
+  - name: create_project
+    description: Create a project and optionally add its starting sections and tasks.
+  - name: update_tasks
+    description: Change as many as 50 tasks in one request, including assignments, dates, hierarchy, dependencies, projects, and custom fields.
+  - name: delete_task
+    description: Permanently remove a task and eligible subtasks; this operation cannot be reversed.
+  - name: add_comment
+    description: Post a plain-text or HTML comment on a task, with optional mentions and pinning.
+  - name: create_project_status_update
+    description: Publish a new status update for a project or portfolio.

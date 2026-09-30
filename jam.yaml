@@ -1,0 +1,26 @@
+name: Jam
+entryKey: fragai-jam
+shortDescription: Bring Jam recordings, logs, network requests, and user actions into debugging workflows
+description: |
+  Connect FragAI to Jam so developers can inspect the full context captured in a Jam recording while investigating a bug.
+
+  ## What you can do
+  - Retrieve recording details, video, screenshots, and selected frames
+  - Inspect console logs, network requests, user actions, transcripts, and metadata
+  - Search recordings, folders, members, and recording links
+  - Add or edit comments and organize recordings when permitted
+
+  ## Before connecting
+  - Sign in through Jam OAuth and select the correct workspace
+  - Record or obtain a Jam link before starting an investigation
+  - Jam access follows the connected user's existing workspace permissions
+  - Require confirmation before comments, folder changes, recording-link changes, or irreversible deletions
+
+  Jam notes that some analysis tools use external AI processing. Review the [Jam MCP documentation](https://jam.dev/docs/jam-mcp) and your organization's data-handling requirements before using sensitive recordings.
+metadata:
+  categories: Developer Tools, Debugging, Productivity
+icon: https://framerusercontent.com/images/PJzGWvCk8HH9Ho4kUWVsQtYI.png
+repoURL: https://jam.dev/docs/jam-mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.jam.dev/mcp

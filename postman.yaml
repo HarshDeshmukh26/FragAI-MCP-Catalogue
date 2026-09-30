@@ -1,0 +1,74 @@
+name: Postman
+entryKey: fragai-postman
+shortDescription: Connect to Postman collections, workspaces, environments, mocks, and API specs
+upgradeNote: |
+  This updates the Postman-hosted connection with OAuth support and selectable region and tool configurations.
+
+  - **Configuration review required:** Select the US or EU region and a tool configuration when reconnecting.
+  - **Authentication:** The US service now supports OAuth without an API key; the EU service still requires a Postman API key.
+  - **New option:** The `code` tool configuration adds API-discovery and code-generation tools alongside `minimal` and `mcp`.
+description: |
+  Work with Postman collections, workspaces, environments, mock servers, and API specifications through Postman's hosted MCP server.
+
+  ## What you can do
+  - Read, create, and update collections, requests, examples, workspaces, and environments
+  - Manage mock servers and API specifications
+  - Choose a minimal, code-focused, or full Postman tool set
+  - Discover APIs and generate integration code when the code profile is selected
+
+  ## Before connecting
+  - Select the United States or Europe endpoint and the tool profile needed for the workflow
+  - The United States service supports OAuth and can also accept an API key; the Europe service requires an API key
+  - The server can modify shared API assets and environments, and Postman documents anonymous telemetry for the hosted service
+  - Confirm the workspace, collection, environment, and secret-handling requirements before approving write operations
+
+  See the official [Postman MCP documentation](https://www.postman.com/product/mcp-server/) for authentication, regions, tool profiles, and telemetry details.
+
+  > **Important upgrade notice**
+  >
+  > Reconnect after choosing a region and tool profile. The code profile adds API-discovery and code-generation tools, while the full mcp profile exposes every available Postman tool.
+metadata:
+  categories: Developer Tools,API Development,Testing
+icon: https://avatars.githubusercontent.com/u/10251060?s=48&v=4
+repoURL: https://www.postman.com/product/mcp-server/
+
+config:
+  - name: Postman Region
+    key: HOST_URL
+    description: Choose the Postman MCP endpoint for the region where your workspace is hosted.
+    required: true
+    sensitive: false
+    options:
+      - name: United States
+        value: https://mcp.postman.com
+        description: Use the United States service with OAuth or an optional Postman API key.
+      - name: Europe
+        value: https://mcp.eu.postman.com
+        description: Use the Europe service; a Postman API key is required.
+    usage: env
+  - name: Tool Configuration
+    key: TOOL_CONFIGURATION
+    description: Choose how many Postman tools to expose to the connected AI client.
+    required: true
+    sensitive: false
+    options:
+      - name: Minimal
+        value: minimal
+        description: Expose the smaller set of tools used for common Postman operations.
+      - name: Code
+        value: code
+        description: Expose API discovery and code-generation tools.
+      - name: Full
+        value: mcp
+        description: Expose every available Postman tool, including advanced collaboration and administration.
+    usage: env
+  - name: Postman API Key
+    description: Enter a Postman API key for Europe, or optionally use one instead of OAuth in the United States.
+    key: Authorization
+    required: false
+    sensitive: true
+    prefix: "Bearer "
+    usage: header
+runtime: remote
+remoteConfig:
+  urlTemplate: ${HOST_URL}/${TOOL_CONFIGURATION}

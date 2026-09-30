@@ -1,0 +1,23 @@
+name: Canva
+entryKey: fragai-canva
+shortDescription: Find, create, edit, and export designs in Canva
+description: |
+  Connect FragAI to Canva's official MCP server to create and manage visual content with the permissions of the signed-in Canva user.
+
+  ## What you can do
+  - Search and inspect designs, pages, and folders
+  - Generate, edit, import, resize, and export designs
+  - Use available brand kits, templates, assets, and comments
+
+  ## Before connecting
+  - Sign in with a Canva account through OAuth
+  - Access to designs, folders, and brand resources follows that account's Canva permissions
+
+  Setup details: [Canva MCP documentation](https://www.canva.dev/docs/mcp/).
+metadata:
+  categories: Design, Productivity
+icon: https://www.canva.com/favicon.ico
+repoURL: https://www.canva.dev/docs/mcp/
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.canva.com/mcp

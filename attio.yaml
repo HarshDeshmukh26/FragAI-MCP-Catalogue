@@ -1,0 +1,24 @@
+name: Attio
+entryKey: fragai-attio
+shortDescription: Search and manage Attio CRM records, pipelines, notes, tasks, and meetings
+description: |
+  Connect an AI assistant to an Attio workspace for conversational CRM research and record management.
+
+  ## What you can do
+  - Find people, companies, deals, and custom records
+  - Create, update, merge, and organize CRM records
+  - Work with pipeline lists, tasks, notes, and comments
+  - Search meetings, transcripts, and connected email information
+  - Produce workspace reports and use eligible analytics features
+
+  ## Before connecting
+  You need an active Attio workspace. Sign in with Attio OAuth; no API key is required. The server inherits your workspace permissions. Read operations can run automatically, while write operations require confirmation and are recorded in Attio.
+
+  See the [official Attio MCP documentation](https://docs.attio.com/mcp/overview).
+metadata:
+  categories: CRM, Sales, Productivity
+icon: https://mcp.attio.com/favicon.ico
+repoURL: https://docs.attio.com/mcp/overview
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.attio.com/mcp

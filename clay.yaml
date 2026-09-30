@@ -1,0 +1,24 @@
+name: Clay
+entryKey: fragai-clay
+shortDescription: Research companies, find prospects, and enrich contact data
+description: |
+  Connect FragAI to Clay's official remote MCP server for prospect research and data enrichment. Usage and results are tied to the connected Clay account and its available credits.
+
+  ## What you can do
+  - Find relevant contacts at target companies
+  - Enrich people and company records with additional data points
+  - Research organizations and review earlier searches
+  - Check the account's available Clay credits
+
+  ## Before connecting
+  - Sign in to Clay through OAuth
+  - Confirm sufficient credits are available for the enrichment work you plan to run
+
+  Setup details: [Clay MCP documentation](https://www.notion.so/clayrun/Clay-Claude-MCP-Server-Documentation-2ef7e66eb01480c9820de48041591aeb).
+metadata:
+  categories: Sales, Marketing, Data & Analytics
+icon: "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://clay.com&size=256"
+repoURL: https://www.notion.so/clayrun/Clay-Claude-MCP-Server-Documentation-2ef7e66eb01480c9820de48041591aeb
+runtime: remote
+remoteConfig:
+  fixedURL: https://api.clay.com/v3/mcp

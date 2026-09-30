@@ -1,0 +1,23 @@
+name: Adobe Customer Journey Analytics
+entryKey: fragai-adobe-customer-journey-analytics
+shortDescription: Explore Customer Journey Analytics data and manage analysis components
+description: |
+  Use Adobe's hosted MCP server to work with Customer Journey Analytics from an AI assistant. It helps users find analytics components, run reports, and maintain reusable analysis items without manually building API requests.
+
+  ## What you can do
+  - Find data views, metrics, dimensions, segments, audiences, projects, and date ranges
+  - Run reports and look up dimension values
+  - Review how analysis components are used
+  - Create or update segments, calculated metrics, audiences, projects, and date ranges
+
+  ## Before connecting
+  You need an Adobe account with Customer Journey Analytics access. Sign in with Adobe OAuth. The server can only use data views and components allowed by your Adobe organization and user permissions.
+
+  See the [official Adobe Analytics MCP documentation](https://developer.adobe.com/analytics-mcp/docs/).
+metadata:
+  categories: Analytics,Customer Data,Marketing
+icon: https://developer.adobe.com/analytics-mcp/docs/media_159286763908121791f6dd8285c6873c881a77f03.png?width=1200&format=pjpg&optimize=medium
+repoURL: https://developer.adobe.com/analytics-mcp/docs/
+runtime: remote
+remoteConfig:
+  fixedURL: https://cja-mcp.adobe.io/mcp

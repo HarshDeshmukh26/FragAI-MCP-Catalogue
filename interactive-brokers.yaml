@@ -1,0 +1,26 @@
+name: Interactive Brokers (IBKR)
+entryKey: fragai-interactive-brokers
+shortDescription: Review IBKR portfolios and market data or prepare trade instructions
+description: |
+  Connect FragAI to Interactive Brokers to inspect authorized account and market information and prepare trade instructions for review.
+
+  ## What you can do
+  - Review balances, account summaries, positions, allocations, trades, and open orders
+  - Retrieve current price snapshots and historical market data
+  - Search tradable contracts
+  - Inspect order details and prepare proposed trade instructions
+
+  ## Before connecting
+  - Sign in with an Interactive Brokers account
+  - Account information and market data depend on permissions and active subscriptions
+  - Treat all portfolio and trading information as highly sensitive
+  - Independently verify prices, quantities, symbols, order types, and risks before approving any trade-related action
+
+  Setup details: [IBKR MCP connector FAQ](https://www.interactivebrokers.com/lib/cstools/faq/#/content/1442566213).
+metadata:
+  categories: Finance,Investing,Market Data
+icon: https://www.interactivebrokers.com/images/web/favicons/home-screen-icon-192x192.png
+repoURL: https://www.interactivebrokers.com/lib/cstools/faq/#/content/1442566213
+runtime: remote
+remoteConfig:
+  fixedURL: https://api.ibkr.com/v1/api/mcp

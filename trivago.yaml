@@ -1,0 +1,27 @@
+name: trivago
+entryKey: fragai-trivago
+shortDescription: Search accommodations and compare live hotel prices across booking providers
+description: |
+  Search accommodations and compare live prices across booking providers by destination, dates, guests, or nearby coordinates.
+
+  ## What you can do
+  - Search hotels and other accommodations by city, country, rooms, and guests
+  - Find lodging near a landmark, venue, or geographic coordinate
+  - Compare current offers across supported booking sites
+  - Review photos, ratings, amenities, and provider offers
+  - Explore forecast monthly nightly-rate trends by destination and star rating
+
+  ## Before connecting
+  - No account, API key, or OAuth flow is required
+  - The connector is read-only and returns provider links; it does not make reservations or purchases
+  - Prices and availability can change before booking
+  - Verify taxes, fees, cancellation rules, accessibility needs, provider identity, and final price on the booking site
+
+  See the official [trivago MCP documentation](https://mcp.trivago.com/docs) for supported clients, tools, and examples.
+metadata:
+  categories: Travel, Search, Shopping
+icon: https://mcp.trivago.com/favicon.ico
+repoURL: https://mcp.trivago.com/docs
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.trivago.com/mcp

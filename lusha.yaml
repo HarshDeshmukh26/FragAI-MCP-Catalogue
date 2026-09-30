@@ -1,0 +1,35 @@
+name: Lusha
+entryKey: fragai-lusha
+shortDescription: Find and enrich B2B contacts or companies with Lusha data
+description: |
+  Connect FragAI to Lusha to find prospects, enrich business records, and inspect account usage available under the connected plan.
+
+  ## What you can do
+  - Find contacts by name, company, role, location, email, or LinkedIn URL
+  - Enrich business contacts with available email and phone information
+  - Search and enrich companies using firmographic and technology filters
+  - Discover similar prospects and review buyer or company activity signals
+  - Check account usage, limits, and recommendations
+
+  ## Before connecting
+  - Create an API key in Lusha's API Hub and store it securely
+  - Confirm the account plan supports the required tools and data
+  - Enrichment and prospecting calls may consume credits
+  - Use contact data only for lawful, approved purposes and follow privacy, outreach, and suppression requirements
+
+  Setup details: [Lusha MCP documentation](https://docs.lusha.com/mcp/overview).
+metadata:
+  categories: Sales, CRM, Data Enrichment
+icon: https://www.lusha.com/favicon.ico
+repoURL: https://docs.lusha.com/mcp-docs
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.lusha.com
+
+config:
+  - name: Lusha API Key
+    description: Lusha API Hub key used for prospecting and enrichment requests
+    key: x-api-key
+    required: true
+    sensitive: true
+    usage: header

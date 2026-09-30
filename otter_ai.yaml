@@ -1,0 +1,26 @@
+name: Otter.ai
+entryKey: fragai-otter-ai
+shortDescription: Search meeting transcripts and retrieve conversations, summaries, insights, and profile context
+description: |
+  Search meetings in Otter and retrieve transcripts, summaries, insights, and conversation details.
+
+  ## What you can do
+  - Find meetings by date, participant, title, or topic
+  - Retrieve full transcripts and conversation metadata
+  - Compare themes and decisions across multiple meetings
+  - Draft briefings, summaries, follow-ups, and other documents from meeting history
+  - Retrieve the authenticated user's Otter profile
+
+  ## Before connecting
+  - Sign in through Otter OAuth
+  - The connector is read-only and can access conversations you captured or that were shared with you
+  - Meeting content may contain confidential or personal information; follow your organization's consent, retention, and data-handling rules
+
+  See the official [Otter MCP documentation](https://help.otter.ai/hc/en-us/articles/35287607569687-Otter-MCP-Server) for access boundaries and setup instructions.
+metadata:
+  categories: Productivity, Meetings, Communication
+icon: https://help.otter.ai/hc/en-us/article_attachments/36000030648855
+repoURL: https://help.otter.ai/hc/en-us/articles/35287607569687-Otter-MCP-Server
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.otter.ai/mcp

@@ -1,0 +1,26 @@
+name: Nimble
+entryKey: fragai-nimble
+shortDescription: Search, extract, map, and crawl live web data
+description: |
+  Search, extract, map, and crawl live web content with Nimble's managed web-data tools.
+
+  ## What you can do
+  - Search the web for general, shopping, social, news, and location-aware results
+  - Extract structured data from individual web pages
+  - Map a website to discover pages and launch managed crawl jobs
+  - Check crawl progress, retrieve results, and stop running jobs
+  - Build, publish, run, and update supported Nimble agents
+
+  ## Before connecting
+  - Sign in to a Nimble account with access to the required web-data products
+  - Crawls, searches, and agent runs may consume paid capacity or credits
+  - Use the service only for sites and data you are permitted to access, and review collection requirements for personal or restricted data
+
+  See the official [Nimble MCP documentation](https://docs.nimbleway.com/integrations/mcp-server/mcp-server) for authentication, tools, and service limits.
+metadata:
+  categories: Web Search,Data Extraction,Web Scraping
+icon: https://mintlify.s3.us-west-1.amazonaws.com/nimble-f5a8283f/images/icons/ogx.svg
+repoURL: https://docs.nimbleway.com/integrations/mcp-server/mcp-server
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.nimbleway.com/mcp

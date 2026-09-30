@@ -1,0 +1,23 @@
+name: Ahrefs
+entryKey: fragai-ahrefs
+shortDescription: Analyze search visibility, keywords, backlinks, competitors, and site performance
+description: |
+  Connect Ahrefs to an AI assistant to answer SEO and search-marketing questions with data from the user's Ahrefs account.
+
+  ## What you can do
+  - Research keywords, domains, competitors, and search results
+  - Analyze backlinks, referring domains, anchors, and link metrics
+  - Review site-audit, rank-tracking, and project information
+  - Explore brand mentions and visibility in AI search products
+
+  ## Before connecting
+  Sign in through Ahrefs authorization. The hosted MCP service requires an Ahrefs Lite plan or higher. Calls consume API units, and result limits vary by plan.
+
+  The endpoint is intended for supported MCP clients rather than general-purpose HTTP scripts. See the [official Ahrefs MCP documentation](https://docs.ahrefs.com/en/mcp/docs/introduction).
+metadata:
+  categories: Marketing, Data & Analytics, SaaS & API Integrations
+icon: https://ahrefs.com/favicon.ico
+repoURL: https://docs.ahrefs.com/docs/mcp/reference/introduction
+runtime: remote
+remoteConfig:
+  fixedURL: https://api.ahrefs.com/mcp/mcp

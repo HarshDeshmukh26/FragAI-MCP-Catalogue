@@ -1,0 +1,26 @@
+name: Ramp
+entryKey: fragai-ramp
+shortDescription: Search and analyze Ramp transactions, bills, cards, and vendors
+description: |
+  Search and analyze authorized Ramp transactions, reimbursements, bills, cards, vendors, and other company-spend data.
+
+  ## What you can do
+  - Query transactions, reimbursements, bills, and purchase orders
+  - Analyze cards, limits, spend programs, vendors, departments, users, entities, and locations
+  - Load supported Ramp exports for custom analysis
+  - Investigate spending patterns using the data visible to the connected user
+
+  ## Before connecting
+  - Sign in through Ramp OAuth
+  - Available data follows the connected user's Ramp role and permissions
+  - Financial records can contain confidential employee, vendor, and payment information; limit access and avoid exposing results outside approved workflows
+  - Verify financial conclusions against the underlying Ramp records before taking action
+
+  See the official [Ramp MCP documentation](https://docs.ramp.com/developer-api/v1/guides/ramp-mcp-remote) for authentication and current data coverage.
+metadata:
+  categories: Finance, Business, Data & Analytics
+icon: https://ramp.com/favicon.ico
+repoURL: https://docs.ramp.com/developer-api/v1/guides/ramp-mcp-remote
+runtime: remote
+remoteConfig:
+  fixedURL: https://ramp-mcp-remote.ramp.com/mcp

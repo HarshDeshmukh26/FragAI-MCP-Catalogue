@@ -1,0 +1,43 @@
+name: Ref
+entryKey: fragai-ref
+shortDescription: Search public and private technical documentation with focused results
+description: |
+  Search public or authorized private technical documentation and retrieve focused page content with Ref's token-efficient research tools.
+
+  ## What you can do
+  - Search API, library, framework, service, and repository documentation
+  - Include authorized private documentation and PDFs in supported searches
+  - Retrieve clean Markdown from a selected documentation URL
+  - Use session-aware result filtering to reduce repeated or irrelevant context
+
+  ## Before connecting
+  - Create a Ref account and enter a Ref API key
+  - Search queries and requested URLs are sent to Ref for processing
+  - Only connect private repositories or documents that you are authorized to share with the service
+  - Verify security-sensitive or version-specific implementation details against the cited source
+
+  See the official [Ref MCP repository](https://github.com/ref-tools/ref-tools-mcp) for setup, supported sources, and tool behavior.
+metadata:
+  categories: Retrieval & Search, Documentation, Developer Tools
+icon: https://avatars.githubusercontent.com/u/210568548?s=48&v=4
+repoURL: https://github.com/ref-tools/ref-tools-mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://api.ref.tools/mcp
+toolPreview:
+- name: ref_search_documentation
+  description: Search public and authorized private technical documentation for relevant facts, code examples, and source URLs while suppressing repeated results within the session.
+  params:
+    query: Query to search for relevant documentation. Should be a full sentence or question (e.g., "How to authenticate with FastAPI OAuth2?" or "React hooks best practices"). Can include 'ref_src=private' to search private documentation.
+- name: ref_read_url
+  description: Retrieve a selected documentation page as clean Markdown, focusing the response on the sections most relevant to the preceding research.
+  params:
+    url: The complete URL of the webpage to read (typically from ref_search_documentation results)
+
+config:
+  - name: Ref API Key
+    description: Enter the API key issued by Ref for this account.
+    key: x-ref-api-key
+    required: true
+    sensitive: true
+    usage: header

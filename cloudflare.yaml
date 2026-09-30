@@ -1,0 +1,50 @@
+name: Cloudflare
+entryKey: fragai-cloudflare
+shortDescription: Discover and call Cloudflare APIs through one remote server
+upgradeNote: |
+  This entry now uses Cloudflare's consolidated API MCP server. Existing users must reconnect with Cloudflare OAuth or a scoped API token. Product-specific tools are replaced by the docs, search, and execute Code Mode tools.
+description: |
+  Connect FragAI to Cloudflare's official API MCP server. Its compact Code Mode toolset finds the appropriate API operation and runs authorized requests without loading the full Cloudflare API schema into the conversation.
+
+  ## What you can do
+  - Search Cloudflare product documentation
+  - Find operations across the Cloudflare OpenAPI specification
+  - Run authorized API requests for services such as Workers, R2, KV, D1, Pages, DNS, security, networking, and observability
+  - Build multi-step request logic and shape results with sandboxed JavaScript
+
+  ## Before connecting
+  - Prefer Cloudflare OAuth and select only the accounts and permissions required
+  - For headless use, provide a narrowly scoped user or account API token; account tokens also need **Account Resources: Read**
+  - Require review for write or delete operations because this server can reach a broad API surface
+
+  Code Mode is experimental, and tokens restricted by client IP are not supported. See the [Cloudflare MCP repository](https://github.com/cloudflare/mcp) for current behavior and limitations.
+metadata:
+  categories: Cloud & Infrastructure, SaaS & API Integrations
+icon: https://avatars.githubusercontent.com/u/314135?s=48&v=4
+repoURL: https://github.com/cloudflare/mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.cloudflare.com/mcp
+toolPreview:
+- name: docs
+  description: Find Cloudflare product guidance in the official developer documentation.
+  params:
+    query: Cloudflare documentation search query
+- name: search
+  description: Search the Cloudflare API specification with sandboxed JavaScript to identify operations.
+  params:
+    code: JavaScript async arrow function that searches the OpenAPI specification
+- name: execute
+  description: Execute authorized Cloudflare API requests from sandboxed JavaScript.
+  params:
+    code: JavaScript async arrow function that executes Cloudflare API requests
+    account_id: Optional account ID for user tokens or OAuth connections with access to multiple accounts
+
+config:
+  - name: Cloudflare API Token
+    description: Optional scoped Cloudflare API token used instead of OAuth
+    key: Authorization
+    required: false
+    sensitive: true
+    prefix: "Bearer "
+    usage: header

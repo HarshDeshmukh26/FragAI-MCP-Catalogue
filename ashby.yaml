@@ -1,0 +1,23 @@
+name: Ashby
+entryKey: fragai-ashby
+shortDescription: Search recruiting data, prepare interviews, and update hiring pipelines
+description: |
+  Connect an AI assistant to Ashby to research recruiting records, prepare for interviews, and complete permitted hiring-workflow actions.
+
+  ## What you can do
+  - Find candidates, applications, jobs, interviews, offers, and related records
+  - Review profiles, resumes, notes, feedback, messages, and transcripts
+  - Prepare for interviews and summarize pipeline health or pending work
+  - Create candidates, add notes, move application stages, and consider candidates for jobs
+
+  ## Before connecting
+  An organization administrator must enable MCP Server under Admin > Organization Setup > Opt-In Features. Each eligible user then signs in with Ashby OAuth. Access is limited to records that user can already see.
+
+  The beta is unavailable to Analytics-only organizations and applies rate limits. It includes write actions, so review recruiting changes before approval. See the [official Ashby MCP guide](https://docs.ashbyhq.com/ashby-mcp-server-beta).
+metadata:
+  categories: Human Resources, Productivity, Recruiting
+icon: https://www.ashbyhq.com/favicon.png
+repoURL: https://docs.ashbyhq.com/ashby-mcp-server-beta
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.ashbyhq.com/mcp/v1

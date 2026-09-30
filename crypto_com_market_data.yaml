@@ -1,0 +1,24 @@
+name: Crypto.com Market Data
+entryKey: fragai-crypto-com-market-data
+shortDescription: Retrieve public crypto order books, trades, and price candles
+description: |
+  Connect FragAI to Crypto.com's public market-data MCP server for current exchange data and optional visual widgets. No account authentication is required.
+
+  ## What you can do
+  - Retrieve bid and ask order-book snapshots for supported trading pairs
+  - Review recent trades with a chosen result limit
+  - Fetch OHLCV candles for supported time intervals
+  - Generate embeddable order-book, trade, and candle widgets
+
+  ## Before connecting
+  - This connection is read-only and cannot place orders or access a Crypto.com account
+  - Market data can be delayed, incomplete, or volatile; do not treat tool output as financial advice
+
+  Setup details: [Crypto.com Market Data MCP documentation](https://mcp.crypto.com/docs).
+metadata:
+  categories: Finance, Cryptocurrency
+icon: https://mcp.crypto.com/docs/favicon.ico
+repoURL: https://mcp.crypto.com/docs
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.crypto.com/market-data/mcp

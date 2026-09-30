@@ -1,0 +1,25 @@
+name: Fireflies
+entryKey: fragai-fireflies
+shortDescription: Search Fireflies meetings and retrieve transcripts, summaries, and insights
+description: |
+  Connect FragAI to Fireflies to retrieve meeting intelligence available to the signed-in user.
+
+  ## What you can do
+  - Search and filter past meeting transcripts
+  - Retrieve a full transcript and meeting details
+  - Analyze decisions, concerns, action items, and recurring themes
+  - Build summaries or reports across several meetings
+
+  ## Before connecting
+  - Sign in through OAuth using the Fireflies account that owns the required meetings
+  - Meeting access follows the connected user's Fireflies permissions
+  - Confirm organizational consent and confidentiality rules before sending transcripts to an external AI platform
+
+  Fireflies states that its core-service zero-day-retention policy does not apply once data is processed by an external MCP client. Review the [Fireflies MCP documentation](https://guide.fireflies.ai/articles/8272956938-learn-about-the-fireflies-mcp-server-model-context-protocol).
+metadata:
+  categories: Communication, Productivity, SaaS & API Integrations
+icon: https://fireflies.ai/favicon.ico
+repoURL: https://guide.fireflies.ai/articles/8272956938-learn-about-the-fireflies-mcp-server-model-context-protocol
+runtime: remote
+remoteConfig:
+  fixedURL: https://api.fireflies.ai/mcp

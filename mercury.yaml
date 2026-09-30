@@ -1,0 +1,26 @@
+name: Mercury
+entryKey: fragai-mercury
+shortDescription: Review Mercury accounts, balances, transactions, statements, cards, and recipients
+description: |
+  Connect FragAI to Mercury's hosted MCP server to search and analyze permitted business-banking information.
+
+  ## What you can do
+  - Retrieve account and balance information
+  - Search transactions, recipients, and statements
+  - Retrieve permitted account-card details
+  - Analyze Mercury financial activity in an AI workflow
+
+  ## Before connecting
+  - Sign in through Mercury OAuth with dynamic client registration
+  - Access follows the connected user's Mercury permissions
+  - Treat all banking, card, recipient, and transaction information as highly sensitive
+  - Independently verify financial conclusions and never expose full sensitive account or card details unnecessarily
+
+  Setup details: [Mercury MCP documentation](https://docs.mercury.com/docs/connecting-mercury-mcp).
+metadata:
+  categories: Financial Services, Data Analytics, Business Intelligence
+icon: https://mercury.com/apple-icon.png?e5cbb3efa4b20928
+repoURL: https://docs.mercury.com/docs/connecting-mercury-mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.mercury.com/mcp

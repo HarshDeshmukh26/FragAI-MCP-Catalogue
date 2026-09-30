@@ -1,0 +1,24 @@
+name: Ramp Data
+entryKey: fragai-ramp-data
+shortDescription: Analyze vendor trends and business AI adoption from Ramp Data
+description: |
+  Explore aggregated corporate-spend trends from Ramp Rate and business AI-adoption patterns from the Ramp AI Index.
+
+  ## What you can do
+  - List Ramp Rate spend categories and retrieve category summaries
+  - Find vendors and inspect adoption, pricing, retention, and switching trends
+  - Resolve vendor names and compare vendors within a category
+  - Analyze AI adoption overall and by business sector or company size
+
+  ## Before connecting
+  - This is a read-only service based on Ramp's aggregated data and does not require access to a Ramp business account
+  - Treat market estimates as directional and review dataset definitions, time ranges, and methodology before making business decisions
+
+  See the official [Ramp Data documentation](https://docs.ramp.com/developer-api/v1/ramp-data) for available datasets, operations, and usage guidance.
+metadata:
+  categories: Financial Data,Data & Analytics,Market Research
+icon: https://docs.ramp.com/favicon-32x32.png
+repoURL: https://docs.ramp.com/developer-api/v1/ramp-data
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.ramp.com/ramp-data/anthropic/mcp

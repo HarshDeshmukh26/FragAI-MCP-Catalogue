@@ -1,0 +1,26 @@
+name: tldraw
+entryKey: fragai-tldraw
+shortDescription: Draw and iteratively edit diagrams, wireframes, mind maps, and illustrations
+description: |
+  Create and iteratively edit diagrams, wireframes, mind maps, illustrations, and other visuals on an interactive tldraw canvas.
+
+  ## What you can do
+  - Create shapes and arrange them into a visual
+  - Edit existing shapes and layout as requirements change
+  - Delete unwanted canvas elements
+  - Collaborate with the AI while the current canvas state remains available in the conversation
+
+  ## Before connecting
+  - Use an MCP client that supports interactive MCP Apps
+  - Canvas contents are passed back into the conversation so the agent can understand and modify the drawing
+  - Review generated diagrams before treating them as authoritative technical, safety, or business documentation
+  - Confirm broad deletions or major structural edits before applying them
+
+  See the official [tldraw MCP App announcement](https://tldraw.dev/blog/tldraw-mcp-app) for supported clients and interaction behavior.
+metadata:
+  categories: Design, Productivity, Developer Tools
+icon: https://www.tldraw.com/favicon.svg
+repoURL: https://tldraw.dev/blog/tldraw-mcp-app
+runtime: remote
+remoteConfig:
+  fixedURL: https://tldraw-mcp-app.tldraw.workers.dev/mcp

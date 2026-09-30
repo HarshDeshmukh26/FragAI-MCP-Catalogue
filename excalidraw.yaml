@@ -1,0 +1,24 @@
+name: Excalidraw
+entryKey: fragai-excalidraw
+shortDescription: Create and refine editable hand-drawn diagrams with Excalidraw
+description: |
+  Connect FragAI to Excalidraw's public MCP server to turn natural-language instructions into an interactive diagram.
+
+  ## What you can do
+  - Create hand-drawn-style diagrams from a written description
+  - View and refine elements on an interactive canvas
+  - Open the result in Excalidraw for full-screen editing
+  - Save and restore checkpoints during longer diagramming sessions
+
+  ## Before connecting
+  - No account, API key, or other credentials are required
+  - Review generated diagrams before sharing them, especially when they contain architecture or sensitive process information
+
+  Project details: [Excalidraw MCP repository](https://github.com/excalidraw/excalidraw-mcp).
+metadata:
+  categories: Design, Productivity, Visualization
+icon: https://excalidraw.com/favicon.ico
+repoURL: https://github.com/excalidraw/excalidraw-mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.excalidraw.com/mcp

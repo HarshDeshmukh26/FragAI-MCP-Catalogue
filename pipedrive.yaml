@@ -1,0 +1,25 @@
+name: Pipedrive
+entryKey: fragai-pipedrive
+shortDescription: Search and update deals, contacts, leads, activities, and notes
+description: |
+  Search and update live Pipedrive CRM records, including deals, leads, people, organizations, activities, and notes.
+
+  ## What you can do
+  - Find and inspect deals, leads, contacts, organizations, and pipeline stages
+  - Create and update supported CRM records
+  - Convert leads into deals
+  - Add notes and schedule or update follow-up activities
+
+  ## Before connecting
+  - Sign in to a paid Pipedrive account with access to the required CRM data
+  - Reads and changes follow the connected user's Pipedrive permissions
+  - Confirm record ownership, pipeline stage, dates, and related contacts before approving CRM updates
+
+  See the official [Pipedrive MCP documentation](https://www.pipedrive.com/en/features/mcp-server) for availability, security, and supported workflows.
+metadata:
+  categories: CRM,Sales,Productivity
+icon: https://cdn.cmh-1.pipedriveassets.com/www-main-renderer/_next/static/media/favicon-96x96.9c93b075.png
+repoURL: https://www.pipedrive.com/en/features/mcp-server
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.pipedrive.ai/mcp

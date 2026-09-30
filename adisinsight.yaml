@@ -1,0 +1,54 @@
+name: AdisInsight
+entryKey: fragai-adisinsight
+shortDescription: Research licensed pharmaceutical development and clinical-trial information
+description: |
+  Connect to Springer Nature's hosted AdisInsight MCP service to research pharmaceutical development programs and clinical trials. See the [official AdisInsight MCP page](https://adisinsight-mcp.springer.com/) for current connection requirements and service information.
+
+  ## Capabilities
+  - Find drug-development records using product, indication, organization, mechanism, target, and phase criteria
+  - Examine individual drug profiles and their reported development histories
+  - Find clinical trials using study, compound, sponsor, indication, phase, status, location, demographic, and date criteria
+  - Examine individual trial profiles, including study design and eligibility information when available
+
+  ## Connection requirements
+
+  An eligible AdisInsight subscription and user account are required. Each user must complete the provider's OAuth authorization flow using credentials that are permitted to access AdisInsight.
+
+  **Read only:** The published tools search and retrieve information; they do not modify AdisInsight records.
+
+  This service provides licensed research information. Usage remains subject to the user's or organization's AdisInsight agreement. Do not submit personal or protected health information, and do not use the results for treatment or clinical decision-making.
+
+metadata:
+  categories: Life Sciences, Research
+icon: https://adisinsight-mcp.springer.com/favicon.ico
+repoURL: https://adisinsight-mcp.springer.com/
+runtime: remote
+remoteConfig:
+  fixedURL: https://adisinsight-mcp.springer.com/mcp
+toolPreview:
+  - name: search_drugs
+    description: Search licensed AdisInsight drug records using pharmaceutical-development criteria and return matching candidates for further investigation.
+    params:
+      drug_name: Drug or product name to search for
+      dev_indication: Development indication used to narrow the results
+      developers: Organizations involved in developing the drug
+      mechanism: Pharmacological mechanism used to filter the search
+  - name: get_drug
+    description: Retrieve a detailed AdisInsight profile for a selected drug, with the requested record sections and supporting context when available.
+    params:
+      drug_name: Name of the drug whose profile should be retrieved
+      resources: Profile sections or resources to include in the response
+      query_text: Optional question or focus used to select relevant profile information
+  - name: search_trials
+    description: Search licensed AdisInsight clinical-trial records using study, indication, sponsor, and development-phase criteria.
+    params:
+      trial_name: Trial name or identifier to search for
+      indication: Medical indication used to narrow the trial results
+      sponsor: Trial sponsor used to filter the search
+      phase: Clinical-development phase used to filter the search
+  - name: get_trial
+    description: Retrieve a detailed AdisInsight profile for a selected clinical trial, including requested study sections and relevant context when available.
+    params:
+      trial_name: Trial name or identifier whose profile should be retrieved
+      resources: Trial-profile sections or resources to include in the response
+      query_text: Optional question or focus used to select relevant trial information

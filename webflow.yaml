@@ -1,0 +1,26 @@
+name: Webflow
+entryKey: fragai-webflow
+shortDescription: Manage Webflow sites, CMS content, pages, assets, and styles
+description: |
+  Manage Webflow sites, CMS collections, pages, components, assets, forms, localization, styles, scripts, and webhooks.
+
+  ## What you can do
+  - Browse and update CMS collections and items
+  - Create or edit pages, components, layouts, and styles
+  - Manage assets, forms, localization, custom scripts, and webhooks
+  - Inspect sites and perform supported Webflow Designer operations
+
+  ## Before connecting
+  - Sign in through Webflow OAuth
+  - Available sites and actions follow the connected user's workspace and site permissions
+  - CMS, page, style, script, webhook, and publishing changes can alter a production website
+  - Confirm site, locale, collection, item, page, component, environment, and publication intent before approval
+
+  See the official [Webflow MCP documentation](https://developers.webflow.com/mcp/v1.0.0/reference/overview) for current tools and authentication.
+metadata:
+  categories: Developer Tools, Design, SaaS & API Integrations
+icon: https://webflow.com/favicon.ico
+repoURL: https://developers.webflow.com/mcp/v1.0.0/reference/overview
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.webflow.com/mcp

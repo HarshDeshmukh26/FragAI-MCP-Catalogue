@@ -1,0 +1,44 @@
+name: Square
+entryKey: fragai-square
+shortDescription: Manage Square payments, customers, orders, catalog, and business operations
+description: |
+  Access Square APIs for payments, customers, orders, catalog, inventory, subscriptions, invoices, disputes, bookings, and business operations.
+
+  ## What you can do
+  - Inspect supported Square services and method schemas before making a request
+  - Work with customers, orders, payments, refunds, payouts, and invoices
+  - Manage catalog, inventory, gift cards, subscriptions, bookings, and loyalty
+  - Access locations, merchants, team, labor, device, Terminal, webhook, and other supported APIs
+  - Use one general request tool across the exposed Square API services
+
+  ## Before connecting
+  - Sign in through Square OAuth and choose the intended seller account and environment
+  - The general request tool can create financial transactions, refunds, subscriptions, bookings, and operational changes
+  - Inspect the method schema first, then verify seller, location, customer, currency, amount, idempotency key, and request body before approval
+  - Test high-impact integrations in Square Sandbox before using production credentials
+
+  See the official [Square MCP repository](https://github.com/square/square-mcp-server) for supported services, tool usage, and known model-compatibility limitations.
+metadata:
+  categories: Business
+icon: https://avatars.githubusercontent.com/u/82592?s=200&v=4
+repoURL: https://github.com/square/square-mcp-server
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.squareup.com/mcp
+
+toolPreview:
+  - name: make_api_request
+    description: Call a selected Square API method across supported services such as customers, orders, payments, refunds, catalog, inventory, bookings, and subscriptions.
+    params:
+      method: HTTP method for the API request
+      service: Square API service (customers, orders, payments, catalog, inventory, etc.)
+      request: Request object with parameters for the API call (optional)
+  - name: get_type_info
+    description: Retrieve the required and optional request fields for a Square API method before constructing the API call.
+    params:
+      method: The API method to get type information for
+      service: The Square API service containing the method
+  - name: get_service_info
+    description: List the methods and capabilities exposed for a selected Square API service.
+    params:
+      service: The Square API service to get information about

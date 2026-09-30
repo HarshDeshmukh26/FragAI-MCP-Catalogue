@@ -1,0 +1,24 @@
+name: Circle
+entryKey: fragai-circle
+shortDescription: Explore and manage members, content, events, and courses in Circle
+description: |
+  Connect FragAI to Circle's official MCP server to understand community activity and, when explicitly allowed, manage community resources through Circle's Admin API.
+
+  ## What you can do
+  - Browse and search members, spaces, posts, events, courses, tags, analytics, and form submissions
+  - Summarize community activity and inspect live-room transcripts
+  - With full access, manage members, content, events, courses, messages, tags, segments, and access groups
+
+  ## Before connecting
+  - Use a Circle community on the Business plan or higher
+  - Connect as a community administrator through OAuth
+  - Choose **Read only** unless the workflow truly needs changes
+
+  Full access permits administrative creation, updates, messages, and deletions, so require human approval for every write or delete action. MCP activity counts against Circle's Admin API quotas. Check [Circle's MCP endpoint documentation](https://api.circle.so/mcp) for current limits.
+metadata:
+  categories: Business, SaaS & API Integrations
+icon: https://circle.so/favicon.ico
+repoURL: https://api.circle.so/mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://app.circle.so/api/mcp

@@ -1,0 +1,26 @@
+name: Legal Data Hunter
+entryKey: fragai-legal-data-hunter
+shortDescription: Search official legal sources and resolve citations across jurisdictions
+description: |
+  Connect FragAI to Legal Data Hunter to find legal documents, resolve common legal identifiers, and retrieve source text and metadata.
+
+  ## What you can do
+  - Search legal documents with semantic and keyword filters
+  - Resolve ECLI, CELEX, case numbers, and other supported citations
+  - Retrieve full document text and source metadata
+  - Discover available jurisdictions, sources, and filters
+  - Report source-data issues
+
+  ## Before connecting
+  - Sign in to a Legal Data Hunter account through OAuth
+  - Confirm the document is current, authoritative, and applicable to the relevant jurisdiction
+  - Have a qualified legal professional review outputs before relying on them
+
+  The search and retrieval capabilities are read-only. Setup details: [Legal Data Hunter documentation](https://legaldatahunter.com/docs).
+metadata:
+  categories: Legal Research,Documentation,Search
+icon: https://legaldatahunter.com/static/favicon.svg
+repoURL: https://legaldatahunter.com/docs
+runtime: remote
+remoteConfig:
+  fixedURL: https://legaldatahunter.com/mcp

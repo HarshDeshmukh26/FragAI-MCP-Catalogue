@@ -1,0 +1,25 @@
+name: Monte Carlo
+entryKey: fragai-monte-carlo
+shortDescription: Investigate data incidents, lineage, monitors, and observability assets
+description: |
+  Investigate data-quality incidents and understand how data moves through your stack with Monte Carlo's official remote MCP server.
+
+  ## What you can do
+  - Find, assess, assign, update, and comment on data alerts
+  - Search tables and other data assets, then trace upstream and downstream lineage
+  - Review monitors, domains, audiences, use cases, queries, and observability context
+  - Create or update validation, metric, comparison, and custom SQL monitors
+
+  ## Before connecting
+  - Sign in to a Monte Carlo account with an Editor role or higher
+  - Access is limited to the resources and actions allowed by your Monte Carlo permissions
+  - Alert updates and monitor creation change your Monte Carlo configuration, so review write actions before approving them
+
+  See the official [Monte Carlo MCP documentation](https://docs.getmontecarlo.com/docs/mcp-server) for authentication, toolsets, and operational guidance.
+metadata:
+  categories: Data Observability,Data & Analytics,Developer Tools
+icon: https://files.readme.io/5ae79ed-small-apple-touch-icon.png
+repoURL: https://docs.getmontecarlo.com/docs/mcp-server
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.getmontecarlo.com/mcp

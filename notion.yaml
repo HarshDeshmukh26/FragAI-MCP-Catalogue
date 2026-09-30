@@ -1,0 +1,104 @@
+name: Notion
+entryKey: fragai-notion
+shortDescription: Manage Notion pages, databases, blocks, comments, and workspace content
+description: |
+  Search and manage pages, databases, comments, and workspace content with Notion's official remote MCP server.
+
+  ## What you can do
+  - Search connected Notion content and fetch a page or database by URL or ID
+  - Create, update, move, duplicate, or archive pages
+  - Create and update databases and their properties
+  - Add and retrieve comments
+  - Look up workspace users and the authenticated integration identity
+
+  ## Before connecting
+  - Sign in through Notion OAuth and choose the workspace content to authorize
+  - Search results and write access follow the permissions granted to the Notion connection
+  - Create, update, move, duplicate, archive, and comment tools change workspace content; confirm page IDs and parent locations before approval
+
+  See the official [Notion MCP repository](https://github.com/makenotion/notion-mcp-server) for tool behavior and current limitations.
+metadata:
+  categories: SaaS & API Integrations,Databases
+icon: https://avatars.githubusercontent.com/u/4792552?v=4
+repoURL: https://github.com/makenotion/notion-mcp-server
+toolPreview:
+  - name: search
+    description: Search authorized Notion workspace content and connected sources, optionally limiting the search to a page, data source, or teamspace.
+    params:
+      data_source_url: |-
+        Optionally, provide the URL of a Data source to search. This will perform a semantic search over
+        the pages in the Data Source.
+      page_url: |-
+        Optionally, provide the URL or ID of a page to search within. This will perform a semantic search
+        over the content within and under the specified page.
+      query: |-
+        Semantic search query over your entire Notion workspace and connected sources
+        (Slack, Google Drive, Github, Jira, Microsoft Teams, Sharepoint, OneDrive,
+        or Linear).
+      query_type: |-
+        Specify type of the query as either "internal" or "user". Always include this input if performing
+        "user" search.
+      teamspace_id: |-
+        Optionally, provide the ID of a teamspace to restrict search results to. This will perform a search
+        over content within the specified teamspace only.
+  - name: fetch
+    description: Retrieve a Notion page or database and its available content by URL or ID.
+    params:
+      id: The ID or URL of the Notion page to fetch
+  - name: notion-create-pages
+    description: Create one or more Notion pages with the specified parent, properties, and page content.
+    params:
+      pages: The pages to create.
+      parent: The parent under which the new pages will be created. This can be a page or a database. If omitted, the new pages will be created as private pages at the workspace level.
+  - name: notion-update-page
+    description: Update the properties, content, icon, cover, or archive state of a Notion page.
+    params:
+      data: The data required for updating a page
+  - name: notion-move-pages
+    description: Move one or more Notion pages or databases to a different authorized parent.
+    params:
+      new_parent: The new parent under which the pages will be moved. This can be a page or a database.
+      page_or_database_ids: An array of up to 100 page or database IDs to move.
+  - name: notion-duplicate-page
+    description: Duplicate an accessible Notion page within the connected workspace.
+    params:
+      page_id: The ID of the page to duplicate.
+  - name: notion-create-database
+    description: Create a Notion database under an authorized parent with the requested title, description, and properties.
+    params:
+      description: The description of the new database, as a rich text object.
+      parent: The parent under which to create the new database. If omitted, the database will be created as a private page at the workspace level.
+      properties: The property schema of the new database. Must at least have a title property.
+      title: The title of the new database, as a rich text object.
+  - name: notion-update-database
+    description: Update the title, description, properties, or other supported settings of a Notion database.
+    params:
+      database_id: The ID of the database to update.
+      description: The new description of the database, as a rich text object, if you want to update it.
+      in_trash: Whether to move the database to the trash.
+      is_inline: Whether the database should be displayed inline in the parent page, if you want to change this setting.
+      properties: Updates to make to the database's schema. Use null to remove a property, or provide the `name` only to rename a property.
+      title: The new title of the database, as a rich text object, if you want to update it.
+  - name: notion-create-comment
+    description: Add a comment to an authorized Notion page or discussion thread.
+    params:
+      parent: The parent of the comment. This must be a page.
+      rich_text: An array of rich text objects that represent the content of the comment.
+  - name: notion-get-comments
+    description: Retrieve comments from an authorized Notion page or block.
+    params:
+      page_id: Identifier for a Notion page.
+  - name: notion-get-users
+    description: List users visible to the connected Notion workspace.
+    params:
+      query: ""
+  - name: notion-get-self
+    description: Retrieve the Notion bot or integration identity used by the current connection.
+  - name: notion-get-user
+    description: Retrieve a visible Notion user by user ID.
+    params:
+      path: ""
+
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.notion.com/mcp

@@ -1,0 +1,24 @@
+name: GoDaddy
+entryKey: fragai-godaddy
+shortDescription: Generate domain ideas and check current registration availability
+description: |
+  Connect FragAI to GoDaddy's public MCP server to research possible domain names without linking a GoDaddy account.
+
+  ## What you can do
+  - Check whether a specific domain currently appears available
+  - Generate available suggestions from keywords or a business idea
+  - Find related alternatives when a preferred name is unavailable
+
+  ## Before connecting
+  - No account or API credential is required
+  - This connection is read-only and cannot register, transfer, purchase, or manage domains or DNS
+  - Availability and pricing can change quickly, so confirm both directly with GoDaddy before purchasing
+
+  Setup details: [GoDaddy MCP documentation](https://developer.godaddy.com/en/docs/api-users/mcp).
+metadata:
+  categories: Domains & DNS, Search, Business
+icon: https://developer.godaddy.com/images/brand/icon.png
+repoURL: https://developer.godaddy.com/en/docs/api-users/mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://api.godaddy.com/v1/domains/mcp

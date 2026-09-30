@@ -1,0 +1,58 @@
+name: Context7
+entryKey: fragai-context7
+shortDescription: Retrieve current documentation and examples for software libraries
+upgradeNote: |
+  This entry now uses Context7's hosted MCP service. Existing users must reconnect and choose OAuth or anonymous/API-key access. The former minimum-token setting is no longer used, and hosted tool behavior may differ.
+description: |
+  Connect FragAI to Context7 to retrieve version-aware library documentation and code examples for a specific development question.
+
+  ## What you can do
+  - Resolve a package or product name to its Context7 library identifier
+  - Retrieve current documentation for a focused implementation topic
+  - Request examples for a specific library version when available
+
+  ## Before connecting
+  - Choose **OAuth** to sign in, or **Anonymous / API Key** for the non-OAuth endpoint
+  - An optional API key from the Context7 dashboard can provide higher limits and access to private sources
+  - Do not include secrets, personal data, or proprietary code in search queries
+
+  Setup details: [Context7 documentation](https://context7.com/docs).
+metadata:
+  categories: Developer Tools, Documentation
+icon: https://avatars.githubusercontent.com/u/74989412?v=4
+repoURL: https://context7.com/docs
+config:
+  - name: Authentication method
+    key: CONTEXT7_ENDPOINT
+    description: Choose OAuth sign-in or the anonymous/API-key endpoint
+    required: true
+    sensitive: false
+    options:
+      - name: OAuth
+        value: mcp/oauth
+        description: Sign in to Context7 using OAuth
+      - name: Anonymous / API Key
+        value: mcp
+        description: Connect anonymously or authenticate using a Context7 API key
+    usage: env
+  - name: Context7 API Key
+    description: Optional Context7 key for higher limits or private sources
+    key: Authorization
+    required: false
+    sensitive: true
+    prefix: "Bearer "
+    usage: header
+runtime: remote
+remoteConfig:
+  urlTemplate: https://mcp.context7.com/${CONTEXT7_ENDPOINT}
+toolPreview:
+- name: resolve-library-id
+  description: Find the Context7 library identifier that best matches a package or product name. Use this before querying documentation unless an exact Context7 ID was supplied.
+  params:
+    query: Focused documentation topic used to rank matching libraries; do not include secrets or private data
+    libraryName: Official name of the library or product to find
+- name: query-docs
+  description: Retrieve current documentation and code examples for one focused topic in a resolved Context7 library.
+  params:
+    libraryId: Exact Context7 library identifier returned by resolve-library-id or supplied by the user
+    query: Specific implementation question; do not include secrets, personal data, or proprietary code

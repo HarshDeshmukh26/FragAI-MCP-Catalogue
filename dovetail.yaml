@@ -1,0 +1,25 @@
+name: Dovetail
+entryKey: fragai-dovetail
+shortDescription: Find customer-research projects, evidence, highlights, and insights in Dovetail
+description: |
+  Connect FragAI to Dovetail's remote MCP server to retrieve customer-research evidence available to the signed-in user.
+
+  ## What you can do
+  - Search accessible content across the Dovetail workspace
+  - List projects and retrieve their research data
+  - Review project highlights and insights
+  - Fetch the full evidence behind a selected data point or insight
+
+  ## Before connecting
+  - Sign in through Dovetail OAuth
+  - Use an account that can access the projects and customer data required for the task
+  - Avoid placing sensitive participant information into prompts unless the workflow and organizational policy permit it
+
+  Results remain limited by Dovetail workspace permissions. Setup details: [Dovetail MCP documentation](https://developers.dovetail.com/docs/mcp).
+metadata:
+  categories: Customer Research,Knowledge Management,Productivity
+icon: https://files.readme.io/1de29ed6dd08440231b8155c4071c6939625ffa5952f8b41b6094d518a5a4de9-favicon.svg
+repoURL: https://developers.dovetail.com/docs/mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://dovetail.com/api/mcp

@@ -1,0 +1,27 @@
+name: Google Compute Engine
+entryKey: fragai-google-compute-engine
+shortDescription: Inspect and operate Google Compute Engine virtual-machine resources
+description: |
+  Connect FragAI to Google's managed Compute Engine MCP server to inspect infrastructure and perform permitted virtual-machine lifecycle operations.
+
+  ## What you can do
+  - Create, start, stop, reset, resize, or delete virtual-machine instances
+  - Inspect instances, managed instance groups, and instance templates
+  - Review disks, snapshots, reservations, commitments, machine types, images, and accelerators
+  - Check zonal operation status after infrastructure changes
+
+  ## Before connecting
+  - Use a Google Cloud project with the Compute Engine API enabled
+  - Configure a Google web OAuth client with FragAI's redirect URI
+  - Grant the connected Google identity only the IAM permissions needed for the intended actions
+  - Require confirmation for creation, resizing, resets, stops, and deletion because they can affect availability and cost
+
+  Setup details: [Compute Engine MCP reference](https://docs.cloud.google.com/compute/docs/reference/mcp).
+metadata:
+  categories: Cloud Infrastructure,Compute,Developer Tools
+icon: https://avatars.githubusercontent.com/u/2810941?s=48&v=4
+repoURL: https://docs.cloud.google.com/compute/docs/reference/mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://compute.googleapis.com/mcp
+  staticOAuthRequired: true

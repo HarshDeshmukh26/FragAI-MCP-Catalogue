@@ -1,0 +1,208 @@
+name: Dynatrace
+entryKey: fragai-dynatrace
+shortDescription: Investigate Dynatrace telemetry, problems, security findings, and time-series behavior
+upgradeNote: |
+  This entry now uses Dynatrace's official SaaS MCP gateway. Existing users must reconnect with a SaaS environment identifier and a Platform Token containing gateway and tool-specific permissions. Dynatrace Managed and classic environments are not supported, and tool names or parameters may differ.
+description: |
+  Connect FragAI to Dynatrace's governed MCP gateway to investigate observability and security data and use Dynatrace Intelligence tools.
+
+  ## What you can do
+  - Generate, explain, and execute DQL queries against Grail
+  - Investigate problems, Kubernetes events, entities, documents, and security findings
+  - Detect anomalies, extract log patterns, and forecast time-series data
+  - Search Dynatrace documentation and troubleshooting guides
+
+  ## Before connecting
+  - Use a supported Dynatrace SaaS environment and enter its environment identifier
+  - Create a Platform Token with MCP gateway access and only the permissions required by the selected tools
+  - Ensure Grail and any required Dynatrace Intelligence capabilities are available
+  - Keep query time ranges and filters narrow because DQL queries can consume licensed capacity
+
+  This catalogue entry uses a per-user token because the hosted gateway does not support dynamic OAuth client registration. Setup details: [Dynatrace MCP documentation](https://docs.dynatrace.com/docs/dynatrace-intelligence/dynatrace-mcp).
+metadata:
+  categories: Monitoring, Developer Tools, DevOps
+  allow-multiple: "true"
+icon: https://avatars.githubusercontent.com/u/58178984?s=48&v=4
+repoURL: https://docs.dynatrace.com/docs/dynatrace-intelligence/dynatrace-mcp
+config:
+  - key: DYNATRACE_ENVIRONMENT
+    name: Dynatrace Environment
+    required: true
+    sensitive: false
+    description: SaaS environment identifier, such as abc12345 from https://abc12345.apps.dynatrace.com
+    usage: env
+  - key: Authorization
+    name: Dynatrace Platform Token
+    required: true
+    sensitive: true
+    prefix: "Bearer "
+    description: Platform Token limited to MCP gateway access and the required tool permissions
+    usage: header
+runtime: remote
+remoteConfig:
+  urlTemplate: https://${DYNATRACE_ENVIRONMENT}.apps.dynatrace.com/platform-reserved/mcp-gateway/v0.1/servers/dynatrace-mcp/mcp
+toolPreview:
+- name: adaptive-anomaly-detector
+  description: Find unusual time-series values using a threshold that adapts to recent behavior.
+  params:
+    alertCondition: Alert condition for detected anomalies.
+    alertOnMissingData: Whether missing data triggers an alert.
+    dealertingSamples: Samples required to clear an alert.
+    generalParameters: General analyzer parameters.
+    numberOfSignalFluctuations: Expected signal fluctuations.
+    slidingWindow: Analysis window size.
+    timeSeriesData: Time-series data to analyze.
+    violatingSamples: Samples required to trigger an alert.
+- name: ask-dynatrace-docs
+  description: Search Dynatrace documentation for guidance about a feature or task.
+  params:
+    prompt: Question to answer.
+- name: create-dql
+  description: Turn a natural-language investigation request into a DQL query.
+  params:
+    request: Natural-language data request.
+- name: execute-dql
+  description: Run a DQL query against data available in Dynatrace Grail.
+  params:
+    dqlQueryString: DQL query to execute.
+    includeTypes: Types of data to include in the result.
+- name: explain-dql
+  description: Explain what a DQL query does in plain language.
+  params:
+    dql: DQL query to explain.
+- name: find-documents
+  description: Find Dynatrace dashboards and notebooks by title.
+  params:
+    searchString: Title text to search for.
+- name: find-troubleshooting-guides
+  description: Find troubleshooting guides relevant to an operational problem.
+  params:
+    searchStrings: Terms used to search troubleshooting guides.
+- name: get-dynatrace-compliance-findings
+  description: Retrieve compliance findings from Dynatrace Security Posture Management.
+  params:
+    customSummarizationAndFieldsSelection: Result fields and summarization settings.
+    entityIdsOrNames: Entity IDs or names to filter by.
+    includeTypes: Types of data to include in the result.
+    maxResults: Maximum findings to return.
+    resultStatus: Compliance finding statuses to include.
+    riskLevels: Risk levels to include.
+    ruleIds: Compliance rule IDs to include.
+    ruleTitles: Compliance rule titles to include.
+    standards: Compliance standards to include.
+    systems: Systems to include.
+- name: get-dynatrace-vulnerabilities
+  description: Retrieve vulnerability findings from Dynatrace Runtime Vulnerability Analytics.
+  params:
+    components: Affected components to include.
+    customFilters: Additional filters for vulnerabilities.
+    customSummarizationAndFieldsSelection: Result fields and summarization settings.
+    cves: CVEs to include.
+    entityIdsOrNames: Entity IDs or names to filter by.
+    includeTypes: Types of data to include in the result.
+    maxResults: Maximum vulnerabilities to return.
+    muteStatus: Mute statuses to include.
+    resolutionStatus: Resolution statuses to include.
+    riskLevels: Risk levels to include.
+    vulnerabilityIds: Vulnerability IDs to include.
+- name: get-entity-id
+  description: Find a Dynatrace entity identifier from its name and type.
+  params:
+    entityNameFilter: Entity name filter.
+    entityType: Dynatrace entity type.
+    includeTypes: Types of data to include in the result.
+- name: get-entity-name
+  description: Resolve a Dynatrace entity identifier to its display name.
+  params:
+    entityId: Dynatrace entity ID.
+    entityType: Dynatrace entity type.
+    includeTypes: Types of data to include in the result.
+- name: get-events-for-kubernetes-cluster
+  description: Retrieve events associated with a selected Kubernetes cluster.
+  params:
+    clusterId: Kubernetes cluster ID.
+    findAllK8Events: Whether to return events for all clusters.
+    history: Time range for event history.
+    includeTypes: Types of data to include in the result.
+    kubernetesEntityId: Dynatrace Kubernetes cluster entity ID.
+- name: get-problem-by-id
+  description: Retrieve the details and evidence for one Dynatrace problem.
+  params:
+    history: Time range for problem history.
+    includeTypes: Types of data to include in the result.
+    problemId: Dynatrace problem display ID.
+- name: get-security-event-details
+  description: Retrieve detailed information for one security event.
+  params:
+    findingID: Security finding ID.
+    includeTypes: Types of data to include in the result.
+    maxResults: Maximum events to return.
+    scanID: Security scan ID.
+    timeRange: Time range for security events.
+    title: Security event title.
+- name: get-security-events-summary
+  description: Summarize matching Dynatrace and external security events.
+  params:
+    components: Affected components to include.
+    customFilters: Additional security event filters.
+    cves: CVEs to include.
+    entityIdsOrNames: Entity IDs or names to filter by.
+    eventTypes: Security event types to include.
+    includeTypes: Types of data to include in the result.
+    maxResults: Maximum events to return.
+    products: Security products to include.
+    providers: Security providers to include.
+    riskLevels: Risk levels to include.
+    summarizationString: Summary configuration.
+    timeRange: Time range for security events.
+- name: log-pattern-extractor
+  description: Identify recurring structures and messages in log-query results.
+  params:
+    generalParameters: General analyzer parameters.
+    logQuery: DQL query that returns log lines.
+    numberOfExamples: Number of examples to return.
+- name: query-problems
+  description: Find Dynatrace problems using the supplied scope and filters.
+  params:
+    history: Time range for problem history.
+    includeTypes: Types of data to include in the result.
+    status: Problem statuses to include.
+- name: seasonal-baseline-anomaly-detector
+  description: Detect values that differ from a repeating seasonal baseline.
+  params:
+    alertCondition: Alert condition for detected anomalies.
+    alertOnMissingData: Whether missing data triggers an alert.
+    dealertingSamples: Samples required to clear an alert.
+    generalParameters: General analyzer parameters.
+    slidingWindow: Analysis window size.
+    timeSeriesData: Time-series data to analyze.
+    tolerance: Seasonal baseline tolerance.
+    violatingSamples: Samples required to trigger an alert.
+- name: static-threshold-analyzer
+  description: Find time-series values that cross a fixed threshold.
+  params:
+    alertCondition: Alert condition for threshold violations.
+    alertOnMissingData: Whether missing data triggers an alert.
+    dealertingSamples: Samples required to clear an alert.
+    generalParameters: General analyzer parameters.
+    slidingWindow: Analysis window size.
+    threshold: Static threshold to evaluate.
+    timeSeriesData: Time-series data to analyze.
+    violatingSamples: Samples required to trigger an alert.
+- name: timeseries-forecast
+  description: Forecast future values from time-series data returned by DQL.
+  params:
+    forecastHorizon: Number of future data points to predict.
+    forecastOffset: Offset before the forecast begins.
+    generalParameters: General analyzer parameters.
+    query: DQL time-series query.
+- name: timeseries-novelty-detection
+  description: Identify changepoints and newly emerging behavior in time-series data.
+  params:
+    analysisNoveltyType: Type of novelty analysis.
+    detectionMode: Novelty detection mode.
+    filterSpikes: Whether to filter spikes.
+    generalParameters: General analyzer parameters.
+    minNoveltyScore: Minimum novelty score to include.
+    significanceLevel: Statistical significance level.
+    timeSeriesData: Time-series data to analyze.

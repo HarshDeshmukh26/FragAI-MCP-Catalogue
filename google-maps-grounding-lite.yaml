@@ -1,0 +1,59 @@
+name: Google Maps Grounding Lite
+entryKey: fragai-google-maps-grounding-lite
+shortDescription: Search places, calculate routes, and retrieve weather with Google Maps data
+description: |
+  Connect FragAI to Google Maps Grounding Lite for location-aware place search, route calculation, and weather information.
+
+  ## What you can do
+  - Search for places, businesses, addresses, and points of interest
+  - Calculate driving or walking routes between an origin and destination
+  - Retrieve current conditions, hourly forecasts, or daily forecasts for a location
+
+  ## Before connecting
+  - Create a Google Cloud API key authorized for Maps Grounding Lite
+  - Restrict the key to the required API and approved application or network usage where possible
+  - Provide a sufficiently specific place, address, place ID, or coordinates to avoid ambiguous results
+  - Check current Google Maps Platform pricing and quotas before production use
+
+  Setup and parameter details: [Google Maps Grounding Lite MCP reference](https://developers.google.com/maps/ai/grounding-lite/reference/mcp).
+metadata:
+  categories: Maps, Developer Tools
+  allow-multiple: "true"
+icon: https://img.icons8.com/?size=100&id=DcygmpZqBEd9&format=png&color=000000
+repoURL: https://developers.google.com/maps/ai/grounding-lite/reference/mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://mapstools.googleapis.com/mcp
+toolPreview:
+  - id: compute_routes
+    name: compute_routes
+    description: Calculate a driving or walking route between a clearly defined origin and destination.
+    params:
+      destination: Required. Destination waypoint.
+      origin: Required. Origin waypoint.
+      travelMode: Optional. Specifies the mode of transportation.
+  - id: lookup_weather
+    name: lookup_weather
+    description: Retrieve current conditions or a supported hourly or daily forecast for one location.
+    params:
+      DEPRECATEDAddress: "DEPRECATED: Use location instead."
+      date: "Optional. The date of the required weather information. Note: This date is relative to the local timezone of the location specified in the location field. The date must be within the next 7 days."
+      hour: Optional. The hour of the requested weather information, in 24-hour format (0-23). This value is relative to the local timezone of the location specified in the location field. Hourly forecast is only supported for the next 48 hours from the current time.
+      location: Required. The location to get the weather conditions for.
+      unitsSystem: Optional. The units system to use for the returned weather conditions. If not provided, the returned weather conditions will be in the metric system (default = METRIC).
+  - id: search_places
+    name: search_places
+    description: Find places, businesses, addresses, or points of interest from a specific text query.
+    params:
+      languageCode: 'Optional. The language to request that the summary is returned in. If the language code is unspecified or unrecognized, the summary with a preference for English will be returned. For example, "en" for English. Current list of supported languages: https://developers.google.com/maps/faq#languagesupport.'
+      locationBias: An optional region to bias the search results to. If an explicit location is in `text_query`, it will be used to bias the search results instead of this field.
+      regionCode: Optional. The Unicode country/region code (CLDR) of the location where the request is coming from. This parameter is used to display the place details, like region-specific place name, if available. The parameter can affect results based on applicable law. For example, "US" for United States. For more information, see https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html. Note that 3-digit region codes are not currently supported.
+      textQuery: Required. The text query.
+
+config:
+  - name: API Key
+    description: Restricted Google Cloud API key authorized for Maps Grounding Lite
+    key: X-Goog-Api-Key
+    sensitive: true
+    required: true
+    usage: header

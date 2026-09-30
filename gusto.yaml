@@ -1,0 +1,25 @@
+name: Gusto
+entryKey: fragai-gusto
+shortDescription: Analyze permitted Gusto payroll and workforce data or build reports
+description: |
+  Connect FragAI to Gusto's hosted MCP server to query payroll and people information and create workforce reports or charts.
+
+  ## What you can do
+  - Query company, employee, payroll, contractor, department, and time data
+  - Build custom reports from the permitted data categories
+  - Create charts for workforce and payroll analysis
+
+  ## Before connecting
+  - Sign in through Gusto OAuth with PKCE
+  - During authorization, select only the data categories required by the workflow
+  - Treat payroll, tax, compensation, and employee information as highly sensitive
+  - Verify calculations and reports before using them for payroll, employment, tax, or compliance decisions
+
+  Setup and security details: [Gusto MCP documentation](https://docs.gusto.com/app-integrations/docs/mcp).
+metadata:
+  categories: Human Resources, Financial Services, Data Analytics
+icon: https://files.readme.io/1708f28-gusto-logo.svg
+repoURL: https://docs.gusto.com/app-integrations/docs/mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.api.gusto.com/

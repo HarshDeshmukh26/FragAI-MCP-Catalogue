@@ -1,0 +1,25 @@
+name: PlayMCP
+entryKey: fragai-playmcp
+shortDescription: Use selected Kakao and third-party tools through one shared toolbox
+description: |
+  Use Kakao and participating third-party tools collected in your PlayMCP toolbox through one connection.
+
+  ## What you can do
+  - Expose services that you selected in PlayMCP to a compatible AI client
+  - Use supported KakaoTalk, Talk Calendar, KakaoMap, Gifts, and Melon tools
+  - Access participating third-party MCP services through the same toolbox
+  - Authenticate the toolbox with your Kakao account
+
+  ## Before connecting
+  - Sign in with a Kakao account and add the services you want to your PlayMCP toolbox
+  - Capabilities depend on the tools currently selected in that toolbox
+  - Some tools can send messages, change calendar data, buy items, or modify third-party services; review each requested action before approval
+
+  See Kakao's official [PlayMCP Toolbox announcement](https://www.kakaocorp.com/page/detail/11865?lang=ENG) for setup and examples.
+metadata:
+  categories: Productivity, Communication, Entertainment
+icon: https://t1.kakaocdn.net/komi/assets/playmcp/maintenance/PlayMCP_favicon_32x32.png
+repoURL: https://www.kakaocorp.com/page/detail/11865?lang=ENG
+runtime: remote
+remoteConfig:
+  fixedURL: https://playmcp.kakao.com/mcp

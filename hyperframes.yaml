@@ -1,0 +1,25 @@
+name: HyperFrames by HeyGen
+entryKey: fragai-hyperframes
+shortDescription: Build animated slides, explainers, and motion graphics with HeyGen HyperFrames
+description: |
+  Connect FragAI to HeyGen's HyperFrames MCP server to create editable HTML-based motion compositions from conversational instructions.
+
+  ## What you can do
+  - Compose animated slides and motion graphics from HTML
+  - Build explainer-video sequences from a written brief
+  - Preview and refine generated compositions
+  - Render a completed composition as video
+
+  ## Before connecting
+  - Sign in with a HeyGen account through OAuth
+  - Available generation and rendering depend on the connected account's permissions and plan
+  - Review scripts, visuals, rights, branding, and factual claims before rendering or publishing
+
+  Setup details: [HyperFrames MCP documentation](https://hyperframes.heygen.com/guides/mcp).
+metadata:
+  categories: Design, Video, AI & Machine Learning
+icon: https://www.heygen.com/favicon.ico
+repoURL: https://hyperframes.heygen.com/guides/mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.heygen.com/mcp/hyperframes/

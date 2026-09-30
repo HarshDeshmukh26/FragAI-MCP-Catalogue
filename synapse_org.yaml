@@ -1,0 +1,26 @@
+name: Synapse.org
+entryKey: fragai-synapse-org
+shortDescription: Search scientific datasets and inspect Synapse metadata and provenance
+description: |
+  Discover scientific datasets and inspect entity metadata, annotations, folder hierarchies, activity history, and provenance in Synapse.
+
+  ## What you can do
+  - Search public and authorized Synapse projects and datasets
+  - Retrieve entity metadata and custom annotations
+  - Explore project and folder hierarchies
+  - Inspect provenance and activity history for dataset entities
+
+  ## Before connecting
+  - Sign in through Synapse OAuth with access to the required data
+  - Results follow the connected user's permissions and dataset-specific data-use conditions
+  - Scientific and health datasets may have controlled-access, consent, attribution, or redistribution requirements
+  - Verify data-use restrictions and provenance before downloading, combining, or publishing results
+
+  See the official [Synapse MCP documentation](https://python-docs.synapse.org/en/v4.13.1-develop.1/guides/synapse_mcp/) for tools and data-use considerations.
+metadata:
+  categories: Life Sciences,Scientific Research,Data Discovery
+icon: https://python-docs.synapse.org/en/v4.13.1-develop.1/assets/favicon.png
+repoURL: https://python-docs.synapse.org/en/v4.13.1-develop.1/guides/synapse_mcp/
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.synapse.org/mcp

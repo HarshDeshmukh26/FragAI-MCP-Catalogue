@@ -1,0 +1,26 @@
+name: Docusign
+entryKey: fragai-docusign
+shortDescription: Find agreements and manage Docusign envelopes, recipients, and workflows
+description: |
+  Connect FragAI to Docusign's official MCP server to work with agreements and approved Docusign processes using the connected account's permissions.
+
+  ## What you can do
+  - Search agreements and retrieve their details
+  - Create, inspect, and update envelopes and recipients
+  - List and manage supported Maestro workflows
+  - Work with templates, accounts, and users when authorized
+
+  ## Before connecting
+  - Use a Docusign account entitled to the products and agreements required by the workflow
+  - Configure OAuth credentials and FragAI's redirect URI
+  - Grant only the necessary Docusign scopes, including signature, Maestro, or agreement-repository access where applicable
+
+  Creating envelopes or changing recipients and workflows has external effects, so require confirmation before write actions. Setup details: [Docusign MCP documentation](https://developers.docusign.com/platform/mcp-server/).
+metadata:
+  categories: Business, Legal, SaaS & API Integrations
+icon: https://www.docusign.com/favicon.ico
+repoURL: https://developers.docusign.com/platform/mcp-server/
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.docusign.com/mcp
+  staticOAuthRequired: true

@@ -1,0 +1,25 @@
+name: Kiwi.com
+entryKey: fragai-kiwi-com
+shortDescription: Search Kiwi.com flights across flexible dates, routes, passengers, and cabins
+description: |
+  Connect FragAI to Kiwi.com's public MCP service to explore flight options without linking an account.
+
+  ## What you can do
+  - Search one-way and round-trip flights
+  - Explore flexible dates, routes, and budget destinations
+  - Specify passenger counts and cabin preferences
+  - Submit product feedback to Kiwi.com
+
+  ## Before connecting
+  - No account or credential is required for flight search
+  - Search results are informational and do not create a booking
+  - Prices, schedules, baggage rules, and availability can change; confirm all details before purchasing
+
+  Setup details: [Kiwi.com MCP page](https://www.kiwi.com/en/pages/mcp/).
+metadata:
+  categories: Travel,Flight Search,Productivity
+icon: https://images.kiwi.com/favicons/icons/kiwicom/android-icon-192x192.png
+repoURL: https://www.kiwi.com/en/pages/mcp/
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.kiwi.com/

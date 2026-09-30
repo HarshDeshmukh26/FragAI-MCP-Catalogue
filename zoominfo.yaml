@@ -1,0 +1,27 @@
+name: ZoomInfo
+entryKey: fragai-zoominfo
+shortDescription: Search and enrich companies, contacts, buying signals, and go-to-market research
+description: |
+  Search and enrich companies and professional contacts, identify buying signals, and build go-to-market research with ZoomInfo.
+
+  ## What you can do
+  - Search and enrich company and contact records
+  - Research accounts, competitors, markets, and technology stacks
+  - Find intent signals, company news, scoops, and engagement context
+  - Identify similar companies or contacts
+  - Build target-account lists and map buying committees
+
+  ## Before connecting
+  - Use a ZoomInfo account with the API access and product entitlements required by the requested tools
+  - Queries and exports may consume contractual credits or be subject to plan limits
+  - Contact, employment, intent, and engagement data can be personal or commercially sensitive
+  - Follow privacy, outreach, suppression, data-use, and regional compliance requirements, and verify important records before action
+
+  See the official [ZoomInfo MCP repository](https://github.com/Zoominfo/zoominfo-mcp-plugin) for requirements and capabilities.
+metadata:
+  categories: Sales, Marketing, Data & Analytics
+icon: https://raw.githubusercontent.com/Zoominfo/zoominfo-mcp-plugin/main/assets/zoominfo-logomark-red.svg
+repoURL: https://github.com/Zoominfo/zoominfo-mcp-plugin
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.zoominfo.com/mcp

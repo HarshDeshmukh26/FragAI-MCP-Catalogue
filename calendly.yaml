@@ -1,0 +1,24 @@
+name: Calendly
+entryKey: fragai-calendly
+shortDescription: Manage Calendly availability, scheduling links, and meetings
+description: |
+  Connect FragAI to Calendly's official remote MCP server to handle common scheduling work using the connected user's Calendly access.
+
+  ## What you can do
+  - Create and update event types
+  - Review and manage availability schedules
+  - Create scheduling links and book or cancel meetings
+  - Work with invitees, routing forms, and organization memberships
+
+  ## Before connecting
+  - Each user signs in through Calendly OAuth
+  - Calendly permissions and organization access determine what the connection can view or change
+
+  Setup details: [Calendly MCP documentation](https://developer.calendly.com/calendly-mcp-server).
+metadata:
+  categories: Scheduling, Productivity, SaaS & API Integrations
+icon: https://calendly.com/favicon.ico
+repoURL: https://developer.calendly.com/calendly-mcp-server
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.calendly.com/

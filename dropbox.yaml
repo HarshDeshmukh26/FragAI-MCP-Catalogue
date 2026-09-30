@@ -1,0 +1,25 @@
+name: Dropbox
+entryKey: fragai-dropbox
+shortDescription: Find, organize, share, and manage files or folders in Dropbox
+description: |
+  Connect FragAI to Dropbox's official remote connector to work with content using the signed-in user's existing Dropbox permissions.
+
+  ## What you can do
+  - Search, browse, preview, and download permitted files
+  - Create, copy, move, or delete files and folders
+  - Create and inspect shared links
+  - Create and manage file requests
+
+  ## Before connecting
+  - Sign in to Dropbox through OAuth
+  - Confirm the connected account has access to the required content
+  - Require approval before deleting, moving, sharing, or creating file requests
+
+  Setup details: [Dropbox connector documentation](https://help.dropbox.com/integrations/connect-dropbox-to-claude).
+metadata:
+  categories: File Management, Productivity, SaaS & API Integrations
+icon: "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://dropbox.com&size=256"
+repoURL: https://help.dropbox.com/integrations/connect-dropbox-to-claude
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.dropbox.com/claude_app_mcp

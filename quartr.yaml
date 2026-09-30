@@ -1,0 +1,26 @@
+name: Quartr
+entryKey: fragai-quartr
+shortDescription: Research public companies with first-party investor-relations data
+description: |
+  Research public companies with Quartr's first-party earnings calls, transcripts, filings, presentations, financial data, and event summaries.
+
+  ## What you can do
+  - Find companies by name, ticker, or common financial identifiers
+  - Review earnings events, conference presentations, transcripts, reports, filings, and standardized financial figures
+  - Search documents and retrieve citation-ready source links
+  - Create and organize personal watchlists, keywords, saved searches, folders, and workspaces
+
+  ## Before connecting
+  - Sign in through OAuth with an eligible individual Quartr Pro subscription; student plans are not supported
+  - The MCP service is intended for an individual subscriber's research, not as a backend for a separate product or bulk integration
+  - Requests are rate-limited, and organization tools can change your Quartr workspace
+  - Verify material investment conclusions against the underlying company documents and independent professional advice
+
+  See the official [Quartr MCP documentation](https://mcp.quartr.com/docs) for subscriptions, authentication, tools, and rate limits.
+metadata:
+  categories: Financial Services, Research, Data Analytics
+icon: https://mcp.quartr.com/favicon.svg
+repoURL: https://mcp.quartr.com/docs
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.quartr.com/mcp

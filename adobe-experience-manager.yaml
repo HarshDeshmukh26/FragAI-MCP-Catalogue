@@ -1,0 +1,23 @@
+name: Adobe Experience Manager
+entryKey: fragai-adobe-experience-manager
+shortDescription: Search and manage permitted AEM content, pages, fragments, and assets
+description: |
+  Connect an AI assistant to Adobe Experience Manager as a Cloud Service. The server keeps the connected user's AEM permissions and governance controls in effect.
+
+  ## What you can do
+  - Discover accessible AEM environments and capabilities
+  - Search and read pages, content fragments, and digital assets
+  - Create, update, publish, or delete content when permitted
+  - Use read-only or read-write capabilities according to organization settings
+
+  ## Before connecting
+  You need an Adobe ID with access to an AEM as a Cloud Service organization. The organization must permit the MCP client, and your user needs permission for each requested content item and action.
+
+  See the [official AEM MCP guide](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/mcp-support/using-mcp-with-aem-as-a-cloud-service).
+metadata:
+  categories: Content Management,Digital Asset Management,Collaboration
+icon: https://developer.adobe.com/internals/mcp-registry-web-app/v1.11.0/default_card_icon.6bb9c3a2.svg
+repoURL: https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/mcp-support/using-mcp-with-aem-as-a-cloud-service
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.adobeaemcloud.com/adobe/mcp/aem

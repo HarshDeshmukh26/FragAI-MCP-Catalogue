@@ -1,0 +1,35 @@
+name: Similarweb
+entryKey: fragai-similarweb
+shortDescription: Analyze website traffic, channels, audiences, search, competitors, and mobile apps
+description: |
+  Analyze website and mobile-app performance, including traffic, channels, rankings, audiences, search, competitors, and adoption.
+
+  ## What you can do
+  - Compare website traffic, engagement, rankings, geography, and acquisition channels
+  - Analyze referrals, similar sites, subdomains, pages, and audience overlap
+  - Explore demographics, interests, technologies, and market categories
+  - Research paid-search activity and advertising networks
+  - Inspect mobile-app installs, penetration, engagement, and store rankings
+
+  ## Before connecting
+  - Use a Similarweb subscription with API access
+  - Enter an active API key created by an account administrator
+  - Queries consume credits from your Similarweb API allocation
+  - Treat modeled traffic and audience estimates as directional, and confirm the requested geography, time period, and credit cost before broad analysis
+
+  See the official [Similarweb MCP documentation](https://docs.similarweb.com/api-v5/mcp/mcp-setup) for authentication, clients, and available data.
+metadata:
+  categories: Competitive Intelligence, Marketing, Data & Analytics
+icon: https://www.similarweb.com/favicon.ico
+repoURL: https://docs.similarweb.com/api-v5/mcp/mcp-setup
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.similarweb.com
+
+config:
+  - name: Similarweb API Key
+    description: Enter an active Similarweb API key created by an account administrator.
+    key: api-key
+    required: true
+    sensitive: true
+    usage: header

@@ -1,0 +1,166 @@
+name: Render
+entryKey: fragai-render
+shortDescription: Manage Render services, databases, deployments, logs, and performance metrics
+description: |
+  Manage Render workspaces, services, databases, deployments, logs, environment variables, and performance metrics.
+
+  ## What you can do
+  - Select a workspace and inspect its services, deployments, logs, and metrics
+  - Create web services, static sites, Postgres databases, and Key Value instances
+  - Update service environment variables
+  - Run read-only SQL against Render-hosted Postgres databases
+  - Inspect CPU, memory, request, bandwidth, instance, and database-connection metrics
+
+  ## Before connecting
+  - Create a Render API key from your account settings
+  - Render API keys are broadly scoped across the workspaces and services accessible to that account
+  - Creating resources can incur charges, deployments can affect production availability, and environment variables may contain secrets
+  - Explicitly select and confirm the workspace and resource before approving create or configuration changes
+
+  See the official [Render MCP repository](https://github.com/render-oss/render-mcp-server) for current tools, authentication, and security guidance.
+metadata:
+  categories: Cloud Infrastructure, Developer Tools, SaaS & API Integrations
+icon: https://avatars.githubusercontent.com/u/36424661?s=200&v=4
+repoURL: https://github.com/render-oss/render-mcp-server
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.render.com/mcp
+toolPreview:
+- name: mcp_render_list_workspaces
+  description: List the Render workspaces accessible with the configured API key.
+  params: {}
+- name: mcp_render_get_selected_workspace
+  description: Show the Render workspace currently selected for subsequent operations.
+  params: {}
+- name: mcp_render_select_workspace
+  description: Select the Render workspace used by later tools. Ask the user to choose explicitly instead of selecting one automatically.
+  params:
+    ownerID: The ID of the owner to select
+- name: mcp_render_list_services
+  description: List services in the selected Render workspace, optionally including preview services.
+  params:
+    includePreviews: Whether to include preview services in the response. Defaults to false. (optional)
+- name: mcp_render_get_service
+  description: Retrieve configuration and status details for one Render service by service ID.
+  params:
+    serviceId: The ID of the service to retrieve
+- name: mcp_render_create_web_service
+  description: Create and deploy a public Render web service from the specified repository, runtime, build settings, plan, region, and environment variables.
+  params:
+    name: A unique name for your service
+    runtime: The runtime environment for your service (node, python, go, rust, ruby, elixir, docker)
+    buildCommand: The command used to build your service
+    startCommand: The command used to start your service
+    repo: The repository containing the source code for your service (optional)
+    branch: The repository branch to deploy (optional)
+    plan: The pricing plan for your service (starter, standard, pro, pro_max, pro_plus, pro_ultra) (optional)
+    region: The geographic region where your service will be deployed (oregon, frankfurt, singapore, ohio, virginia) (optional)
+    autoDeploy: Whether to automatically deploy the service when the specified branch is updated (yes, no) (optional)
+    envVars: Environment variables to set for your service (optional)
+- name: mcp_render_create_static_site
+  description: Create and deploy a Render static site from a repository, build command, publish directory, and optional environment variables.
+  params:
+    name: A unique name for your service
+    buildCommand: Render runs this command to build your app before each deploy
+    repo: The repository containing the source code for your service (optional)
+    branch: The repository branch to deploy (optional)
+    publishPath: The relative path of the directory containing built assets to publish (optional)
+    autoDeploy: Whether to automatically deploy the service when the specified branch is updated (yes, no) (optional)
+    envVars: Environment variables to set for your service (optional)
+- name: mcp_render_update_environment_variables
+  description: Add or update environment variables for a Render service, merging them with existing values unless the request specifies otherwise.
+  params:
+    serviceId: The ID of the service to update
+    envVars: The list of environment variables to update or set for the service
+    replace: Whether to replace all existing environment variables with the provided list, or merge with the existing ones (optional)
+- name: mcp_render_list_deploys
+  description: List Render deployments that match the requested service and status filters.
+  params:
+    serviceId: The ID of the service to get deployments for
+    limit: The maximum number of deploys to return in a single page (optional)
+    cursor: A unique string that corresponds to a position in the result list (optional)
+- name: mcp_render_get_deploy
+  description: Retrieve status, timing, commit, and other available details for one Render deployment.
+  params:
+    serviceId: The ID of the service to get deployments for
+    deployId: The ID of the deployment to retrieve
+- name: mcp_render_list_logs
+  description: Search paginated Render logs across selected resources and time ranges using supported text and label filters.
+  params:
+    resource: Filter logs by their resource. A resource is the id of a server, cronjob, job, postgres, or redis
+    limit: Maximum number of logs to return (optional)
+    direction: The direction to query logs for. Backward will return most recent logs first (optional)
+    startTime: Start time for log query (RFC3339 format) (optional)
+    endTime: End time for log query (RFC3339 format) (optional)
+    type: Filter logs by their type (app, request, build) (optional)
+    level: Filter logs by their severity level (optional)
+    text: Filter by the text of the logs (optional)
+    instance: Filter logs by the instance they were emitted from (optional)
+    host: Filter request logs by their host (optional)
+    method: Filter request logs by their requests method (optional)
+    path: Filter request logs by their path (optional)
+    statusCode: Filter request logs by their status code (optional)
+- name: mcp_render_list_log_label_values
+  description: List values observed for a Render log label so they can be used in a narrower log query.
+  params:
+    resource: Filter by resource. A resource is the id of a server, cronjob, job, postgres, or redis
+    label: The label to list values for (host, instance, level, method, statusCode, type)
+    direction: The direction to query logs for (optional)
+    startTime: Start time for log query (RFC3339 format) (optional)
+    endTime: End time for log query (RFC3339 format) (optional)
+- name: mcp_render_get_metrics
+  description: Retrieve CPU, memory, request, bandwidth, instance, or database-connection metrics for selected Render resources.
+  params:
+    resourceId: The ID of the resource to get metrics for (service ID, Postgres ID, or key-value store ID)
+    metricTypes: Which metrics to fetch (cpu_usage, memory_usage, http_request_count, active_connections, instance_count, http_latency, cpu_limit, cpu_target, memory_limit, memory_target, bandwidth_usage)
+    startTime: Start time for metrics query in RFC3339 format (optional)
+    endTime: End time for metrics query in RFC3339 format (optional)
+    resolution: Time resolution for data points in seconds (optional)
+    cpuUsageAggregationMethod: Method for aggregating metric values over time intervals (AVG, MAX, MIN) (optional)
+    httpLatencyQuantile: The quantile/percentile of HTTP latency to fetch (0.5, 0.95, 0.99) (optional)
+    httpHost: Filter HTTP metrics to specific request hosts (optional)
+    httpPath: Filter HTTP metrics to specific request paths (optional)
+    aggregateHttpRequestCountsBy: Field to aggregate HTTP request metrics by (host, statusCode) (optional)
+- name: mcp_render_list_postgres_instances
+  description: List Render Postgres databases in the selected workspace.
+  params: {}
+- name: mcp_render_get_postgres
+  description: Retrieve configuration and status details for one Render Postgres database by ID.
+  params:
+    postgresId: The ID of the Postgres instance to retrieve
+- name: mcp_render_create_postgres
+  description: Create a Render Postgres database with the requested name, plan, region, and version.
+  params:
+    name: The name of the database as it will appear in the Render Dashboard
+    plan: Pricing plan for the database (free, basic_256mb, basic_1gb, basic_4gb, pro_4gb, etc.)
+    region: Region where the database will be deployed (oregon, frankfurt, singapore, ohio, virginia) (optional)
+    version: PostgreSQL version to use (12-16, defaults to 16) (optional)
+    diskSizeGb: Your database's capacity, in GB (optional)
+- name: mcp_render_query_render_postgres
+  description: Run one read-only SQL query against a Render-hosted Postgres database using a short-lived connection.
+  params:
+    postgresId: The ID of the Postgres instance to query
+    sql: The SQL query to run. Note that the query will be wrapped in a read-only transaction
+- name: mcp_render_list_key_value
+  description: List Render Key Value instances in the selected workspace.
+  params: {}
+- name: mcp_render_get_key_value
+  description: Retrieve configuration and status details for one Render Key Value instance by ID.
+  params:
+    keyValueId: The ID of the Key Value instance to retrieve
+- name: mcp_render_create_key_value
+  description: Create a Render Key Value instance with the requested name, plan, region, and access settings.
+  params:
+    name: Name of the Key Value instance
+    plan: Pricing plan for the Key Value instance (free, starter, standard, pro, pro_plus)
+    region: Region where the Key Value instance will be deployed (oregon, frankfurt, singapore, ohio, virginia) (optional)
+    maxmemoryPolicy: The eviction policy for the Key Value store (noeviction, allkeys_lfu, allkeys_lru, allkeys_random, volatile_lfu, volatile_lru, volatile_random, volatile_ttl) (optional)
+
+config:
+  - name: Render API Key
+    description: Enter a Render API key that can access the intended workspaces and resources.
+    key: Authorization
+    required: true
+    sensitive: true
+    prefix: "Bearer "
+    usage: header

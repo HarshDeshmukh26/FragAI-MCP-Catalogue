@@ -1,0 +1,25 @@
+name: Gamma
+entryKey: fragai-gamma
+shortDescription: Generate presentations, documents, webpages, and social content in Gamma
+description: |
+  Connect FragAI to Gamma's hosted MCP server to turn a prompt, outline, or source notes into editable visual content.
+
+  ## What you can do
+  - Generate presentations, documents, webpages, and social posts
+  - Control tone, language, layout, text density, and image choices
+  - Browse available Gamma and workspace themes
+  - Place generated work in a selected Gamma folder
+
+  ## Before connecting
+  - Sign in to Gamma through OAuth
+  - Generation uses Gamma credits according to the connected account's plan
+  - Review generated content, factual claims, images, and branding before publishing
+
+  Setup details: [Gamma MCP documentation](https://developers.gamma.app/mcp).
+metadata:
+  categories: Productivity, Design, SaaS & API Integrations
+icon: https://gamma.app/favicon.ico
+repoURL: https://developers.gamma.app/mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.gamma.app/mcp

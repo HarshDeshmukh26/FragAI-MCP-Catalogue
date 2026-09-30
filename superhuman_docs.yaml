@@ -1,0 +1,27 @@
+name: Superhuman Docs
+entryKey: fragai-superhuman-docs
+shortDescription: Create, search, and update Superhuman docs, pages, and tables
+description: |
+  Create, search, organize, and edit documents, pages, tables, and comments in Superhuman Docs.
+
+  ## What you can do
+  - Create, search, outline, duplicate, and delete documents or pages
+  - Read and modify page content and supported uploaded images
+  - Create tables and manage columns, rows, views, formulas, and controls
+  - Add, resolve, and delete comments
+  - Resolve workspace names and URLs for use with other tools
+
+  ## Before connecting
+  - Sign in through Superhuman OAuth with access to the required workspace
+  - Available documents and actions follow the connected user's workspace permissions
+  - Create, update, duplicate, delete, and comment operations change shared workspace content
+  - Confirm the target document, page, table, and collaborators before approving changes or deletion
+
+  See the official [Superhuman Docs MCP documentation](https://help.superhuman.com/hc/en-us/articles/46210076980365-Connect-to-the-Superhuman-Docs-MCP) for setup and current availability.
+metadata:
+  categories: Productivity,Document Management,Collaboration
+icon: https://cdn.coda.io/icons/png/color/superhuman-docs-128.png
+repoURL: https://help.superhuman.com/hc/en-us/articles/46210076980365-Connect-to-the-Superhuman-Docs-MCP
+runtime: remote
+remoteConfig:
+  fixedURL: https://docs.superhuman.com/apis/mcp

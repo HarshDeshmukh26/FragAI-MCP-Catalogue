@@ -1,0 +1,26 @@
+name: Elicit
+entryKey: fragai-elicit
+shortDescription: Search research papers and clinical trials or build literature-review reports
+description: |
+  Connect FragAI to Elicit's remote MCP server to find research and organize evidence into structured literature-review reports.
+
+  ## What you can do
+  - Search scientific papers with a natural-language research question
+  - Find clinical-trial records related to a topic or intervention
+  - Create structured review reports in the connected Elicit workspace
+  - List previous reports and retrieve completed results
+  - Compare extracted findings across studies
+
+  ## Before connecting
+  - Sign in to an Elicit account through OAuth
+  - Creating a report writes a new item to the Elicit workspace; searches and report retrieval are read operations
+  - Verify important findings in the original papers or trial records before using them for high-impact decisions
+
+  Setup details: [Elicit MCP integration guide](https://github.com/elicit/api-examples/blob/main/integrations/mcp/README.md).
+metadata:
+  categories: Research, Life Sciences, Education
+icon: "https://avatars.githubusercontent.com/u/143827874?v=4"
+repoURL: https://github.com/elicit/api-examples/blob/main/integrations/mcp/README.md
+runtime: remote
+remoteConfig:
+  fixedURL: https://elicit.com/api/mcp

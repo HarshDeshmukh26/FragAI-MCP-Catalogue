@@ -1,0 +1,23 @@
+name: AllTrails
+entryKey: fragai-alltrails
+shortDescription: Find outdoor trails and review trail details and weather
+description: |
+  Ask an AI assistant to find outdoor routes and explain useful trail information from AllTrails.
+
+  ## What you can do
+  - Search for trails by name, location, or map area
+  - Review descriptions, ratings, difficulty, and other trail details
+  - Check forecast information for a trailhead
+  - Show results on a map when supported by the client
+
+  ## Before connecting
+  No AllTrails account or API key is required. Availability may vary by region, assistant, or subscription tier. This connection retrieves information and does not modify an AllTrails account.
+
+  See the [official AllTrails AI integrations guide](https://support.alltrails.com/hc/en-us/articles/47343827423764-AllTrails-integrations-with-AI-assistants).
+metadata:
+  categories: Outdoors,Travel,Maps
+icon: https://www.alltrails.com/app-icon-96.png
+repoURL: https://support.alltrails.com/hc/en-us/articles/47343827423764-AllTrails-integrations-with-AI-services
+runtime: remote
+remoteConfig:
+  fixedURL: https://www.alltrails.com/mcp

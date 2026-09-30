@@ -1,0 +1,197 @@
+name: Supabase
+entryKey: fragai-supabase
+shortDescription: Connect to Supabase with selectable read-only access and OAuth or a personal access token
+upgradeNote: |
+  This replaces the FragAI-hosted Supabase server with Supabase's official hosted MCP server.
+
+  - **Reconnect required:** Select read-only or read-and-write access, then connect with OAuth or optionally provide a Supabase personal access token.
+  - **Authentication change:** A personal access token is no longer required; OAuth is used when the token is omitted.
+  - **Tool changes:** Tool names, parameters, and available project, database, function, branch, storage, and documentation operations change.
+description: |
+  Inspect or manage Supabase projects, Postgres databases, migrations, Edge Functions, branches, storage configuration, logs, and documentation.
+
+  ## What you can do
+  - List projects, organizations, tables, extensions, migrations, functions, and branches
+  - Query logs and retrieve security or performance advisors
+  - Generate TypeScript types and retrieve project URLs and client-safe publishable keys
+  - Run SQL, apply migrations, deploy Edge Functions, and manage development branches when write access is enabled
+  - Search Supabase documentation
+
+  ## Before connecting
+  - Select read-only mode unless the workflow genuinely requires writes
+  - Authenticate with OAuth, or optionally provide a personal access token for non-interactive use
+  - Use a development project or branch with non-production data; Supabase recommends not connecting this MCP server to production
+  - Confirm organization, project, branch, SQL, migration, deployment, and estimated cost before every write operation
+
+  See the official [Supabase MCP documentation](https://supabase.com/docs/guides/ai-tools/mcp) for configuration and security guidance.
+
+  > **Important upgrade notice**
+  >
+  > This replaces the former FragAI-hosted Supabase server. Reconnect after selecting read-only or read-and-write access. OAuth is used when no personal access token is provided, and tool names and parameters may differ from the previous integration.
+metadata:
+  categories: Databases
+icon: https://supabase.com/favicon/favicon-96x96.png
+repoURL: https://supabase.com/docs/guides/ai-tools/mcp
+config:
+  - name: Read Only
+    key: READ_ONLY
+    description: Choose whether the connection can only read data or can also perform write operations.
+    required: true
+    sensitive: false
+    options:
+      - name: Read only
+        value: "true"
+        description: Limit SQL and mutation tools to read-only behavior where supported.
+      - name: Read and write
+        value: "false"
+        description: Enable migrations, deployments, project changes, and other potentially destructive writes.
+    usage: env
+  - name: Supabase Personal Access Token
+    description: Optionally enter a personal access token for non-interactive authentication; OAuth is used when this is left empty.
+    key: Authorization
+    required: false
+    sensitive: true
+    prefix: "Bearer "
+    usage: header
+runtime: remote
+remoteConfig:
+  urlTemplate: https://mcp.supabase.com/mcp?read_only=${READ_ONLY}
+toolPreview:
+- name: list_projects
+  description: List Supabase projects accessible to the authenticated user.
+  params: {}
+- name: get_project
+  description: Retrieve status and configuration details for one Supabase project.
+  params:
+    id: Project identifier.
+- name: create_project
+  description: Create a Supabase project after the user reviews and confirms its expected cost. Requires write access.
+  params:
+    confirm_cost_id: Cost confirmation identifier.
+    name: Project name.
+    organization_id: Organization identifier.
+    region: Deployment region.
+- name: pause_project
+  description: Pause a selected Supabase project after explicit confirmation. Requires write access.
+  params:
+    project_id: Project identifier.
+- name: restore_project
+  description: Restore a paused Supabase project. Requires write access.
+  params:
+    project_id: Project identifier.
+- name: list_organizations
+  description: List Supabase organizations accessible to the authenticated user.
+  params: {}
+- name: get_organization
+  description: Retrieve details for one Supabase organization.
+  params:
+    id: Organization identifier.
+- name: get_cost
+  description: Estimate the cost of creating a Supabase project or development branch.
+  params:
+    organization_id: Organization identifier.
+    type: Resource type.
+- name: confirm_cost
+  description: Record that the user explicitly acknowledged a quoted Supabase project or branch cost.
+  params:
+    amount: Cost amount.
+    recurrence: Cost recurrence.
+    type: Resource type.
+- name: search_docs
+  description: Search official Supabase documentation for relevant setup and implementation guidance.
+  params:
+    graphql_query: GraphQL documentation query.
+- name: list_tables
+  description: List database tables and optionally include columns, primary keys, and foreign-key relationships.
+  params:
+    project_id: Project identifier.
+    schemas: Schemas to include.
+    verbose: Include detailed table metadata.
+- name: list_extensions
+  description: List PostgreSQL extensions and their installation status for a Supabase project.
+  params:
+    project_id: Project identifier.
+- name: list_migrations
+  description: List recorded database migrations for a Supabase project.
+  params:
+    project_id: Project identifier.
+- name: apply_migration
+  description: Apply a SQL migration to the selected Supabase database. Requires write access.
+  params:
+    name: Migration name.
+    project_id: Project identifier.
+    query: SQL migration query.
+- name: execute_sql
+  description: Run SQL against a Supabase database; read-only mode uses a restricted PostgreSQL role.
+  params:
+    project_id: Project identifier.
+    query: SQL query.
+- name: query_logs
+  description: Query recent Supabase project logs using the requested product and time filters.
+  params:
+    iso_timestamp_end: End timestamp in ISO 8601 format.
+    iso_timestamp_start: Start timestamp in ISO 8601 format.
+    project_id: Project identifier.
+    sql: Log query SQL.
+- name: get_advisors
+  description: Retrieve Supabase security and performance advisor findings for a project.
+  params:
+    project_id: Project identifier.
+    type: Advisor type.
+- name: get_project_url
+  description: Retrieve the API URL for a selected Supabase project.
+  params:
+    project_id: Project identifier.
+- name: get_publishable_keys
+  description: Retrieve client-safe publishable or legacy anonymous API keys for a Supabase project.
+  params:
+    project_id: Project identifier.
+- name: generate_typescript_types
+  description: Generate TypeScript types from the current schema of a Supabase database.
+  params:
+    project_id: Project identifier.
+- name: list_edge_functions
+  description: List Edge Functions deployed to a Supabase project.
+  params:
+    project_id: Project identifier.
+- name: get_edge_function
+  description: Retrieve source files and configuration for one Supabase Edge Function.
+  params:
+    function_slug: Edge Function name.
+    project_id: Project identifier.
+- name: deploy_edge_function
+  description: Deploy or update an Edge Function in a Supabase project. Requires write access.
+  params:
+    entrypoint_path: Function entrypoint path.
+    files: Function files.
+    import_map_path: Import map path.
+    name: Function name.
+    project_id: Project identifier.
+    verify_jwt: Require JWT verification.
+- name: create_branch
+  description: Create a Supabase development branch after cost confirmation. Requires an eligible paid plan and write access.
+  params:
+    confirm_cost_id: Cost confirmation identifier.
+    name: Branch name.
+    project_id: Project identifier.
+- name: list_branches
+  description: List development branches for a Supabase project. Requires an eligible paid plan.
+  params:
+    project_id: Project identifier.
+- name: delete_branch
+  description: Permanently delete a Supabase development branch. Requires an eligible paid plan and write access.
+  params:
+    branch_id: Branch identifier.
+- name: merge_branch
+  description: Merge a Supabase development branch into production. Requires an eligible paid plan and write access.
+  params:
+    branch_id: Branch identifier.
+- name: reset_branch
+  description: Reset a Supabase development branch to a selected migration version. Requires an eligible paid plan and write access.
+  params:
+    branch_id: Branch identifier.
+    migration_version: Target migration version.
+- name: rebase_branch
+  description: Rebase a Supabase development branch on the current production branch. Requires an eligible paid plan and write access.
+  params:
+    branch_id: Branch identifier.

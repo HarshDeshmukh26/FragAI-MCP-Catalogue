@@ -1,0 +1,28 @@
+name: Sanity
+entryKey: fragai-sanity
+shortDescription: Create, query, publish, and manage structured content in Sanity
+description: |
+  Query and manage Sanity projects, datasets, schemas, releases, studios, assets, and structured content.
+
+  ## What you can do
+  - Run GROQ queries and semantic searches across authorized content
+  - Create, patch, publish, unpublish, and discard content documents
+  - Create projects, datasets, releases, schemas, and managed Studios
+  - Upload assets from supported sources and inspect project configuration
+  - Search Sanity documentation and load development rules
+
+  ## Before connecting
+  - Sign in through Sanity OAuth; supported clients may alternatively use a properly scoped API token
+  - Access and changes follow the connected user's role or token permissions
+  - Publishing, unpublishing, discarding drafts, changing schemas, and modifying project settings affect shared content or infrastructure
+  - Image-generation and transformation tools consume Sanity AI credits
+  - Confirm project, dataset, workspace, document IDs, release context, and cost before approving changes
+
+  See the official [Sanity MCP documentation](https://www.sanity.io/docs/ai/mcp-server) for authentication, tools, permissions, and AI-credit usage.
+metadata:
+  categories: Content Management,Developer Tools,Productivity
+icon: https://www.sanity.io/docs/static/images/favicons/favicon-96x96.png
+repoURL: https://www.sanity.io/docs/ai/mcp-server
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.sanity.io

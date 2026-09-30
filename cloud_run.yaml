@@ -1,0 +1,51 @@
+name: Google Cloud Run
+entryKey: fragai-google-cloud-run
+shortDescription: Inspect and deploy services through Google Cloud Run
+upgradeNote: |
+  This entry now uses Google's managed Cloud Run MCP server. Existing users must reconnect with Google OAuth. Tool names and parameters differ from the former FragAI-hosted server; project management and log retrieval are unavailable, while source-archive deployment is supported.
+description: |
+  Connect FragAI to Google's managed Cloud Run MCP server to inspect deployed services or publish applications from images and source code.
+
+  ## What you can do
+  - List services in a selected Google Cloud project and region
+  - Retrieve a service's URL, status, and configuration
+  - Deploy a container image, a Cloud Storage source archive, or inline source files
+
+  ## Before connecting
+  - Use a billing-enabled Google Cloud project with the Cloud Run Admin API enabled
+  - Grant the user's Google identity the least-privilege IAM roles required for the intended operations
+  - Configure the Google web OAuth client used by FragAI
+
+  This managed server does not list or create projects and does not retrieve service logs. Inline source is limited to 50 MiB and source archives to 250 MiB. See [Cloud Run MCP documentation](https://cloud.google.com/run/docs/use-cloud-run-mcp) and [Google MCP authentication](https://cloud.google.com/mcp/authenticate-mcp).
+metadata:
+  categories: Cloud Infrastructure,Deployment,Container Orchestration
+icon: https://avatars.githubusercontent.com/u/2810941?s=48&v=4
+repoURL: https://cloud.google.com/run/docs/use-cloud-run-mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://run.googleapis.com/mcp
+  staticOAuthRequired: true
+toolPreview:
+  - name: get_service
+    description: Retrieve the URL, status, and configuration of one Cloud Run service.
+    params:
+      name: Cloud Run service name
+      project: Google Cloud project ID or number
+      region: Google Cloud region containing the service
+  - name: list_services
+    description: Show the Cloud Run services deployed in a specified project and region.
+    params:
+      project: Google Cloud project ID or number
+      region: Google Cloud region to search
+  - name: deploy_service_from_image
+    description: Create or update a Cloud Run service from a container image.
+    params:
+      service: Cloud Run service configuration and container image definition
+  - name: deploy_service_from_archive
+    description: Deploy a Cloud Storage source archive to Cloud Run.
+    params:
+      service: Cloud Run service configuration and source archive definition
+  - name: deploy_service_from_file_contents
+    description: Build and deploy supplied source-file contents as a Cloud Run service.
+    params:
+      service: Cloud Run service configuration and inline source files

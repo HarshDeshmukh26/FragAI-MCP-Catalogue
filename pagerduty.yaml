@@ -1,0 +1,344 @@
+name: PagerDuty
+entryKey: fragai-pagerduty
+shortDescription: Manage PagerDuty incidents, on-call schedules, services, and incident response workflows
+upgradeNote: |
+  This replaces the FragAI-hosted PagerDuty server with PagerDuty's official hosted MCP server.
+
+  - **Reconnect required:** Select the PagerDuty US or EU hosted endpoint and provide a PagerDuty User API token.
+  - **Configuration change:** The previous API-host setting is replaced by a hosted-server region selection.
+  - **Tool changes:** Tool names, parameters, and the available incident-response and administration operations change.
+description: |
+  Investigate incidents, manage on-call coverage, and administer PagerDuty services through PagerDuty's hosted MCP server.
+
+  ## What you can do
+  - Find and inspect incidents, alerts, notes, log entries, related incidents, and change events
+  - Create, update, resolve, and coordinate incidents and responder workflows
+  - Review schedules and on-call assignments and manage schedule overrides
+  - Manage services, teams, escalation policies, event orchestrations, alert grouping, and status pages
+  - Analyze operational history and service dependencies
+
+  ## Before connecting
+  - Select the US or EU endpoint that hosts your PagerDuty account
+  - Create a PagerDuty User API token from My Profile > User Settings > API Access
+  - The server acts with the permissions of that token and can change incident-response and administration data
+  - Confirm incident, schedule, service, and team identifiers before approving write or delete operations, and rotate exposed tokens
+
+  See the official [PagerDuty MCP documentation](https://support.pagerduty.com/main/docs/pagerduty-mcp-server) for regional endpoints, authentication, and available tools.
+
+  > **Important upgrade notice**
+  >
+  > This entry replaces the former FragAI-hosted PagerDuty server with PagerDuty's official hosted server. Reconnect using the correct region and a PagerDuty User API token. Tool names, parameters, and available operations may differ from the previous integration.
+metadata:
+  categories: Monitoring & Observability, SaaS & API Integrations
+icon: https://avatars.githubusercontent.com/u/766800?s=48&v=4
+repoURL: https://support.pagerduty.com/main/docs/pagerduty-mcp-server
+config:
+  - name: PagerDuty region
+    key: PAGERDUTY_MCP_HOST
+    description: Choose the regional PagerDuty MCP hostname that matches the account location.
+    required: true
+    sensitive: false
+    options:
+      - name: US
+        value: mcp.pagerduty.com
+        description: Use the United States-hosted PagerDuty MCP service.
+      - name: EU
+        value: mcp.eu.pagerduty.com
+        description: Use the Europe-hosted PagerDuty MCP service.
+    usage: env
+  - name: PagerDuty API Key
+    description: Enter a PagerDuty User API token created under My Profile > User Settings > API Access.
+    key: Authorization
+    required: true
+    sensitive: true
+    prefix: Token token=
+    usage: header
+runtime: remote
+remoteConfig:
+  urlTemplate: https://${PAGERDUTY_MCP_HOST}/mcp
+toolPreview:
+- name: add_note_to_incident
+  description: Add an operational note to a selected PagerDuty incident.
+  params:
+    incident_id: Incident identifier.
+    note: Note content.
+- name: add_responders
+  description: Request additional PagerDuty responders for a selected incident.
+  params:
+    incident_id: Incident identifier.
+    request: Responder request.
+- name: add_team_member
+  description: Add a member to a team in PagerDuty.
+  params:
+    member_data: Team-member data.
+    team_id: Team identifier.
+- name: append_event_orchestration_router_rule
+  description: Add a rule to an event orchestration router in PagerDuty.
+  params:
+    new_rule: Router rule.
+    orchestration_id: Event orchestration identifier.
+- name: create_alert_grouping_setting
+  description: Create an alert grouping setting in PagerDuty.
+  params:
+    create_model: Alert-grouping setting data.
+- name: create_incident
+  description: Create an incident in PagerDuty.
+  params:
+    create_model: Incident data.
+- name: create_schedule
+  description: Create a schedule in PagerDuty.
+  params:
+    create_model: Schedule data.
+- name: create_schedule_override
+  description: Create a schedule override in PagerDuty.
+  params:
+    override_request: Schedule override data.
+    schedule_id: Schedule identifier.
+- name: create_service
+  description: Create a service in PagerDuty.
+  params:
+    service_data: Service data.
+- name: create_status_page_post
+  description: Create a status-page post in PagerDuty.
+  params:
+    create_model: Status-page post data.
+    status_page_id: Status-page identifier.
+- name: create_status_page_post_update
+  description: Create an update for a status-page post in PagerDuty.
+  params:
+    create_model: Status-page post-update data.
+    post_id: Status-page post identifier.
+    status_page_id: Status-page identifier.
+- name: create_team
+  description: Create a team in PagerDuty.
+  params:
+    create_model: Team data.
+- name: delete_alert_grouping_setting
+  description: Delete an alert grouping setting in PagerDuty.
+  params:
+    setting_id: Alert-grouping setting identifier.
+- name: delete_team
+  description: Delete a team in PagerDuty.
+  params:
+    team_id: Team identifier.
+- name: get_alert_from_incident
+  description: Retrieve an alert from an incident in PagerDuty.
+  params:
+    alert_id: Alert identifier.
+    incident_id: Incident identifier.
+- name: get_alert_grouping_setting
+  description: Retrieve an alert grouping setting in PagerDuty.
+  params:
+    setting_id: Alert-grouping setting identifier.
+- name: get_change_event
+  description: Retrieve a change event in PagerDuty.
+  params:
+    change_event_id: Change-event identifier.
+- name: get_escalation_policy
+  description: Retrieve an escalation policy in PagerDuty.
+  params:
+    policy_id: Escalation-policy identifier.
+- name: get_event_orchestration
+  description: Retrieve an event orchestration in PagerDuty.
+  params:
+    orchestration_id: Event orchestration identifier.
+- name: get_event_orchestration_global
+  description: Retrieve global event-orchestration configuration in PagerDuty.
+  params:
+    orchestration_id: Event orchestration identifier.
+- name: get_event_orchestration_router
+  description: Retrieve event-orchestration router configuration in PagerDuty.
+  params:
+    orchestration_id: Event orchestration identifier.
+- name: get_event_orchestration_service
+  description: Retrieve event-orchestration service configuration in PagerDuty.
+  params:
+    service_id: Service identifier.
+- name: get_incident
+  description: Retrieve an incident in PagerDuty.
+  params:
+    incident_id: Incident identifier.
+    query_model: Query options.
+- name: get_incident_workflow
+  description: Retrieve an incident workflow in PagerDuty.
+  params:
+    workflow_id: Incident-workflow identifier.
+- name: get_log_entry
+  description: Retrieve a log entry in PagerDuty.
+  params:
+    log_entry_id: Log-entry identifier.
+- name: get_outlier_incident
+  description: Retrieve outlier analysis for a selected PagerDuty incident.
+  params:
+    incident_id: Incident identifier.
+    query_model: Query options.
+- name: get_past_incidents
+  description: Retrieve earlier PagerDuty incidents related to a selected incident.
+  params:
+    incident_id: Incident identifier.
+    query_model: Query options.
+- name: get_related_incidents
+  description: Retrieve PagerDuty incidents that are related to a selected incident.
+  params:
+    incident_id: Incident identifier.
+    query_model: Query options.
+- name: get_schedule
+  description: Retrieve a schedule in PagerDuty.
+  params:
+    schedule_id: Schedule identifier.
+- name: get_service
+  description: Retrieve a service in PagerDuty.
+  params:
+    service_id: Service identifier.
+- name: get_status_page_post
+  description: Retrieve a status-page post in PagerDuty.
+  params:
+    post_id: Status-page post identifier.
+    query_model: Query options.
+    status_page_id: Status-page identifier.
+- name: get_team
+  description: Retrieve a team in PagerDuty.
+  params:
+    team_id: Team identifier.
+- name: get_user_data
+  description: Retrieve the connected PagerDuty user and account context.
+  params: {}
+- name: list_alert_grouping_settings
+  description: List alert grouping settings in PagerDuty.
+  params:
+    query_model: Query options.
+- name: list_alerts_from_incident
+  description: List alerts for an incident in PagerDuty.
+  params:
+    incident_id: Incident identifier.
+    query_model: Query options.
+- name: list_change_events
+  description: List change events in PagerDuty.
+  params:
+    query_model: Query options.
+- name: list_escalation_policies
+  description: List escalation policies in PagerDuty.
+  params:
+    query_model: Query options.
+- name: list_event_orchestrations
+  description: List event orchestrations in PagerDuty.
+  params:
+    query_model: Query options.
+- name: list_incident_change_events
+  description: List change events for an incident in PagerDuty.
+  params:
+    incident_id: Incident identifier.
+    limit: Result limit.
+- name: list_incident_notes
+  description: List notes for an incident in PagerDuty.
+  params:
+    incident_id: Incident identifier.
+- name: list_incident_workflows
+  description: List incident workflows in PagerDuty.
+  params:
+    query_model: Query options.
+- name: list_incidents
+  description: List incidents in PagerDuty.
+  params:
+    query_model: Query options.
+- name: list_log_entries
+  description: List log entries in PagerDuty.
+  params:
+    query_model: Query options.
+- name: list_oncalls
+  description: List on-call assignments in PagerDuty.
+  params:
+    query_model: Query options.
+- name: list_schedule_users
+  description: List users assigned to a schedule in PagerDuty.
+  params:
+    schedule_id: Schedule identifier.
+- name: list_schedules
+  description: List schedules in PagerDuty.
+  params:
+    query_model: Query options.
+- name: list_service_change_events
+  description: List change events for a service in PagerDuty.
+  params:
+    query_model: Query options.
+    service_id: Service identifier.
+- name: list_services
+  description: List services in PagerDuty.
+  params:
+    query_model: Query options.
+- name: list_status_page_impacts
+  description: List status-page impacts in PagerDuty.
+  params:
+    query_model: Query options.
+    status_page_id: Status-page identifier.
+- name: list_status_page_post_updates
+  description: List updates for a status-page post in PagerDuty.
+  params:
+    post_id: Status-page post identifier.
+    query_model: Query options.
+    status_page_id: Status-page identifier.
+- name: list_status_page_severities
+  description: List status-page severities in PagerDuty.
+  params:
+    query_model: Query options.
+    status_page_id: Status-page identifier.
+- name: list_status_page_statuses
+  description: List status-page statuses in PagerDuty.
+  params:
+    query_model: Query options.
+    status_page_id: Status-page identifier.
+- name: list_status_pages
+  description: List status pages in PagerDuty.
+  params:
+    query_model: Query options.
+- name: list_team_members
+  description: List team members in PagerDuty.
+  params:
+    team_id: Team identifier.
+- name: list_teams
+  description: List teams in PagerDuty.
+  params:
+    query_model: Query options.
+- name: list_users
+  description: List users in PagerDuty.
+  params:
+    query_model: Query options.
+- name: manage_incidents
+  description: Acknowledge, reassign, escalate, or resolve one or more PagerDuty incidents.
+  params:
+    manage_request: Incident-management request.
+- name: remove_team_member
+  description: Remove a team member in PagerDuty.
+  params:
+    team_id: Team identifier.
+    user_id: User identifier.
+- name: start_incident_workflow
+  description: Start an incident workflow in PagerDuty.
+  params:
+    instance_request: Incident-workflow instance request.
+    workflow_id: Incident-workflow identifier.
+- name: update_alert_grouping_setting
+  description: Update an alert grouping setting in PagerDuty.
+  params:
+    setting_id: Alert-grouping setting identifier.
+    update_model: Alert-grouping setting data.
+- name: update_event_orchestration_router
+  description: Update event-orchestration router configuration in PagerDuty.
+  params:
+    orchestration_id: Event orchestration identifier.
+    router_update: Router configuration.
+- name: update_schedule
+  description: Update a schedule in PagerDuty.
+  params:
+    schedule_id: Schedule identifier.
+    update_model: Schedule data.
+- name: update_service
+  description: Update a service in PagerDuty.
+  params:
+    service_data: Service data.
+    service_id: Service identifier.
+- name: update_team
+  description: Update a team in PagerDuty.
+  params:
+    team_id: Team identifier.
+    update_model: Team data.

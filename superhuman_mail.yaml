@@ -1,0 +1,28 @@
+name: Superhuman Mail
+entryKey: fragai-superhuman-mail
+shortDescription: Search email, draft and send replies, and manage calendars across Gmail and Outlook
+description: |
+  Search email and calendars, draft or send messages, and schedule meetings across Gmail and Outlook accounts connected to Superhuman Mail.
+
+  ## What you can do
+  - Search messages, threads, attachments, calendars, and events
+  - Draft, schedule, send, and undo supported email messages
+  - Create or update calendar events and check attendee availability
+  - Manage labels, split inboxes, read state, reminders, spam, and trash
+  - Work across multiple Gmail and Outlook accounts attached to the same seat
+
+  ## Before connecting
+  - Use a Superhuman Mail Business plan or higher with Ask AI enabled
+  - Complete authentication through the Superhuman Mail Chrome extension
+  - Managed or enterprise accounts may require administrator approval
+  - Email and calendar data can be highly sensitive, and send or event tools contact other people
+  - Verify the sending account, recipients, attachments, message content, schedule, and attendee list before approval
+
+  See the official [Superhuman Mail MCP documentation](https://help.superhuman.com/hc/en-us/articles/46005696690317-Superhuman-Mail-MCP-Server) for requirements, tools, and security guidance.
+metadata:
+  categories: Communication, Productivity, SaaS & API Integrations
+icon: https://mcp.mail.superhuman.com/favicon.ico
+repoURL: https://help.superhuman.com/hc/en-us/articles/46005696690317-Superhuman-Mail-MCP-Server
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.mail.superhuman.com/mcp

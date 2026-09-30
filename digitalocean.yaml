@@ -1,0 +1,97 @@
+name: DigitalOcean
+entryKey: fragai-digitalocean
+shortDescription: Manage one DigitalOcean product area through its hosted MCP service
+upgradeNote: |
+  This entry now uses DigitalOcean's official hosted MCP services. Existing users must reconnect with a personal access token and select one service per connection. To use several service areas, create separate connections; available tools follow the selected DigitalOcean service.
+description: |
+  Connect FragAI to one DigitalOcean-hosted MCP service, such as App Platform, Droplets, networking, databases, Kubernetes, storage, monitoring, documentation, or AI services.
+
+  ## What you can do
+  - Choose a focused DigitalOcean service area for each connection
+  - Inspect or manage resources supported by that service
+  - Search DigitalOcean documentation through the documentation service
+  - Use separate connections when a workflow needs more than one service area
+
+  ## Before connecting
+  - Select the service from the catalogue field below
+  - Create a DigitalOcean personal access token with only the scopes needed for that service
+  - Review create, update, resize, deployment, networking, and deletion operations before approval because they can affect availability or cost
+
+  Setup details and the current service list are in the [DigitalOcean MCP documentation](https://docs.digitalocean.com/reference/mcp/).
+metadata:
+  categories: Cloud & Infrastructure, Developer Tools
+  allow-multiple: "true"
+icon: https://cdn.brandfetch.io/idvF37rNoN/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B
+repoURL: https://docs.digitalocean.com/products/app-platform/reference/mcp/
+runtime: remote
+config:
+  - name: DigitalOcean Service
+    key: DIGITALOCEAN_SERVICE
+    description: DigitalOcean product area exposed by this connection
+    required: true
+    sensitive: false
+    options:
+      - name: App Platform
+        value: apps
+        description: Deploy, manage, and monitor App Platform applications.
+      - name: Account
+        value: accounts
+        description: Access account details, billing, invoices, and SSH keys.
+      - name: Databases
+        value: databases
+        description: Manage DigitalOcean managed database clusters.
+      - name: Kubernetes
+        value: doks
+        description: Manage DigitalOcean Kubernetes clusters and node pools.
+      - name: Droplets
+        value: droplets
+        description: Create and manage DigitalOcean virtual machines.
+      - name: Container Registry
+        value: docr
+        description: Manage container registries, repositories, and garbage collection.
+      - name: Functions
+        value: functions
+        description: Manage serverless function namespaces, actions, and triggers.
+      - name: Insights
+        value: insights
+        description: Manage uptime checks, alert policies, and resource metrics.
+      - name: Marketplace
+        value: marketplace
+        description: Discover and deploy DigitalOcean Marketplace applications.
+      - name: Networking
+        value: networking
+        description: Manage DNS, firewalls, load balancers, IPs, and VPCs.
+      - name: Spaces
+        value: spaces
+        description: Manage Spaces access keys and CDN settings.
+      - name: Volumes
+        value: volumes
+        description: Manage block storage volumes and snapshots.
+      - name: Network File Storage
+        value: nfs
+        description: Manage network file shares, snapshots, and access rules.
+      - name: Documentation
+        value: docs
+        description: Search and retrieve DigitalOcean documentation.
+      - name: Dedicated Inference
+        value: gradient-ai
+        description: Manage GPU-accelerated dedicated inference endpoints.
+      - name: Model Catalog
+        value: inference-modelcatalog
+        description: Browse and retrieve DigitalOcean AI model details.
+      - name: Batch Inference
+        value: batchinference
+        description: Create and monitor asynchronous AI batch inference jobs.
+      - name: AI Evaluations
+        value: genai-evaluation
+        description: Manage datasets and evaluation workflows for AI deployments.
+    usage: env
+  - name: DigitalOcean API Token
+    description: Least-privilege personal access token authorized for the selected service
+    key: Authorization
+    required: true
+    sensitive: true
+    prefix: "Bearer "
+    usage: header
+remoteConfig:
+  urlTemplate: https://${DIGITALOCEAN_SERVICE}.mcp.digitalocean.com/mcp

@@ -1,0 +1,25 @@
+name: Guru
+entryKey: fragai-guru
+shortDescription: Search governed company knowledge and maintain permitted Guru cards
+description: |
+  Connect FragAI to Guru's official MCP server to retrieve verified company knowledge and, when allowed, draft or update workspace content.
+
+  ## What you can do
+  - Search permission-aware documents and retrieve cards by identifier
+  - Generate answers grounded in Guru knowledge
+  - List Knowledge Agents available to the user
+  - Create draft content or update existing cards when authorized
+
+  ## Before connecting
+  - Sign in to Guru through OAuth
+  - Use an account with access to the collections and cards required by the workflow
+  - Require review before creating or updating knowledge so unverified material is not published accidentally
+
+  All searches and changes follow the connected user's Guru permissions. Setup details: [Guru MCP documentation](https://help.getguru.com/docs/connecting-gurus-mcp-server).
+metadata:
+  categories: Knowledge Management,Productivity,Collaboration
+icon: https://files.readme.io/98745dc-small-1_Guru_G-Logo.png
+repoURL: https://help.getguru.com/docs/connecting-gurus-mcp-server
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.api.getguru.com/mcp

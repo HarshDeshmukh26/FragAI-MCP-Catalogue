@@ -1,0 +1,27 @@
+name: Udemy Business
+entryKey: fragai-udemy-business
+shortDescription: Discover enterprise learning content and create structured learning experiences
+description: |
+  Discover content in your organization's Udemy Business catalog and create structured learning paths or role-play experiences.
+
+  ## What you can do
+  - Search public and custom courses and inspect course curricula
+  - Find lectures, skill assessments, hands-on labs, and curated learning paths
+  - Build private multi-course learning paths for an audience and proficiency level
+  - Create unpublished AI Role Play scenarios for workplace practice
+  - Ground recommendations in the content available to your tenant
+
+  ## Before connecting
+  - Use an active Udemy Business Enterprise subscription with the AI Connectors add-on
+  - Sign in through the organization's OAuth or SSO flow
+  - Labs and curated paths require Udemy Business Pro; role-play creation requires the AI Role Play SKU
+  - Creation tools save content to the organization, so review audience, permissions, generated material, licensing, and publication status before approval
+
+  See the official [Udemy Business AI Connectors documentation](https://business-support.udemy.com/hc/en-us/articles/34213384429335-How-to-integrate-the-Udemy-Business-AI-Connectors-with-your-AI-tool) for prerequisites and tools.
+metadata:
+  categories: Education, Human Resources, Productivity
+icon: https://frontends.udemycdn.com/frontends-homepage/staticx/udemy/images/v7/apple-touch-icon.png
+repoURL: https://business-support.udemy.com/hc/en-us/articles/34213384429335-How-to-integrate-the-Udemy-Business-AI-Connectors-with-your-AI-tool
+runtime: remote
+remoteConfig:
+  fixedURL: https://api.udemy.com/mcp

@@ -1,0 +1,35 @@
+name: Intercom
+entryKey: fragai-intercom
+shortDescription: Search Intercom customers, conversations, tickets, and Help Center content
+description: |
+  Connect FragAI to Intercom's official MCP server to retrieve support and customer information permitted by the supplied token.
+
+  ## What you can do
+  - Search and inspect customer conversations and support tickets
+  - Find contacts, companies, and associated customer details
+  - Analyze conversation themes and customer feedback
+  - Read or manage Help Center articles when the token permits it
+
+  ## Before connecting
+  - Create an Intercom access token with only the contact, conversation, ticket, or article permissions required
+  - Store and rotate the token securely
+  - Follow organizational privacy rules when customer records contain personal or confidential information
+  - Require confirmation before any article or support-data changes
+
+  Setup details: [Intercom MCP documentation](https://developers.intercom.com/docs/guides/mcp).
+metadata:
+  categories: Business, SaaS & API Integrations, Productivity
+icon: "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://intercom.com&size=256"
+repoURL: https://developers.intercom.com/docs/guides/mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.intercom.com/mcp
+
+config:
+  - name: Intercom Access Token
+    description: Least-privilege Intercom token authorized for the required customer and support data
+    key: Authorization
+    required: true
+    sensitive: true
+    prefix: "Bearer "
+    usage: header

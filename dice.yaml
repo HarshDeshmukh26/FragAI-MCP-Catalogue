@@ -1,0 +1,26 @@
+name: Dice
+entryKey: fragai-dice
+shortDescription: Search current technology jobs by role, location, work style, and employment type
+description: |
+  Connect FragAI to Dice's public MCP server to find active technology job listings using detailed search filters.
+
+  ## What you can do
+  - Search by job title, skill, company, or natural-language keywords
+  - Filter by location, radius, remote, hybrid, or on-site work
+  - Narrow results by employment type, posting age, sponsorship, or Easy Apply availability
+  - Review available salary, company, summary, and application-link information
+  - Page through larger result sets
+
+  ## Before connecting
+  - No account or API key is required
+  - This connection is read-only and cannot submit applications or change a Dice account
+  - Confirm listing details on Dice before applying because postings can change or expire
+
+  Setup details: [Dice MCP documentation](https://www.dice.com/about/mcp).
+metadata:
+  categories: Jobs, Productivity
+icon: https://www.dice.com/webfiles/1770241131432/favicon/dice/favicon-194x194.png
+repoURL: https://www.dice.com/about/mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.dice.com/mcp

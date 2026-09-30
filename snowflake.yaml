@@ -1,0 +1,64 @@
+name: Snowflake
+entryKey: fragai-snowflake
+shortDescription: Connect to a Snowflake-managed MCP server with OAuth and native RBAC
+upgradeNote: |
+  This replaces the FragAI-hosted Snowflake Labs server with Snowflake's managed MCP server.
+
+  - **Reconnect required:** Configure a Snowflake account URL, database, schema, MCP server name, and OAuth security integration.
+  - **Compatibility:** Username/password authentication and Service Config YAML are no longer supported.
+  - **Tool changes:** Tool names, parameters, and availability are defined by the configured Snowflake MCP server.
+description: |
+  Connect to a Snowflake-managed MCP server whose tools and access are governed by Snowflake roles and administrator configuration.
+
+  ## What you can do
+  - Invoke governed Cortex Agents
+  - Search unstructured data with Cortex Search
+  - Query semantic models through Cortex Analyst
+  - Run administrator-enabled SQL tools
+  - Invoke approved UDFs, stored procedures, and other custom tools
+
+  ## Before connecting
+  - A Snowflake administrator must create the MCP server, configure an OAuth security integration, and grant access to the server and every underlying tool
+  - Enter the account URL, database, schema, and MCP server name from the managed server endpoint
+  - Tool availability and whether an operation is read-only depend entirely on the Snowflake server configuration and active role
+  - SQL, procedures, or custom tools may change data or consume warehouse and AI services; inspect the selected role, tool, query, and expected cost before approval
+
+  See the official [Snowflake managed MCP documentation](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp) for setup, OAuth, RBAC, and supported tool types.
+
+  > **Important upgrade notice**
+  >
+  > This replaces the former FragAI-hosted Snowflake Labs server. Reconnect using a Snowflake-managed endpoint and OAuth. Username/password authentication and Service Config YAML are not supported by this entry, and tools are defined by your Snowflake administrator.
+metadata:
+  categories: Data Warehouse, SQL, Analytics, Database Management
+icon: https://avatars.githubusercontent.com/u/6453780?s=48&v=4
+repoURL: https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp
+
+config:
+  - name: Snowflake Account URL
+    key: SNOWFLAKE_ACCOUNT_URL
+    description: Enter the full Snowflake account URL without a trailing slash.
+    required: true
+    sensitive: false
+    usage: env
+  - name: Snowflake Database
+    key: SNOWFLAKE_DATABASE
+    description: Enter the database that contains the Snowflake-managed MCP server.
+    required: true
+    sensitive: false
+    usage: env
+  - name: Snowflake Schema
+    key: SNOWFLAKE_SCHEMA
+    description: Enter the schema that contains the Snowflake-managed MCP server.
+    required: true
+    sensitive: false
+    usage: env
+  - name: Snowflake MCP Server
+    key: SNOWFLAKE_MCP_SERVER
+    description: Enter the exact name of the Snowflake-managed MCP server.
+    required: true
+    sensitive: false
+    usage: env
+runtime: remote
+remoteConfig:
+  urlTemplate: ${SNOWFLAKE_ACCOUNT_URL}/api/v2/databases/${SNOWFLAKE_DATABASE}/schemas/${SNOWFLAKE_SCHEMA}/mcp-servers/${SNOWFLAKE_MCP_SERVER}
+  staticOAuthRequired: true

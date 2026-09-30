@@ -1,0 +1,25 @@
+name: Fellow.ai
+entryKey: fragai-fellow-ai
+shortDescription: Search Fellow meetings and retrieve transcripts, summaries, participants, and actions
+description: |
+  Connect FragAI to Fellow's remote MCP server to retrieve meeting knowledge available to the signed-in user.
+
+  ## What you can do
+  - Search past meetings using natural-language criteria
+  - Retrieve transcripts and generated summaries
+  - List participants for a selected meeting
+  - Find action items captured across meetings
+
+  ## Before connecting
+  - Sign in through Fellow OAuth
+  - Use an account that can access the meetings required for the task
+  - Follow workspace rules for confidential discussions, personal data, and recording consent
+
+  Fellow workspace and meeting permissions continue to restrict results. Setup details: [Fellow MCP documentation](https://help.fellow.ai/en/articles/12622641-fellow-s-mcp-server).
+metadata:
+  categories: Meetings,Productivity,Collaboration
+icon: https://cdn.fellow.app/static/images/favicon/favicon.6ab6c0047b33.svg?v=Omr4b3q9Op
+repoURL: https://help.fellow.ai/en/articles/12622641-fellow-s-mcp-server
+runtime: remote
+remoteConfig:
+  fixedURL: https://fellow.app/mcp

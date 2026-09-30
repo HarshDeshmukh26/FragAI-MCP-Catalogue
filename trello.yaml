@@ -1,0 +1,28 @@
+name: Trello
+entryKey: fragai-trello
+shortDescription: Search and manage Trello workspaces, boards, lists, cards, checklists, Inbox, and Planner
+description: |
+  Search and organize Trello work across workspaces, boards, lists, cards, checklists, Inbox, and Planner.
+
+  ## What you can do
+  - Search boards and cards by keyword
+  - Create boards, lists, cards, checklists, and checklist items
+  - Update, move, label, complete, or archive cards
+  - Capture and triage work through Trello Inbox
+  - Read Planner events and create supported focus-time events
+
+  ## Before connecting
+  - Sign in through Atlassian OAuth and authorize one Trello workspace
+  - Trello MCP is available across Trello plans, although some capabilities depend on plan and workspace settings
+  - Existing Trello and Atlassian organization permissions apply
+  - The connector does not permanently delete Trello content, but writes and archiving still affect shared work
+  - Confirm workspace, board, list, card, members, dates, and archive intent before approval
+
+  See the official [Trello MCP documentation](https://support.atlassian.com/trello/docs/connect-trello-to-ai-assistants-with-trello-mcp/) for setup, tools, and administrator controls.
+metadata:
+  categories: Project Management, Productivity, Collaboration
+icon: https://images.ctfassets.net/zsv3d0ugroxu/1j6nvsJ8txgcxgy3Vmk4aO/e3b6d56c299ae744c2f4b8109cf1a482/logo-light_Trello_mark_brand_RGB.svg
+repoURL: https://support.atlassian.com/trello/docs/connect-trello-to-ai-assistants-with-trello-mcp/
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.trello.com/v1

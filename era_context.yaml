@@ -1,0 +1,27 @@
+name: Era Context
+entryKey: fragai-era-context
+shortDescription: Review spending and maintain personal-finance context in Era
+description: |
+  Connect FragAI to Era Context to analyze linked financial information and maintain the user's personal-finance organization and preferences.
+
+  ## What you can do
+  - Review connected accounts, balances, transactions, recurring charges, and categories
+  - Analyze or forecast spending and cash flow
+  - Manage transaction tags, transfer links, and automation rules
+  - Store or revise personal-finance context and answer pending questions
+  - Review plans and supported connection or billing actions
+
+  ## Before connecting
+  - Sign in to an Era account through OAuth
+  - Connect only the bank or brokerage accounts needed for the intended workflow
+  - Treat all retrieved information as highly sensitive financial data
+  - Require explicit confirmation before changing automations, account connections, personal context, or billing
+
+  Setup and security details: [Era Context MCP documentation](https://era.app/help/mcp-server-era-context/).
+metadata:
+  categories: Personal Finance,Financial Data,Productivity
+icon: https://era.app/favicon.ico
+repoURL: https://era.app/help/mcp-server-era-context/
+runtime: remote
+remoteConfig:
+  fixedURL: https://context.era.app/mcp

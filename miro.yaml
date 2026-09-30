@@ -1,0 +1,25 @@
+name: Miro
+entryKey: fragai-miro
+shortDescription: Search, summarize, and create visual content on Miro boards
+description: |
+  Connect FragAI to Miro's hosted MCP server to work with boards available to the signed-in user and selected team.
+
+  ## What you can do
+  - Search boards and summarize decisions, plans, and open questions
+  - Create boards, diagrams, layouts, documents, tables, and images
+  - Read, reply to, and resolve board comments
+  - Turn research or specifications into visual board content
+
+  ## Before connecting
+  - Sign in through Miro OAuth and select the correct team
+  - Enterprise administrators may need to enable MCP for the organization or team
+  - Require confirmation before creating content, replying to or resolving comments, or sharing sensitive board information
+
+  Setup details: [Miro MCP documentation](https://developers.miro.com/docs/miro-mcp).
+metadata:
+  categories: Design, Productivity, Developer Tools
+icon: https://miro.com/favicon.ico
+repoURL: https://developers.miro.com/docs/miro-mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.miro.com/

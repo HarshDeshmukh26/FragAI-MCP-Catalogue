@@ -1,0 +1,27 @@
+name: FactSet AI-Ready Data
+entryKey: fragai-factset-ai-ready-data
+shortDescription: Research markets, companies, funds, ownership, and estimates with FactSet data
+description: |
+  Connect FragAI to FactSet AI-Ready Data to retrieve licensed financial information and analytics available to the signed-in organization.
+
+  ## What you can do
+  - Retrieve prices, fundamentals, metrics, estimates, and corporate-event data
+  - Research companies, people, ownership, funds, ETFs, and private markets
+  - Screen companies or funds using entitled FactSet datasets
+  - Analyze transactions, supply chains, debt, and geographic revenue where available
+  - Access structured and unstructured research content
+
+  ## Before connecting
+  - Sign in with a FactSet account
+  - Confirm the organization is entitled to every dataset needed by the workflow
+  - Observe FactSet licensing and redistribution rules for retrieved content
+  - Verify material investment conclusions against authoritative source data
+
+  Available tools and results depend on your subscriptions and permissions. Setup details: [FactSet AI-Ready Data MCP documentation](https://developer.factset.com/mcp/factset-ai-ready-data-mcp).
+metadata:
+  categories: Finance,Market Data,Research
+icon: https://www.factset.com/favicon.ico
+repoURL: https://developer.factset.com/mcp/factset-ai-ready-data-mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.factset.com/content/v1

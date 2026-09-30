@@ -1,0 +1,25 @@
+name: Carta CRM
+entryKey: fragai-carta
+shortDescription: Work with Carta CRM contacts, deals, tasks, reports, and campaigns
+description: |
+  Connect FragAI to Carta CRM to work with private-market relationships and related business records. Every request is limited by the connected user's Carta permissions.
+
+  ## What you can do
+  - Find and manage contacts, companies, investors, deals, fundraising records, notes, and tasks
+  - Review permitted email and calendar interactions
+  - Prepare campaigns and retrieve campaign or reporting data
+  - Generate available CSV or PDF exports and manage record attachments
+  - Retrieve organization, team, and notification information
+
+  ## Before connecting
+  - Sign in to an entitled Carta CRM account through OAuth
+  - Review requested actions carefully because this connection can create, update, or delete CRM records
+
+  Setup details: [Carta CRM MCP documentation](https://docs.carta.com/crm/docs/carta-crm-mcp).
+metadata:
+  categories: Financial Services, CRM
+icon: https://d2kxkmjle793l.cloudfront.net/static/lib/eshares/img/favicon.ico
+repoURL: https://docs.carta.com/crm/docs/carta-crm-mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.app.carta.com/mcp

@@ -1,0 +1,25 @@
+name: Omni Analytics
+entryKey: fragai-omni-analytics
+shortDescription: Query governed business data through Omni's semantic model
+description: |
+  Ask business questions against Omni's governed semantic layer and receive results based on your organization's shared metric definitions.
+
+  ## What you can do
+  - Discover the Omni models and topics available to your account
+  - Select the semantic model and topic that match a business question
+  - Query governed business data without rewriting metric logic
+  - Preserve the access rules maintained by your Omni administrators
+
+  ## Before connecting
+  - Sign in to an Omni account with access to the required models and topics
+  - Returned data is limited by your Omni role and content permissions
+  - Validate high-impact business conclusions against the underlying model definitions and source data
+
+  See the official [Omni MCP documentation](https://docs.omni.co/ai/mcp) for setup and supported query behavior.
+metadata:
+  categories: Business Intelligence,Data & Analytics,Databases
+icon: https://omni.co/favicon.ico
+repoURL: https://docs.omni.co/ai/mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://callbacks.omniapp.co/callback/mcp

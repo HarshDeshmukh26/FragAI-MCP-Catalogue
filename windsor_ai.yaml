@@ -1,0 +1,26 @@
+name: Windsor.ai
+entryKey: fragai-windsor-ai
+shortDescription: Analyze marketing, sales, analytics, and e-commerce data
+description: |
+  Analyze marketing, advertising, analytics, CRM, e-commerce, and warehouse data connected to Windsor.ai.
+
+  ## What you can do
+  - Discover connectors, accounts, metrics, dimensions, and query options
+  - Query and blend data from supported marketing, sales, analytics, and commerce platforms
+  - Build cross-channel reports and investigate performance
+  - Run supported campaign, budget, export, and other write operations
+
+  ## Before connecting
+  - Sign in through Windsor.ai OAuth
+  - Available data sources, quotas, costs, and write actions depend on the connected account and plan
+  - Results may include confidential customer, revenue, advertising, or analytics data
+  - Campaign and budget writes can change live spend; confirm connector, account, date range, currency, campaign, and requested change before approval
+
+  See the official [Windsor.ai MCP documentation](https://windsor.ai/documentation/windsor-mcp/) for setup and supported capabilities.
+metadata:
+  categories: Marketing, Data & Analytics, SaaS & API Integrations
+icon: "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://windsor.ai&size=256"
+repoURL: https://windsor.ai/documentation/windsor-mcp/
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.windsor.ai/

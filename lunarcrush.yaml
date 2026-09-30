@@ -1,0 +1,34 @@
+name: LunarCrush
+entryKey: fragai-lunarcrush
+shortDescription: Research social sentiment, market activity, creators, and emerging trends
+description: |
+  Connect FragAI to LunarCrush for social-intelligence and market information about cryptocurrencies, stocks, companies, and brands.
+
+  ## What you can do
+  - Retrieve social activity and sentiment metrics
+  - Explore trending topics, creators, and public social posts
+  - Combine market and social data for research and monitoring
+
+  ## Before connecting
+  - Create a LunarCrush API key and use a plan with sufficient request capacity
+  - Each tool call counts against the account's API limits
+  - Treat sentiment and market signals as research inputs, not financial advice
+  - Verify important market conclusions with additional authoritative sources
+
+  Setup details: [LunarCrush MCP documentation](https://lunarcrush.com/en/developers/mcp).
+metadata:
+  categories: Financial Services, Data Analytics, Social Media
+icon: https://lunarcrush.com/api/og/en/developers/mcp
+repoURL: https://lunarcrush.com/en/developers/mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://lunarcrush.ai/mcp
+
+config:
+  - name: LunarCrush API Key
+    description: LunarCrush API key used for social-intelligence and market-data requests
+    key: Authorization
+    required: true
+    sensitive: true
+    prefix: "Bearer "
+    usage: header

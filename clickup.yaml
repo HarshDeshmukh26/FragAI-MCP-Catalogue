@@ -1,0 +1,24 @@
+name: ClickUp
+entryKey: fragai-clickup
+shortDescription: Work with ClickUp tasks, Docs, chat, lists, and time entries
+description: |
+  Connect FragAI to ClickUp's official MCP server to handle project work using the access already granted to the signed-in ClickUp user.
+
+  ## What you can do
+  - Search, create, and update tasks individually or in bulk
+  - Work with Spaces, folders, lists, tags, assignees, and comments
+  - Create or update ClickUp Docs and pages
+  - Read or send chat messages and manage time entries
+
+  ## Before connecting
+  - Sign in through ClickUp OAuth
+  - The user's workspace membership and permissions control the available data and actions
+
+  Setup details: [ClickUp MCP documentation](https://help.clickup.com/hc/en-us/articles/33335772678423-What-is-ClickUp-MCP).
+metadata:
+  categories: Project Management, Productivity, SaaS & API Integrations
+icon: https://clickup.com/favicon.ico
+repoURL: https://help.clickup.com/hc/en-us/articles/33335772678423-What-is-ClickUp-MCP
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.clickup.com/mcp

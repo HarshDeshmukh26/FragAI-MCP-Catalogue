@@ -1,0 +1,67 @@
+name: BigQuery Toolbox
+entryKey: fragai-bigquery-toolbox
+shortDescription: Explore BigQuery datasets and run SQL using Google's managed MCP server
+upgradeNote: |
+  This entry uses Google's managed BigQuery endpoint instead of the earlier FragAI-hosted Toolbox server.
+
+  Existing connections must be reauthorized with Google OAuth. Service-account JSON, fixed dataset settings, and custom parameterized tools from the earlier server are not used by this endpoint.
+description: |
+  Connect an AI assistant to BigQuery to list datasets and tables, inspect metadata, and run SQL with the connected Google Cloud identity.
+
+  ## What you can do
+  - List accessible datasets and tables
+  - Inspect dataset and table metadata
+  - Run read-only GoogleSQL queries
+  - Run general SQL, including data-changing statements, when IAM and policy allow it
+
+  ## Before connecting
+  Enable the BigQuery API. The identity normally needs MCP Tool User, BigQuery Job User, and BigQuery Data Viewer roles, or equivalent permissions. A FragAI administrator must configure the Google OAuth client and callback URL.
+
+  Queries are limited to three minutes and 3,000 rows. Google Drive external tables are unsupported. The execute_sql tool can modify data, so restrict it when only read access is appropriate.
+
+  See the [official BigQuery MCP guide](https://cloud.google.com/bigquery/docs/use-bigquery-mcp).
+metadata:
+  categories: Databases,Data & Analytics
+icon: https://www.svgrepo.com/show/375551/bigquery.svg
+repoURL: https://cloud.google.com/bigquery/docs/use-bigquery-mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://bigquery.googleapis.com/mcp
+  staticOAuthRequired: true
+toolPreview:
+  - name: list_dataset_ids
+    description: List dataset identifiers in a Google Cloud project and page through larger result sets.
+    params:
+      pageSize: Maximum number of datasets to return
+      pageToken: Token for retrieving the next page
+      projectId: Google Cloud project ID
+  - name: get_dataset_info
+    description: Return metadata for a selected BigQuery dataset.
+    params:
+      datasetId: BigQuery dataset ID
+      projectId: Google Cloud project ID
+  - name: list_table_ids
+    description: List table identifiers in a BigQuery dataset and page through larger result sets.
+    params:
+      datasetId: BigQuery dataset ID
+      pageSize: Maximum number of tables to return
+      pageToken: Token for retrieving the next page
+      projectId: Google Cloud project ID
+  - name: get_table_info
+    description: Return metadata for a selected BigQuery table.
+    params:
+      datasetId: BigQuery dataset ID
+      projectId: Google Cloud project ID
+      tableId: BigQuery table ID
+  - name: execute_sql_readonly
+    description: Run a read-only GoogleSQL query, or validate it with a dry run, without allowing data-changing statements.
+    params:
+      dryRun: Validate the query and return processing statistics without running it
+      projectId: Google Cloud project used for query execution and billing
+      query: GoogleSQL query to execute
+  - name: execute_sql
+    description: Run a GoogleSQL query, including statements that may create, update, or delete data when permissions allow.
+    params:
+      dryRun: Validate the query and return processing statistics without running it
+      projectId: Google Cloud project used for query execution and billing
+      query: GoogleSQL query to execute

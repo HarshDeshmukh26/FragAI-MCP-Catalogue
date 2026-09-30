@@ -1,0 +1,26 @@
+name: Jotform
+entryKey: fragai-jotform
+shortDescription: Build Jotform forms and review or analyze their submissions
+description: |
+  Connect FragAI to Jotform's hosted MCP App to create forms and work with submission data through an interactive AI workflow.
+
+  ## What you can do
+  - Create and edit forms from natural-language instructions
+  - Search and list forms available to the connected user
+  - Retrieve, filter, and analyze form submissions
+  - Display, assign, or submit forms when authorized
+
+  ## Before connecting
+  - Sign in to Jotform through OAuth
+  - Existing account limits, permissions, and compliance settings continue to apply
+  - Grant protected-data scopes only when the account and workflow meet the applicable compliance requirements
+  - Require confirmation before creating forms, assigning them, or submitting data
+
+  Setup details: [Jotform MCP documentation](https://www.jotform.com/developers/mcp/).
+metadata:
+  categories: Productivity, Data & Analytics, SaaS & API Integrations
+icon: https://www.jotform.com/favicon.ico
+repoURL: https://www.jotform.com/developers/mcp/
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.jotform.com/mcp-app

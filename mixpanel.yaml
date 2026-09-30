@@ -1,0 +1,45 @@
+name: Mixpanel
+entryKey: fragai-mixpanel
+shortDescription: Analyze Mixpanel behavior data and manage permitted analytics resources
+description: |
+  Connect FragAI to the Mixpanel MCP endpoint for the region where the organization's project data is stored.
+
+  ## What you can do
+  - Run insights, funnel, flow, segmentation, and retention analysis
+  - Discover projects, events, properties, reports, and business context
+  - Investigate user journeys with event data and session replays
+  - Create or manage dashboards, cohorts, metrics, experiments, and feature flags
+  - Update Lexicon metadata and triage data-quality issues
+
+  ## Before connecting
+  - Select the correct United States, European Union, or India data-region endpoint
+  - Ask an organization administrator to enable MCP when required
+  - Existing organization, project, and role permissions continue to apply
+  - Mixpanel states that its MCP server is not covered by its HIPAA BAA; do not connect regulated data without an approved compliance review
+  - Require confirmation before modifying analytics definitions, dashboards, cohorts, experiments, or flags
+
+  Setup details: [Mixpanel MCP documentation](https://docs.mixpanel.com/docs/mcp).
+metadata:
+  categories: Data & Analytics, Product Analytics, SaaS & API Integrations
+icon: https://mixpanel.com/favicon.ico
+repoURL: https://docs.mixpanel.com/docs/mcp
+config:
+  - name: Data Region
+    key: MIXPANEL_HOST
+    description: Regional Mixpanel MCP endpoint where the organization stores its project data
+    required: true
+    sensitive: false
+    options:
+      - name: United States
+        value: mcp.mixpanel.com
+        description: Connect to the US Mixpanel endpoint.
+      - name: European Union
+        value: mcp-eu.mixpanel.com
+        description: Connect to the EU Mixpanel endpoint.
+      - name: India
+        value: mcp-in.mixpanel.com
+        description: Connect to the India Mixpanel endpoint.
+    usage: env
+runtime: remote
+remoteConfig:
+  urlTemplate: https://${MIXPANEL_HOST}/mcp

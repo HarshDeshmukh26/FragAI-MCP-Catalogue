@@ -1,0 +1,27 @@
+name: Replit
+entryKey: fragai-replit
+shortDescription: Create, inspect, update, and publish Replit apps through Replit Agent
+description: |
+  Create, inspect, update, and publish Replit apps through Replit Agent.
+
+  ## What you can do
+  - Create websites, mobile apps, designs, presentations, and data projects from a prompt
+  - Search, list, and resolve Replit apps you can edit
+  - Ask Replit Agent questions about an app without changing it
+  - Modify an existing app through an Agent prompt
+  - Publish an app and check its deployment status and public URL
+
+  ## Before connecting
+  - Sign in through Replit OAuth
+  - Existing apps must belong to you or be shared with edit permission
+  - Agent updates can change code and data, while publishing can make an app publicly reachable and consume paid resources
+  - Review generated changes, secrets, deployment settings, and the target app before approving updates or publication
+
+  See the official [Replit MCP documentation](https://docs.replit.com/platforms/mcp-server) for supported app types and tool behavior.
+metadata:
+  categories: Developer Tools, Productivity, App Development
+icon: https://avatars.githubusercontent.com/u/983194?v=4
+repoURL: https://docs.replit.com/platforms/mcp-server
+runtime: remote
+remoteConfig:
+  fixedURL: https://replit-mcp.com/server/mcp

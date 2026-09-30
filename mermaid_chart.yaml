@@ -1,0 +1,34 @@
+name: Mermaid Chart
+entryKey: fragai-mermaid-chart
+shortDescription: Validate and render Mermaid diagrams or manage Mermaid Chart projects
+description: |
+  Connect FragAI to Mermaid Chart's hosted MCP server to create diagram outputs and optionally manage diagrams stored in Mermaid Chart.
+
+  ## What you can do
+  - Validate Mermaid syntax
+  - Render diagrams as PNG or SVG
+  - Generate diagram titles, summaries, and interactive playground links
+  - List projects and create, retrieve, or update stored diagrams when authenticated
+
+  ## Before connecting
+  - Core validation and rendering can be used anonymously
+  - Provide an optional Mermaid Chart API token for project and diagram-management tools
+  - Require confirmation before creating or updating stored diagrams
+  - Review diagrams before sharing when they contain confidential architecture or process information
+
+  Setup details: [Mermaid Chart MCP documentation](https://mermaid.ai/docs/ai/mcp-server).
+metadata:
+  categories: Visualization, Developer Tools, Productivity
+icon: https://raw.githubusercontent.com/Mermaid-Chart/vscode-mermaid-chart/main/images/mermaid-chart.png
+repoURL: https://mermaid.ai/docs/ai/mcp-server
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.mermaid.ai/mcp
+
+config:
+  - name: Mermaid Chart API Token
+    description: Optional Mermaid Chart token for stored-project and diagram-management tools
+    key: Authorization
+    required: false
+    sensitive: true
+    usage: header

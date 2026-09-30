@@ -1,0 +1,25 @@
+name: Box
+entryKey: fragai-box
+shortDescription: Find, understand, and organize files stored in Box
+description: |
+  Connect FragAI to Box's official remote MCP server so users can work with Box content from an AI conversation. Box continues to enforce the permissions already assigned to the connected user.
+
+  ## What you can do
+  - Search files, folders, metadata, and Box Hubs
+  - Read and compare documents or ask questions about their contents
+  - Use Box AI to extract structured or free-form information
+  - Upload files, create folders, and update content when your account permits it
+
+  ## Before connecting
+  - A Box administrator must enable MCP in the Box Admin Console
+  - Configure a Box OAuth application, register FragAI's redirect URI, and grant only the scopes needed for the intended tools
+
+  Setup details: [Box MCP documentation](https://developer.box.com/guides/box-mcp/).
+metadata:
+  categories: Storage, Document Processing, Productivity
+icon: https://www.box.com/favicon.ico
+repoURL: https://developer.box.com/guides/box-mcp/
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.box.com
+  staticOAuthRequired: true

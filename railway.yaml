@@ -1,0 +1,26 @@
+name: Railway
+entryKey: fragai-railway
+shortDescription: Deploy, manage, and debug Railway projects and services
+description: |
+  Deploy, manage, and troubleshoot Railway projects, services, environments, deployments, logs, and public artifacts.
+
+  ## What you can do
+  - Create Railway projects and deploy or redeploy services
+  - Inspect projects, services, environments, deployments, and current status
+  - Retrieve application and deployment logs
+  - Manage supported feature flags and publish artifacts
+  - Use Railway's infrastructure agent for guided platform changes
+
+  ## Before connecting
+  - Sign in through Railway OAuth with access to the required workspace and projects
+  - Deployments and infrastructure changes can affect availability and consume paid resources
+  - Confirm the workspace, project, service, environment, branch, and estimated impact before approving create, deploy, redeploy, or configuration actions
+
+  See the official [Railway MCP documentation](https://docs.railway.com/ai/mcp-server) for setup, tools, and editor integrations.
+metadata:
+  categories: Developer Tools, Cloud Infrastructure, DevOps
+icon: https://og.railway.com/api/image?fileType=png&layoutName=Docs&Theme=Night&URL=&Page=Documentation&Eyebrow=Railway%20MCP%20Server
+repoURL: https://docs.railway.com/ai/mcp-server
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.railway.com/

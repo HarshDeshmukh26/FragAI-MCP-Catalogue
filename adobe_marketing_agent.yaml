@@ -1,0 +1,22 @@
+name: Adobe Marketing Agent
+entryKey: fragai-adobe-marketing-agent
+shortDescription: Ask questions across enabled Adobe marketing products and data
+description: |
+  Use Adobe Marketing Agent to explore marketing information available through your organization's enabled Adobe Experience Cloud products.
+
+  ## What you can do
+  - Ask questions about campaigns, journeys, audiences, and marketing performance
+  - Use entitled Real-Time CDP, Journey Optimizer, and Customer Journey Analytics capabilities
+  - Work with the Adobe organization, sandbox, and data view selected for the session
+
+  ## Before connecting
+  Sign in with an Adobe Experience Cloud account. Your organization must have Marketing Agent enabled, and your user needs access to the requested products, sandboxes, data views, and underlying data.
+
+  Review Adobe's [Marketing Agent setup guide](https://acrobat.adobe.com/id/urn:aaid:sc:AP:5799e952-be87-4829-b0c4-6f82ca8e8b8b) for current availability.
+metadata:
+  categories: Marketing, Data & Analytics, Customer Experience
+icon: https://developer.adobe.com/internals/mcp-registry-web-app/v1.11.0/default_card_icon.6bb9c3a2.svg
+repoURL: https://acrobat.adobe.com/id/urn:aaid:sc:AP:5799e952-be87-4829-b0c4-6f82ca8e8b8b
+runtime: remote
+remoteConfig:
+  fixedURL: https://aep-ai-ama.adobe.io/mcp

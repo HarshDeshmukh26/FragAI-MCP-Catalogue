@@ -1,0 +1,24 @@
+name: Apollo.io
+entryKey: fragai-apollo
+shortDescription: Find prospects, enrich records, and manage Apollo sales workflows
+description: |
+  Connect an AI assistant to Apollo to research prospects and perform permitted sales-workflow actions.
+
+  ## What you can do
+  - Find and enrich people, contacts, accounts, and companies
+  - Create or update contacts and accounts
+  - Draft or send one-off emails
+  - Create sequences, add contacts to sequences, and manage tasks
+  - Review team and sequence performance
+
+  ## Before connecting
+  Sign in to Apollo with a work email address. Apollo permissions, plan limits, rate limits, and credit usage still apply. Some actions consume credits, and the integration is currently beta.
+
+  This server can write data and send messages. Review recipients, senders, schedules, and sequence changes before approval. See the [official Apollo integration guide](https://knowledge.apollo.io/hc/en-us/articles/43827318678541-Integrate-Apollo-with-Claude).
+metadata:
+  categories: Sales, Marketing, SaaS & API Integrations
+icon: https://www.apollo.io/favicon.ico
+repoURL: https://knowledge.apollo.io/hc/en-us/articles/43827318678541-Integrate-Apollo-with-Claude
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.apollo.io/mcp

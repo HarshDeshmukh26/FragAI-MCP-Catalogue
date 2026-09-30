@@ -1,0 +1,26 @@
+name: Daloopa
+entryKey: fragai-daloopa
+shortDescription: Retrieve sourced financial metrics, filings, and market data
+description: |
+  Connect FragAI to Daloopa to research public-company fundamentals and operating KPIs with links back to supporting documents.
+
+  ## What you can do
+  - Find covered companies by name or ticker
+  - Search financial metrics, operating KPIs, and company-specific data series
+  - Retrieve historical values for selected periods with source citations
+  - Search filings, earnings transcripts, presentations, and management guidance
+  - Retrieve document text and daily stock prices
+
+  ## Before connecting
+  - Sign in through Daloopa OAuth, or use another supported bearer-token or API-key method if your account provides it
+  - This is a read-only connection and does not change Daloopa records
+  - Validate important financial conclusions against the linked source documents
+
+  Setup details: [Daloopa MCP documentation](https://docs.daloopa.com/docs/daloopa-mcp).
+metadata:
+  categories: Financial Services, Data & Analytics, Research
+icon: https://files.readme.io/6508faf2043972e99abbd21f82d5a0f01f0ca937b01370d7bbd7546be4c6e5f1-symbol_Inverse_1.png
+repoURL: https://docs.daloopa.com/docs/daloopa-mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.daloopa.com/server/mcp

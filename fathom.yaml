@@ -1,0 +1,25 @@
+name: Fathom
+entryKey: fragai-fathom
+shortDescription: Find Fathom meetings and retrieve summaries, transcripts, and action items
+description: |
+  Connect FragAI to Fathom's official MCP server to search recorded meetings and reuse their approved content in follow-up work.
+
+  ## What you can do
+  - List and search recorded meetings
+  - Retrieve meeting summaries and transcripts
+  - Find people mentioned in meeting content
+  - Prepare follow-ups or other deliverables grounded in meeting discussions and action items
+
+  ## Before connecting
+  - Sign in to Fathom through OAuth
+  - The connected user's Fathom permissions determine which meetings are available
+  - Follow your organization's consent and confidentiality policies when using meeting recordings or transcripts
+
+  Setup details: [Fathom MCP documentation](https://help.fathom.video/en/articles/11497793).
+metadata:
+  categories: Communication, Productivity, SaaS & API Integrations
+icon: "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://fathom.ai&size=256"
+repoURL: https://help.fathom.video/en/articles/11497793
+runtime: remote
+remoteConfig:
+  fixedURL: https://api.fathom.ai/mcp

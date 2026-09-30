@@ -1,0 +1,25 @@
+name: PostHog
+entryKey: fragai-posthog
+shortDescription: Query product analytics and manage PostHog insights and experiments
+description: |
+  Query product analytics and manage insights, dashboards, feature flags, experiments, surveys, errors, and logs in PostHog.
+
+  ## What you can do
+  - Explore product data with natural-language questions, HogQL, or SQL
+  - Create and manage insights and dashboards
+  - Inspect and change feature flags, experiments, and surveys
+  - Investigate errors, logs, event definitions, schemas, and LLM usage costs
+
+  ## Before connecting
+  - Sign in through PostHog OAuth and select an organization and project you can access
+  - Queries may expose user or event data, and management tools can alter product behavior or experiments
+  - Confirm the target project and review feature-flag, experiment, survey, or dashboard changes before approval
+
+  See the official [PostHog MCP documentation](https://posthog.com/docs/model-context-protocol) for current tools and permissions.
+metadata:
+  categories: Developer Tools, Data & Analytics, Monitoring & Observability
+icon: "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://posthog.com&size=256"
+repoURL: https://posthog.com/docs/model-context-protocol
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.posthog.com/mcp

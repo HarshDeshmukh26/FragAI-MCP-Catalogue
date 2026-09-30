@@ -1,0 +1,27 @@
+name: SlidesGPT
+entryKey: fragai-slidesgpt
+shortDescription: Generate presentation decks, apply themes, create images, and export PowerPoint files
+description: |
+  Generate presentation decks, apply themes, create slide images, and export PowerPoint files with SlidesGPT.
+
+  ## What you can do
+  - Build a presentation from a topic, outline, or supported source documents
+  - Select slide layouts and imagery suited to the content
+  - Apply a built-in visual theme without rewriting an existing deck
+  - Generate custom images for slides
+  - Preview a deck and download it as a PowerPoint file
+
+  ## Before connecting
+  - No account, OAuth flow, or API key is required
+  - Prompts and source material are processed by SlidesGPT and its generation providers
+  - Generated presentations are retained under shareable SlidesGPT URLs
+  - Do not submit confidential material unless that storage and sharing model meets your organization's requirements; review generated facts, rights, and visual content before distribution
+
+  See the official [SlidesGPT MCP documentation](https://slidesgpt.com/products/mcp) for tools, supported clients, and data handling.
+metadata:
+  categories: Productivity, Presentations, Creative Tools
+icon: https://slidesgpt.com/favicon-48x48.png
+repoURL: https://slidesgpt.com/products/mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.slidesgpt.com/mcp

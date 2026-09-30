@@ -1,0 +1,24 @@
+name: Alpha Vantage
+entryKey: fragai-alpha-vantage
+shortDescription: Retrieve market prices, company fundamentals, indicators, and economic data
+description: |
+  Use Alpha Vantage market and economic datasets from an AI assistant. This connection retrieves information only; it cannot trade or change a financial account.
+
+  ## What you can do
+  - Retrieve current and historical market prices
+  - Review company fundamentals, statements, earnings, dividends, and holdings
+  - Explore options data and common technical indicators
+  - Query macroeconomic series such as GDP, CPI, unemployment, and treasury yields
+  - Search market news and sentiment by ticker
+
+  ## Before connecting
+  Obtain an Alpha Vantage API key and provide it during the provider's connection flow. Available datasets, request limits, and premium functions depend on your plan.
+
+  See the [official Alpha Vantage MCP page](https://mcp.alphavantage.co/).
+metadata:
+  categories: Financial Services, Data & Analytics, Research
+icon: https://cdn.alphavantage.co/logo.png
+repoURL: https://mcp.alphavantage.co/
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.alphavantage.co/mcp

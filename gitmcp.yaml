@@ -1,0 +1,41 @@
+name: GitMCP
+entryKey: fragai-gitmcp
+shortDescription: Read and search documentation or code from public GitHub repositories
+description: |
+  Connect FragAI to GitMCP's public hosted service to retrieve current repository documentation and search public GitHub code.
+
+  ## What you can do
+  - Fetch a public repository's documentation as context
+  - Search that documentation for a focused question
+  - Search repository code through GitHub's exact-match code search
+  - Retrieve an absolute URL referenced by previously fetched documentation while respecting robots rules
+
+  ## Before connecting
+  - No account or API key is required
+  - Use the generic endpoint to switch between repositories, or a repository-specific endpoint for a fixed project
+  - Do not treat generated explanations as authoritative without checking the referenced repository
+
+  Service details: [GitMCP](https://gitmcp.io).
+metadata:
+  categories: Developer Tools
+icon: https://avatars.githubusercontent.com/u/182288589?v=4
+repoURL: https://gitmcp.io
+runtime: remote
+remoteConfig:
+  hostname: gitmcp.io
+toolPreview:
+  - name: fetch_<repo>_documentation
+    description: Retrieve the available documentation for one public GitHub repository.
+  - name: search_<repo>_documentation
+    description: Search the retrieved repository documentation for a focused topic.
+    params:
+      query: The search query to find relevant documentation
+  - name: search_<repo>_code
+    description: Run an exact-match GitHub code search within the selected public repository.
+    params:
+      page: Page number to retrieve (starting from 1). Each page contains 30 results.
+      query: The search query to find relevant code files
+  - name: fetch_generic_url_content
+    description: Retrieve an absolute URL referenced by earlier documentation while respecting robots rules.
+    params:
+      url: The URL of the document or page to fetch

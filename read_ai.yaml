@@ -1,0 +1,27 @@
+name: Read AI
+entryKey: fragai-read-ai
+shortDescription: Retrieve meeting transcripts and summaries, dispatch agents, and share reports
+description: |
+  Retrieve Read AI meeting reports or dispatch a Read AI agent to an upcoming Zoom, Google Meet, or Microsoft Teams call.
+
+  ## What you can do
+  - Browse recent meetings and retrieve a report by ID
+  - Read summaries, chapter notes, action items, questions, topics, transcripts, attendance, and engagement metrics
+  - Retrieve supported recording download links
+  - Send a meeting agent to an upcoming call
+  - Share a meeting report with viewer or editor access and optional email notifications
+
+  ## Before connecting
+  - Sign in through Read AI OAuth
+  - Workspace administrators must enable Downloads under Reports & Sharing when applicable
+  - Meeting content may contain confidential or personal information
+  - Dispatching an agent joins a meeting, while sharing a report grants access and may notify recipients; verify meeting URLs, consent, recipients, permissions, and notifications first
+
+  See the official [Read AI MCP documentation](https://support.read.ai/hc/en-us/articles/49381158409491-MCP-Server) for beta availability, prerequisites, and current tools.
+metadata:
+  categories: Productivity, Communication, Meetings
+icon: https://cdn.prod.website-files.com/614e5e239ea0f25fe5b6a797/615f71de842b191ea061fda6_ReadLogomark_256x256.png
+repoURL: https://support.read.ai/hc/en-us/articles/49381158409491-MCP-Server
+runtime: remote
+remoteConfig:
+  fixedURL: https://api.read.ai/mcp

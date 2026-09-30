@@ -1,0 +1,26 @@
+name: Lovable
+entryKey: fragai-lovable
+shortDescription: Create, inspect, refine, and deploy applications with Lovable
+description: |
+  Connect FragAI to Lovable's hosted MCP server to build and manage applications in the workspaces available to the signed-in user.
+
+  ## What you can do
+  - Create, inspect, remix, and deploy Lovable projects
+  - Send development prompts and review generated changes
+  - Read project files, knowledge, analytics, and database status
+  - Manage visibility, connectors, and project MCP servers when authorized
+
+  ## Before connecting
+  - Sign in to Lovable through OAuth
+  - Confirm the correct workspace and project before making changes
+  - Review generated code, data access, connectors, security settings, and deployment effects
+  - Require confirmation before deployments or visibility and integration changes
+
+  Setup details: [Lovable MCP documentation](https://docs.lovable.dev/integrations/lovable-mcp-server).
+metadata:
+  categories: Developer Tools, Productivity, SaaS & API Integrations
+icon: https://lovable.dev/favicon.ico
+repoURL: https://docs.lovable.dev/integrations/lovable-mcp-server
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.lovable.dev

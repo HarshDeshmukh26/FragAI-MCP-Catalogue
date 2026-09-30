@@ -1,0 +1,26 @@
+name: Mobbin
+entryKey: fragai-mobbin
+shortDescription: Search real product screens, user flows, and website sections for design research
+description: |
+  Connect FragAI to Mobbin's hosted MCP server to research interface patterns from shipped mobile and web products.
+
+  ## What you can do
+  - Search screens by product, pattern, or design problem
+  - Find complete flows such as onboarding, checkout, pricing, or permissions
+  - Search website sections and compare implementations
+  - Retrieve reference images, metadata, and links back to Mobbin
+
+  ## Before connecting
+  - Use an eligible paid Mobbin plan and sign in through OAuth
+  - Searches can use workspace AI credits according to the connected subscription
+  - This is a read-only connection and cannot change Mobbin content
+  - Use references for research and respect Mobbin's content and licensing terms
+
+  Setup details: [Mobbin MCP documentation](https://mobbin.com/mcp).
+metadata:
+  categories: Design, Research, Developer Tools
+icon: https://storage.googleapis.com/assets.mobbin.com/claude.ai/logo.svg
+repoURL: https://mobbin.com/mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://api.mobbin.com/mcp

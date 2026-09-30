@@ -1,0 +1,767 @@
+name: Files.com
+entryKey: fragai-files-dot-com
+shortDescription: Administer files, sharing, users, permissions, and audit records in Files.com
+upgradeNote: |
+  This entry now uses Files.com's official hosted MCP server. Existing users must reconnect with their Files.com site subdomain and either OAuth or an optional API key. An administrator must enable MCP Dynamic Client Registration for OAuth. Custom domains and local upload or download tools are not supported, and tool parameters may differ.
+description: |
+  Connect FragAI to a Files.com site's hosted MCP endpoint to manage permitted content and administrative resources without running a local MCP server.
+
+  ## What you can do
+  - Find, copy, move, delete, list, zip, and unzip files or folders
+  - Manage users, groups, folder permissions, and secure share links
+  - Inspect activity history, authentication events, transfers, automations, and other audit logs
+  - Review automation and remote-server configuration
+
+  ## Before connecting
+  - Enter the Files.com site subdomain, such as `acme` for `https://acme.files.com`; custom domains are not accepted
+  - For OAuth, enable AI features and MCP Dynamic Client Registration in the site's AI settings
+  - For headless access, provide an optional API key belonging to a least-privilege Files.com user
+  - Require explicit approval for file deletion, movement, sharing, permission changes, and user or group administration
+
+  This hosted server does not provide local file upload or download tools. Setup details: [Files.com MCP documentation](https://www.files.com/docs/ai/model-context-protocol-mcp-server).
+metadata:
+  categories: Cloud & Infrastructure, File Transfer, Storage, Security & Compliance
+  allow-multiple: "true"
+  unsupportedTools: Download_File_to_Local,Upload_File_from_Local
+icon: https://avatars.githubusercontent.com/u/59619169?s=48&v=4
+repoURL: https://www.files.com/docs/integrations/model-context-protocol-mcp-server
+config:
+  - key: FILES_COM_SITE
+    name: Files.com Site
+    required: true
+    sensitive: false
+    description: Site subdomain only, such as acme for https://acme.files.com
+    usage: env
+  - name: Files.com API Key
+    description: Optional API key for a least-privilege Files.com user, used instead of OAuth
+    key: X-FilesAPI-Key
+    required: false
+    sensitive: true
+    usage: header
+runtime: remote
+remoteConfig:
+  urlTemplate: https://${FILES_COM_SITE}.files.com/api/ai/mcp/v1
+toolPreview:
+- name: List_Bundle
+  description: List secure share links visible to the connected Files.com user.
+  params:
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+- name: Find_Bundle
+  description: Retrieve the settings and details of one secure share link.
+  params:
+    id: Bundle ID.
+- name: Create_Bundle
+  description: Create a secure share link for selected Files.com content.
+  params:
+    description: Public description
+    expires_at: Bundle expiration date/time
+    max_uses: Maximum number of times bundle can be accessed
+    note: Bundle internal note
+    password: Password for this bundle.
+    paths: A list of paths to include in this bundle.
+    permissions: Permissions that apply to Folders in this Share Link.
+    require_registration: Show a registration page that captures the downloader's
+      name and email address?
+- name: Update_Bundle
+  description: Change the settings of an existing secure share link.
+  params:
+    expires_at: Bundle expiration date/time
+    id: Bundle ID.
+    permissions: Permissions that apply to Folders in this Share Link.
+- name: Delete_Bundle
+  description: Permanently remove an existing secure share link.
+  params:
+    id: Bundle ID.
+- name: List_Bundle_Download
+  description: List downloads recorded for a secure share link.
+  params:
+    bundle_id: Bundle ID
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+- name: List_Bundle_Notification
+  description: List notifications configured for secure share links.
+  params:
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+- name: Find_Bundle_Notification
+  description: Retrieve one secure share-link notification.
+  params:
+    id: Bundle Notification ID.
+- name: Create_Bundle_Notification
+  description: Create a notification for activity on a secure share link.
+  params:
+    bundle_id: Bundle ID to notify on
+    notify_user_id: The id of the user to notify.
+- name: Update_Bundle_Notification
+  description: Change an existing secure share-link notification.
+  params:
+    id: Bundle Notification ID.
+    notify_on_registration: Triggers bundle notification when a registration action
+      occurs for it.
+    notify_on_upload: Triggers bundle notification when a upload action occurs for
+      it.
+- name: Delete_Bundle_Notification
+  description: Remove a secure share-link notification.
+  params:
+    id: Bundle Notification ID.
+- name: List_Bundle_Recipient
+  description: List recipients associated with secure share links.
+  params:
+    bundle_id: List recipients for the bundle with this ID.
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+- name: Create_Bundle_Recipient
+  description: Add a recipient to a secure share link.
+  params:
+    bundle_id: Bundle to share.
+    company: Company of recipient.
+    name: Name of recipient.
+    note: Note to include in email.
+    recipient: Email addresses to share this bundle with.
+- name: List_Bundle_Registration
+  description: List user registrations created through secure share links.
+  params:
+    bundle_id: ID of the associated Bundle
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+- name: Delete_File
+  description: Permanently delete the selected file or folder.
+  params:
+    path: Path to operate on.
+- name: Find_File
+  description: Retrieve file or folder information from its Files.com path.
+  params:
+    path: Path to operate on.
+- name: Zip_List_Contents_File
+  description: List files and folders stored inside a ZIP archive.
+  params:
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+    path: Path to operate on.
+- name: Copy_File
+  description: Copy a file or folder to another Files.com path.
+  params:
+    destination: Copy destination path.
+    path: Path to operate on.
+- name: Move_File
+  description: Move or rename a file or folder within Files.com.
+  params:
+    destination: Move destination path.
+    path: Path to operate on.
+- name: Unzip_File
+  description: Extract a ZIP archive into a selected destination folder.
+  params:
+    destination: Destination folder path for extracted files.
+    path: ZIP file path to extract.
+- name: Zip_File
+  description: Create a ZIP archive from selected Files.com paths.
+  params:
+    destination: Destination file path for the ZIP.
+    paths: Paths to include in the ZIP.
+- name: List_For_Folder
+  description: List the files and subfolders found at a folder path.
+  params:
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+    path: Path to operate on.
+- name: Create_Folder
+  description: Create a folder at the specified Files.com path.
+  params:
+    path: Path to operate on.
+- name: List_Group
+  description: List groups configured for the Files.com site.
+  params:
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+- name: Find_Group
+  description: Retrieve the settings and membership details of one group.
+  params:
+    id: Group ID.
+- name: Create_Group
+  description: Create a new group for the Files.com site.
+  params:
+    admin_ids: A list of group admin user ids. If sent as a string, should be comma-delimited.
+    name: Group name.
+    notes: Group notes.
+    user_ids: A list of user ids. If sent as a string, should be comma-delimited.
+- name: Update_Group
+  description: Change the settings or membership of an existing group.
+  params:
+    admin_ids: A list of group admin user ids. If sent as a string, should be comma-delimited.
+    id: Group ID.
+    name: Group name.
+    notes: Group notes.
+    user_ids: A list of user ids. If sent as a string, should be comma-delimited.
+- name: Delete_Group
+  description: Permanently remove a group from the Files.com site.
+  params:
+    id: Group ID.
+- name: List_User
+  description: List user accounts configured for the Files.com site.
+  params:
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+- name: Find_User
+  description: Retrieve the profile and settings of one Files.com user.
+  params:
+    id: User ID.
+- name: Create_User
+  description: Create a user account on the Files.com site.
+  params:
+    authentication_method: How is this user authenticated?
+    company: User's company
+    email: User's email.
+    group_ids: A list of group ids to associate this user with.  Comma delimited.
+    name: User's full name
+    notes: Any internal notes on the user
+    password: User password.
+    require_password_change: Is a password change required upon next user login?
+    user_home: Home folder for FTP/SFTP.  Note that this is not used for API, Desktop,
+      or Web interface.
+    user_root: Root folder for FTP (and optionally SFTP if the appropriate site-wide
+      setting is set).  Note that this is not used for API, Desktop, or Web interface.
+    username: User's username
+- name: Update_User
+  description: Change an existing Files.com user account.
+  params:
+    authentication_method: How is this user authenticated?
+    company: User's company
+    email: User's email.
+    group_ids: A list of group ids to associate this user with.  Comma delimited.
+    id: User ID.
+    name: User's full name
+    notes: Any internal notes on the user
+    password: User password.
+    require_password_change: Is a password change required upon next user login?
+    user_home: Home folder for FTP/SFTP.  Note that this is not used for API, Desktop,
+      or Web interface.
+    user_root: Root folder for FTP (and optionally SFTP if the appropriate site-wide
+      setting is set).  Note that this is not used for API, Desktop, or Web interface.
+    username: User's username
+- name: Delete_User
+  description: Permanently remove a user account from the Files.com site.
+  params:
+    id: User ID.
+- name: List_Action_Log
+  description: Review logged actions performed on the Files.com site.
+  params:
+    cursor: 'Used for pagination.  When a list request has more records available,
+      cursors are provided in the response headers `X-Files-Cursor-Next` and `X-Files-Cursor-Prev`.  Send
+      one of those cursor value here to resume an existing list from the next available
+      record.  Note: many of our SDKs have iterator methods that will automatically
+      handle cursor-based pagination.'
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+    filter: If set, return records where the specified field is equal to the supplied
+      value. Valid fields are `folder`, `path`, `src`, `destination`, `created_at`,
+      `user_id` or `username`.
+    filter_gt: If set, return records where the specified field is greater than the
+      supplied value. Valid fields are `created_at`.
+    filter_gteq: If set, return records where the specified field is greater than
+      or equal the supplied value. Valid fields are `created_at`.
+    filter_lt: If set, return records where the specified field is less than the supplied
+      value. Valid fields are `created_at`.
+    filter_lteq: If set, return records where the specified field is less than or
+      equal the supplied value. Valid fields are `created_at`.
+    filter_prefix: If set, return records where the specified field is prefixed by
+      the supplied value. Valid fields are `folder`, `path`, `src`, `destination`
+      or `username`.
+    per_page: 'Number of records to show per page.  (Max: 2000, 1,000 or less is recommended).'
+- name: List_Api_Request_Log
+  description: Review requests recorded by the Files.com API log.
+  params:
+    cursor: 'Used for pagination.  When a list request has more records available,
+      cursors are provided in the response headers `X-Files-Cursor-Next` and `X-Files-Cursor-Prev`.  Send
+      one of those cursor value here to resume an existing list from the next available
+      record.  Note: many of our SDKs have iterator methods that will automatically
+      handle cursor-based pagination.'
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+    filter: If set, return records where the specified field is equal to the supplied
+      value. Valid fields are `api_key_id`, `interface`, `request_id`, `request_ip`,
+      `request_method`, `success`, `user_id` or `created_at`.
+    filter_gt: If set, return records where the specified field is greater than the
+      supplied value. Valid fields are `created_at`.
+    filter_gteq: If set, return records where the specified field is greater than
+      or equal the supplied value. Valid fields are `created_at`.
+    filter_lt: If set, return records where the specified field is less than the supplied
+      value. Valid fields are `created_at`.
+    filter_lteq: If set, return records where the specified field is less than or
+      equal the supplied value. Valid fields are `created_at`.
+    filter_prefix: If set, return records where the specified field is prefixed by
+      the supplied value. Valid fields are `interface`, `request_id`, `request_ip`
+      or `request_method`.
+    per_page: 'Number of records to show per page.  (Max: 2000, 1,000 or less is recommended).'
+- name: List_Automation
+  description: List automation rules configured for the Files.com site.
+  params:
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+- name: Find_Automation
+  description: Retrieve the configuration of one automation rule.
+  params:
+    id: Automation ID.
+- name: List_Automation_Log
+  description: Review execution records for Files.com automations.
+  params:
+    cursor: 'Used for pagination.  When a list request has more records available,
+      cursors are provided in the response headers `X-Files-Cursor-Next` and `X-Files-Cursor-Prev`.  Send
+      one of those cursor value here to resume an existing list from the next available
+      record.  Note: many of our SDKs have iterator methods that will automatically
+      handle cursor-based pagination.'
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+    filter: If set, return records where the specified field is equal to the supplied
+      value. Valid fields are `automation_id`, `automation_run_id`, `operation`, `path`,
+      `status` or `created_at`.
+    filter_gt: If set, return records where the specified field is greater than the
+      supplied value. Valid fields are `created_at`.
+    filter_gteq: If set, return records where the specified field is greater than
+      or equal the supplied value. Valid fields are `created_at`.
+    filter_lt: If set, return records where the specified field is less than the supplied
+      value. Valid fields are `created_at`.
+    filter_lteq: If set, return records where the specified field is less than or
+      equal the supplied value. Valid fields are `created_at`.
+    filter_prefix: If set, return records where the specified field is prefixed by
+      the supplied value. Valid fields are `path`.
+    per_page: 'Number of records to show per page.  (Max: 2000, 1,000 or less is recommended).'
+- name: List_Email_Log
+  description: Review email-delivery activity recorded by Files.com.
+  params:
+    cursor: 'Used for pagination.  When a list request has more records available,
+      cursors are provided in the response headers `X-Files-Cursor-Next` and `X-Files-Cursor-Prev`.  Send
+      one of those cursor value here to resume an existing list from the next available
+      record.  Note: many of our SDKs have iterator methods that will automatically
+      handle cursor-based pagination.'
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+    filter: If set, return records where the specified field is equal to the supplied
+      value. Valid fields are `status` and `created_at`.
+    filter_gt: If set, return records where the specified field is greater than the
+      supplied value. Valid fields are `created_at`.
+    filter_gteq: If set, return records where the specified field is greater than
+      or equal the supplied value. Valid fields are `created_at`.
+    filter_lt: If set, return records where the specified field is less than the supplied
+      value. Valid fields are `created_at`.
+    filter_lteq: If set, return records where the specified field is less than or
+      equal the supplied value. Valid fields are `created_at`.
+    per_page: 'Number of records to show per page.  (Max: 2000, 1,000 or less is recommended).'
+- name: List_Exavault_Api_Request_Log
+  description: Review API requests recorded for the ExaVault compatibility API.
+  params:
+    cursor: 'Used for pagination.  When a list request has more records available,
+      cursors are provided in the response headers `X-Files-Cursor-Next` and `X-Files-Cursor-Prev`.  Send
+      one of those cursor value here to resume an existing list from the next available
+      record.  Note: many of our SDKs have iterator methods that will automatically
+      handle cursor-based pagination.'
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+    filter: If set, return records where the specified field is equal to the supplied
+      value. Valid fields are `request_ip`, `request_method`, `success` or `created_at`.
+    filter_gt: If set, return records where the specified field is greater than the
+      supplied value. Valid fields are `created_at`.
+    filter_gteq: If set, return records where the specified field is greater than
+      or equal the supplied value. Valid fields are `created_at`.
+    filter_lt: If set, return records where the specified field is less than the supplied
+      value. Valid fields are `created_at`.
+    filter_lteq: If set, return records where the specified field is less than or
+      equal the supplied value. Valid fields are `created_at`.
+    filter_prefix: If set, return records where the specified field is prefixed by
+      the supplied value. Valid fields are `request_ip` and `request_method`.
+    per_page: 'Number of records to show per page.  (Max: 2000, 1,000 or less is recommended).'
+- name: List_External_Event
+  description: List external events received or recorded by Files.com.
+  params:
+    cursor: 'Used for pagination.  When a list request has more records available,
+      cursors are provided in the response headers `X-Files-Cursor-Next` and `X-Files-Cursor-Prev`.  Send
+      one of those cursor value here to resume an existing list from the next available
+      record.  Note: many of our SDKs have iterator methods that will automatically
+      handle cursor-based pagination.'
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+    filter: If set, return records where the specified field is equal to the supplied
+      value. Valid fields are `created_at` and `status`.
+    filter_gt: If set, return records where the specified field is greater than the
+      supplied value. Valid fields are `created_at`.
+    filter_gteq: If set, return records where the specified field is greater than
+      or equal the supplied value. Valid fields are `created_at`.
+    filter_lt: If set, return records where the specified field is less than the supplied
+      value. Valid fields are `created_at`.
+    filter_lteq: If set, return records where the specified field is less than or
+      equal the supplied value. Valid fields are `created_at`.
+    per_page: 'Number of records to show per page.  (Max: 10000, 1,000 or less is
+      recommended).'
+    sort_by: If set, sort records by the specified field in either `asc` or `desc`
+      direction. Valid fields are `created_at`, `status` or `event_type`.
+- name: List_File_Migration_Log
+  description: Review activity from Files.com file-migration jobs.
+  params:
+    cursor: 'Used for pagination.  When a list request has more records available,
+      cursors are provided in the response headers `X-Files-Cursor-Next` and `X-Files-Cursor-Prev`.  Send
+      one of those cursor value here to resume an existing list from the next available
+      record.  Note: many of our SDKs have iterator methods that will automatically
+      handle cursor-based pagination.'
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+    filter: If set, return records where the specified field is equal to the supplied
+      value. Valid fields are `file_migration_id`, `operation`, `status`, `type` or
+      `created_at`.
+    filter_gt: If set, return records where the specified field is greater than the
+      supplied value. Valid fields are `created_at`.
+    filter_gteq: If set, return records where the specified field is greater than
+      or equal the supplied value. Valid fields are `created_at`.
+    filter_lt: If set, return records where the specified field is less than the supplied
+      value. Valid fields are `created_at`.
+    filter_lteq: If set, return records where the specified field is less than or
+      equal the supplied value. Valid fields are `created_at`.
+    per_page: 'Number of records to show per page.  (Max: 2000, 1,000 or less is recommended).'
+- name: List_Ftp_Action_Log
+  description: Review file actions performed through FTP.
+  params:
+    cursor: 'Used for pagination.  When a list request has more records available,
+      cursors are provided in the response headers `X-Files-Cursor-Next` and `X-Files-Cursor-Prev`.  Send
+      one of those cursor value here to resume an existing list from the next available
+      record.  Note: many of our SDKs have iterator methods that will automatically
+      handle cursor-based pagination.'
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+    filter: If set, return records where the specified field is equal to the supplied
+      value. Valid fields are `path`, `true_path`, `remote_ip`, `session_uuid`, `success`,
+      `status`, `action_type`, `username` or `created_at`.
+    filter_gt: If set, return records where the specified field is greater than the
+      supplied value. Valid fields are `created_at`.
+    filter_gteq: If set, return records where the specified field is greater than
+      or equal the supplied value. Valid fields are `created_at`.
+    filter_lt: If set, return records where the specified field is less than the supplied
+      value. Valid fields are `created_at`.
+    filter_lteq: If set, return records where the specified field is less than or
+      equal the supplied value. Valid fields are `created_at`.
+    filter_prefix: If set, return records where the specified field is prefixed by
+      the supplied value. Valid fields are `path`, `true_path`, `action_type` or `username`.
+    per_page: 'Number of records to show per page.  (Max: 2000, 1,000 or less is recommended).'
+- name: List_For_File_History
+  description: Review the recorded activity history for one file.
+  params:
+    cursor: 'Used for pagination.  When a list request has more records available,
+      cursors are provided in the response headers `X-Files-Cursor-Next` and `X-Files-Cursor-Prev`.  Send
+      one of those cursor value here to resume an existing list from the next available
+      record.  Note: many of our SDKs have iterator methods that will automatically
+      handle cursor-based pagination.'
+    display: Display format. Leave blank or set to `full` or `parent`.
+    end_at: Leave blank or set to a date/time to filter later entries.
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+    path: Path to operate on.
+    per_page: 'Number of records to show per page.  (Max: 10000, 1,000 or less is
+      recommended).'
+    sort_by: If set, sort records by the specified field in either `asc` or `desc`
+      direction. Valid fields are `created_at`.
+    start_at: Leave blank or set to a date/time to filter earlier entries.
+- name: List_For_Folder_History
+  description: Review the recorded activity history for one folder.
+  params:
+    cursor: 'Used for pagination.  When a list request has more records available,
+      cursors are provided in the response headers `X-Files-Cursor-Next` and `X-Files-Cursor-Prev`.  Send
+      one of those cursor value here to resume an existing list from the next available
+      record.  Note: many of our SDKs have iterator methods that will automatically
+      handle cursor-based pagination.'
+    display: Display format. Leave blank or set to `full` or `parent`.
+    end_at: Leave blank or set to a date/time to filter later entries.
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+    path: Path to operate on.
+    per_page: 'Number of records to show per page.  (Max: 10000, 1,000 or less is
+      recommended).'
+    sort_by: If set, sort records by the specified field in either `asc` or `desc`
+      direction. Valid fields are `created_at`.
+    start_at: Leave blank or set to a date/time to filter earlier entries.
+- name: List_For_User_History
+  description: Review Files.com activity associated with one user.
+  params:
+    cursor: 'Used for pagination.  When a list request has more records available,
+      cursors are provided in the response headers `X-Files-Cursor-Next` and `X-Files-Cursor-Prev`.  Send
+      one of those cursor value here to resume an existing list from the next available
+      record.  Note: many of our SDKs have iterator methods that will automatically
+      handle cursor-based pagination.'
+    display: Display format. Leave blank or set to `full` or `parent`.
+    end_at: Leave blank or set to a date/time to filter later entries.
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+    per_page: 'Number of records to show per page.  (Max: 10000, 1,000 or less is
+      recommended).'
+    sort_by: If set, sort records by the specified field in either `asc` or `desc`
+      direction. Valid fields are `created_at`.
+    start_at: Leave blank or set to a date/time to filter earlier entries.
+    user_id: User ID.
+- name: List_Logins_History
+  description: Review login attempts and sessions for the Files.com site.
+  params:
+    cursor: 'Used for pagination.  When a list request has more records available,
+      cursors are provided in the response headers `X-Files-Cursor-Next` and `X-Files-Cursor-Prev`.  Send
+      one of those cursor value here to resume an existing list from the next available
+      record.  Note: many of our SDKs have iterator methods that will automatically
+      handle cursor-based pagination.'
+    display: Display format. Leave blank or set to `full` or `parent`.
+    end_at: Leave blank or set to a date/time to filter later entries.
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+    per_page: 'Number of records to show per page.  (Max: 10000, 1,000 or less is
+      recommended).'
+    sort_by: If set, sort records by the specified field in either `asc` or `desc`
+      direction. Valid fields are `created_at`.
+    start_at: Leave blank or set to a date/time to filter earlier entries.
+- name: List_History
+  description: Review the complete action history for the Files.com site.
+  params:
+    cursor: 'Used for pagination.  When a list request has more records available,
+      cursors are provided in the response headers `X-Files-Cursor-Next` and `X-Files-Cursor-Prev`.  Send
+      one of those cursor value here to resume an existing list from the next available
+      record.  Note: many of our SDKs have iterator methods that will automatically
+      handle cursor-based pagination.'
+    display: Display format. Leave blank or set to `full` or `parent`.
+    end_at: Leave blank or set to a date/time to filter later entries.
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+    filter: If set, return records where the specified field is equal to the supplied
+      value. Valid fields are `user_id`, `folder` or `path`.
+    filter_prefix: If set, return records where the specified field is prefixed by
+      the supplied value. Valid fields are `path`.
+    per_page: 'Number of records to show per page.  (Max: 10000, 1,000 or less is
+      recommended).'
+    sort_by: If set, sort records by the specified field in either `asc` or `desc`
+      direction. Valid fields are `created_at`.
+    start_at: Leave blank or set to a date/time to filter earlier entries.
+- name: List_Inbound_S3_Log
+  description: Review inbound S3 transfer activity recorded by Files.com.
+  params:
+    cursor: 'Used for pagination.  When a list request has more records available,
+      cursors are provided in the response headers `X-Files-Cursor-Next` and `X-Files-Cursor-Prev`.  Send
+      one of those cursor value here to resume an existing list from the next available
+      record.  Note: many of our SDKs have iterator methods that will automatically
+      handle cursor-based pagination.'
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+    filter: If set, return records where the specified field is equal to the supplied
+      value. Valid fields are `operation`, `status`, `path`, `client_ip` or `created_at`.
+    filter_gt: If set, return records where the specified field is greater than the
+      supplied value. Valid fields are `created_at`.
+    filter_gteq: If set, return records where the specified field is greater than
+      or equal the supplied value. Valid fields are `created_at`.
+    filter_lt: If set, return records where the specified field is less than the supplied
+      value. Valid fields are `created_at`.
+    filter_lteq: If set, return records where the specified field is less than or
+      equal the supplied value. Valid fields are `created_at`.
+    filter_prefix: If set, return records where the specified field is prefixed by
+      the supplied value. Valid fields are `operation`, `status`, `path` or `client_ip`.
+    per_page: 'Number of records to show per page.  (Max: 2000, 1,000 or less is recommended).'
+- name: List_Outbound_Connection_Log
+  description: Review activity for outbound remote-server connections.
+  params:
+    cursor: 'Used for pagination.  When a list request has more records available,
+      cursors are provided in the response headers `X-Files-Cursor-Next` and `X-Files-Cursor-Prev`.  Send
+      one of those cursor value here to resume an existing list from the next available
+      record.  Note: many of our SDKs have iterator methods that will automatically
+      handle cursor-based pagination.'
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+    filter: If set, return records where the specified field is equal to the supplied
+      value. Valid fields are `operation`, `status`, `src_remote_server_id`, `dest_remote_server_id`,
+      `path`, `client_ip` or `created_at`.
+    filter_gt: If set, return records where the specified field is greater than the
+      supplied value. Valid fields are `created_at`.
+    filter_gteq: If set, return records where the specified field is greater than
+      or equal the supplied value. Valid fields are `created_at`.
+    filter_lt: If set, return records where the specified field is less than the supplied
+      value. Valid fields are `created_at`.
+    filter_lteq: If set, return records where the specified field is less than or
+      equal the supplied value. Valid fields are `created_at`.
+    filter_prefix: If set, return records where the specified field is prefixed by
+      the supplied value. Valid fields are `path`.
+    per_page: 'Number of records to show per page.  (Max: 2000, 1,000 or less is recommended).'
+- name: List_Permission
+  description: List folder permissions assigned to users and groups.
+  params:
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+    group_id: ''
+    path: Permission path.  If provided, will scope all permissions(including upward)
+      to this path.
+    user_id: ''
+- name: Create_Permission
+  description: Grant a user or group a selected permission on a folder.
+  params:
+    group_id: Group ID. Provide `group_name` or `group_id`
+    path: Folder path
+    permission: Permission type.  Can be `admin`, `full`, `readonly`, `writeonly`,
+      `list`, or `history`
+    user_id: User ID.  Provide `username` or `user_id`
+- name: Delete_Permission
+  description: Remove an existing folder permission assignment.
+  params:
+    id: Permission ID.
+- name: List_Public_Hosting_Request_Log
+  description: Review requests made to public-hosting content.
+  params:
+    cursor: 'Used for pagination.  When a list request has more records available,
+      cursors are provided in the response headers `X-Files-Cursor-Next` and `X-Files-Cursor-Prev`.  Send
+      one of those cursor value here to resume an existing list from the next available
+      record.  Note: many of our SDKs have iterator methods that will automatically
+      handle cursor-based pagination.'
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+    filter: If set, return records where the specified field is equal to the supplied
+      value. Valid fields are `path`, `remote_ip`, `success` or `created_at`.
+    filter_gt: If set, return records where the specified field is greater than the
+      supplied value. Valid fields are `created_at`.
+    filter_gteq: If set, return records where the specified field is greater than
+      or equal the supplied value. Valid fields are `created_at`.
+    filter_lt: If set, return records where the specified field is less than the supplied
+      value. Valid fields are `created_at`.
+    filter_lteq: If set, return records where the specified field is less than or
+      equal the supplied value. Valid fields are `created_at`.
+    filter_prefix: If set, return records where the specified field is prefixed by
+      the supplied value. Valid fields are `path`.
+    per_page: 'Number of records to show per page.  (Max: 2000, 1,000 or less is recommended).'
+- name: List_Remote_Server
+  description: List remote server connections configured in Files.com.
+  params:
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+- name: Find_Remote_Server
+  description: Retrieve the configuration of one remote server connection.
+  params:
+    id: Remote Server ID.
+- name: List_Scim_Log
+  description: Review SCIM provisioning activity for the Files.com site.
+  params:
+    cursor: 'Used for pagination.  When a list request has more records available,
+      cursors are provided in the response headers `X-Files-Cursor-Next` and `X-Files-Cursor-Prev`.  Send
+      one of those cursor value here to resume an existing list from the next available
+      record.  Note: many of our SDKs have iterator methods that will automatically
+      handle cursor-based pagination.'
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+    per_page: 'Number of records to show per page.  (Max: 10000, 1,000 or less is
+      recommended).'
+    sort_by: If set, sort records by the specified field in either `asc` or `desc`
+      direction. Valid fields are `created_at`.
+- name: List_Settings_Change
+  description: Review recorded changes to Files.com site settings.
+  params:
+    cursor: 'Used for pagination.  When a list request has more records available,
+      cursors are provided in the response headers `X-Files-Cursor-Next` and `X-Files-Cursor-Prev`.  Send
+      one of those cursor value here to resume an existing list from the next available
+      record.  Note: many of our SDKs have iterator methods that will automatically
+      handle cursor-based pagination.'
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+    filter: If set, return records where the specified field is equal to the supplied
+      value. Valid fields are `api_key_id` and `user_id`.
+    per_page: 'Number of records to show per page.  (Max: 10000, 1,000 or less is
+      recommended).'
+    sort_by: If set, sort records by the specified field in either `asc` or `desc`
+      direction. Valid fields are `created_at`, `api_key_id` or `user_id`.
+- name: List_Sftp_Action_Log
+  description: Review file actions performed through SFTP.
+  params:
+    cursor: 'Used for pagination.  When a list request has more records available,
+      cursors are provided in the response headers `X-Files-Cursor-Next` and `X-Files-Cursor-Prev`.  Send
+      one of those cursor value here to resume an existing list from the next available
+      record.  Note: many of our SDKs have iterator methods that will automatically
+      handle cursor-based pagination.'
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+    filter: If set, return records where the specified field is equal to the supplied
+      value. Valid fields are `path`, `true_path`, `remote_ip`, `session_uuid`, `success`,
+      `status`, `action_type`, `username` or `created_at`.
+    filter_gt: If set, return records where the specified field is greater than the
+      supplied value. Valid fields are `created_at`.
+    filter_gteq: If set, return records where the specified field is greater than
+      or equal the supplied value. Valid fields are `created_at`.
+    filter_lt: If set, return records where the specified field is less than the supplied
+      value. Valid fields are `created_at`.
+    filter_lteq: If set, return records where the specified field is less than or
+      equal the supplied value. Valid fields are `created_at`.
+    filter_prefix: If set, return records where the specified field is prefixed by
+      the supplied value. Valid fields are `path`, `true_path`, `action_type` or `username`.
+    per_page: 'Number of records to show per page.  (Max: 2000, 1,000 or less is recommended).'
+- name: List_Sync_Log
+  description: Review synchronization jobs and their recorded results.
+  params:
+    cursor: 'Used for pagination.  When a list request has more records available,
+      cursors are provided in the response headers `X-Files-Cursor-Next` and `X-Files-Cursor-Prev`.  Send
+      one of those cursor value here to resume an existing list from the next available
+      record.  Note: many of our SDKs have iterator methods that will automatically
+      handle cursor-based pagination.'
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+    filter: If set, return records where the specified field is equal to the supplied
+      value. Valid fields are `external_event_id`, `operation`, `status`, `sync_id`,
+      `created_at` or `sync_run_id`.
+    filter_gt: If set, return records where the specified field is greater than the
+      supplied value. Valid fields are `created_at`.
+    filter_gteq: If set, return records where the specified field is greater than
+      or equal the supplied value. Valid fields are `created_at`.
+    filter_lt: If set, return records where the specified field is less than the supplied
+      value. Valid fields are `created_at`.
+    filter_lteq: If set, return records where the specified field is less than or
+      equal the supplied value. Valid fields are `created_at`.
+    per_page: 'Number of records to show per page.  (Max: 2000, 1,000 or less is recommended).'
+- name: List_Web_Dav_Action_Log
+  description: Review file actions performed through WebDAV.
+  params:
+    cursor: 'Used for pagination.  When a list request has more records available,
+      cursors are provided in the response headers `X-Files-Cursor-Next` and `X-Files-Cursor-Prev`.  Send
+      one of those cursor value here to resume an existing list from the next available
+      record.  Note: many of our SDKs have iterator methods that will automatically
+      handle cursor-based pagination.'
+    fields: Optional list of attribute names to include as columns in the response
+      table. When omitted, a sensible default set is used. Useful for narrowing wide
+      entities or surfacing fields not in the default.
+    filter: If set, return records where the specified field is equal to the supplied
+      value. Valid fields are `path`, `true_path`, `remote_ip`, `success`, `status`,
+      `action_type`, `username` or `created_at`.
+    filter_gt: If set, return records where the specified field is greater than the
+      supplied value. Valid fields are `created_at`.
+    filter_gteq: If set, return records where the specified field is greater than
+      or equal the supplied value. Valid fields are `created_at`.
+    filter_lt: If set, return records where the specified field is less than the supplied
+      value. Valid fields are `created_at`.
+    filter_lteq: If set, return records where the specified field is less than or
+      equal the supplied value. Valid fields are `created_at`.
+    filter_prefix: If set, return records where the specified field is prefixed by
+      the supplied value. Valid fields are `path`, `true_path`, `action_type` or `username`.
+    per_page: 'Number of records to show per page.  (Max: 2000, 1,000 or less is recommended).'

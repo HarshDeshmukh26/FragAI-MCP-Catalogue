@@ -1,0 +1,33 @@
+name: Composio Connect
+entryKey: fragai-composio
+shortDescription: Connect FragAI to many business apps through Composio
+description: |
+  Connect FragAI to Composio Connect to reach supported third-party applications through one remote MCP endpoint. Composio supplies a small set of discovery and execution tools and starts an application's OAuth flow when a user first needs it.
+
+  ## What you can do
+  - Discover actions across Composio's supported application catalogue
+  - Connect user accounts to services on demand through OAuth
+  - Execute one action or a batch of actions across connected applications
+  - Use remote Python or shell workbenches when enabled for advanced workflows
+
+  ## Before connecting
+  - Create an AI Client in Composio and copy its consumer API key
+  - Review the scopes requested for every connected application
+  - Treat workbench commands and all external writes as privileged actions requiring human approval
+
+  A broad aggregator is convenient but grants access to several services through one trust boundary. Prefer a dedicated catalogue entry when a narrower tool surface is available. See [Composio Connect documentation](https://docs.composio.dev/docs/composio-connect).
+metadata:
+  categories: SaaS & API Integrations, Productivity, Developer Tools
+icon: https://composio.dev/favicon.ico
+repoURL: https://docs.composio.dev/docs/composio-connect
+runtime: remote
+remoteConfig:
+  fixedURL: https://connect.composio.dev/mcp
+
+config:
+  - name: Composio Consumer API Key
+    description: Consumer API key copied from the AI Clients page in Composio
+    key: x-consumer-api-key
+    required: true
+    sensitive: true
+    usage: header

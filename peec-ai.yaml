@@ -1,0 +1,24 @@
+name: Peec AI
+entryKey: fragai-peec-ai
+shortDescription: Analyze brand visibility, sentiment, and share of voice across AI search
+description: |
+  Measure how often and how favorably AI search engines mention your brand with Peec AI.
+
+  ## What you can do
+  - List the projects, brands, prompts, topics, and tags available to your account
+  - Retrieve brand, domain, and URL performance reports
+  - Compare visibility, sentiment, and share of voice across supported AI search engines
+
+  ## Before connecting
+  - Use a Peec AI account with access to the projects you want to analyze
+  - Connect with OAuth 2.0, or use a personal access token when your MCP client cannot complete OAuth
+  - Treat visibility and sentiment metrics as directional analytics and review the underlying prompts and reports before making decisions
+
+  See the official [Peec AI MCP documentation](https://docs.peec.ai/mcp/introduction) for supported clients and authentication options.
+metadata:
+  categories: Data Analytics, Marketing, Business Intelligence
+icon: https://mintcdn.com/peecai-b61a1960/BVQQX1wLWNjFOa_V/images/logo-white.svg?fit=max&auto=format&n=BVQQX1wLWNjFOa_V&q=85&s=5d3f30a498a2c71a875226adc1a9de52
+repoURL: https://docs.peec.ai/mcp/introduction
+runtime: remote
+remoteConfig:
+  fixedURL: https://api.peec.ai/mcp

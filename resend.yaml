@@ -1,0 +1,28 @@
+name: Resend
+entryKey: fragai-resend
+shortDescription: Manage email delivery, audiences, domains, and automations in Resend
+description: |
+  Send email and manage templates, audiences, domains, automations, webhooks, and delivery activity in Resend.
+
+  ## What you can do
+  - Send, schedule, update, cancel, and batch-send email
+  - Read inbound messages and download supported attachments
+  - Create and manage templates, broadcasts, automations, and events
+  - Maintain contacts, audiences, segments, topics, imports, and custom properties
+  - Configure domains, API keys, webhooks, and domain claims
+  - Inspect delivery logs and collaborate through Resend's visual editor
+
+  ## Before connecting
+  - Sign in through Resend OAuth with access to the required resources
+  - Sending email contacts external recipients and can affect reputation, compliance, and paid usage
+  - API keys and domain settings are security-sensitive, and deletion or unsubscribe actions may be difficult to reverse
+  - Verify recipients, sender domains, content, schedules, and destructive changes before approval
+
+  See the official [Resend MCP documentation](https://resend.com/docs/mcp-server) for connection instructions and the current tool catalog.
+metadata:
+  categories: Email,Developer Tools,Marketing
+icon: https://mcp.resend.com/icon.svg
+repoURL: https://resend.com/docs/mcp-server
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.resend.com/

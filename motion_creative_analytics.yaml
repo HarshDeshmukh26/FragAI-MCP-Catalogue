@@ -1,0 +1,26 @@
+name: Motion Creative Analytics
+entryKey: fragai-motion-creative-analytics
+shortDescription: Analyze ad creative performance, competitor campaigns, and brand patterns
+description: |
+  Analyze advertising creative and competitor campaigns with Motion's official read-only MCP server.
+
+  ## What you can do
+  - Rank Meta ad creatives by spend, ROAS, CPA, CTR, purchases, and other performance metrics
+  - Summarize ads, retrieve video transcripts, and compare age and gender performance
+  - Research competitor ad libraries, positioning, messaging, and launch patterns
+  - Use workspace brand context, saved reports, and creative-tag definitions
+  - Develop briefs, concepts, and test ideas grounded in current account data
+
+  ## Before connecting
+  - Sign in to a Motion workspace as an Owner, Admin, or Collaborator
+  - Connect a supported advertising data source to analyze performance; Motion currently documents Meta support
+  - The analytics tools are read-only, but the feedback tool can send issue or feature-request context to Motion when asked
+
+  See the official [Motion MCP documentation](https://help.motionapp.com/en/articles/14315735-motion-mcp) for supported roles, plans, clients, and tools.
+metadata:
+  categories: Marketing, Advertising, Data & Analytics
+icon: https://cdn.prod.website-files.com/61ba3b439a672312697272c7/62193dfca2d19738b5c6da9d_motion-favicon-256x256.png
+repoURL: https://help.motionapp.com/en/articles/14315735-motion-mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://projects.motionapp.com/mcp

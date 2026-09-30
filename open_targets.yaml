@@ -1,0 +1,25 @@
+name: Open Targets
+entryKey: fragai-open-targets
+shortDescription: Research drug targets, diseases, drugs, variants, studies, and target-disease associations
+description: |
+  Explore public Open Targets Platform data about drug targets, diseases, drugs, variants, studies, and target-disease associations.
+
+  ## What you can do
+  - Search biomedical entities by a familiar name and resolve them to standard identifiers
+  - Explore focused sections of the Open Targets GraphQL schema
+  - Run custom GraphQL queries against the Platform API
+  - Apply the same query to multiple variable sets for comparative research
+
+  ## Before connecting
+  - No account or API key is required for the public hosted server
+  - The server is experimental and its tools or schema may change
+  - Results support research and discovery; verify biomedical conclusions against primary evidence before clinical or safety-critical use
+
+  See the official [Open Targets Platform MCP repository](https://github.com/opentargets/platform-mcp) for the endpoint, tools, and current project status.
+metadata:
+  categories: Healthcare, Research, Data & Analytics
+icon: https://avatars.githubusercontent.com/u/8728108?v=4
+repoURL: https://github.com/opentargets/platform-mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.platform.opentargets.org/mcp

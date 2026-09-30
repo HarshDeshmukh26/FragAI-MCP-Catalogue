@@ -1,0 +1,25 @@
+name: Descript
+entryKey: fragai-descript
+shortDescription: Create, edit, organize, and publish audio or video projects in Descript
+description: |
+  Connect FragAI to Descript's remote MCP server to work with media and projects from an AI conversation. The connection is limited to the Descript Drive selected during sign-in.
+
+  ## What you can do
+  - Import audio or video and create transcripts
+  - Apply supported Underlord edits such as Studio Sound, filler-word removal, and captions
+  - Find, create, and organize projects, folders, and compositions
+  - Publish web links, export transcripts, and monitor background jobs
+
+  ## Before connecting
+  - Sign in to Descript through OAuth and select the correct Drive
+  - Confirm FragAI can connect to custom remote MCP servers
+  - Remember that imports consume media minutes and Underlord operations may consume AI credits
+
+  Review any publishing or content-changing action before it runs. Setup details: [Descript custom MCP guide](https://help.descript.com/api-and-mcp/mcp-custom).
+metadata:
+  categories: Video & Audio, Content Creation, Productivity
+icon: https://static-cdn.descript.com/web/icons/favicon.svg
+repoURL: https://help.descript.com/api-and-mcp/mcp-custom
+runtime: remote
+remoteConfig:
+  fixedURL: https://api.descript.com/v2/mcp

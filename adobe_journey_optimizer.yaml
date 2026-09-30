@@ -1,0 +1,23 @@
+name: Adobe Journey Optimizer
+entryKey: fragai-adobe-journey-optimizer
+shortDescription: Review Journey Optimizer campaigns, journeys, and channel settings
+description: |
+  Use an AI assistant to understand Adobe Journey Optimizer campaigns, journey logic, offers, and channel configuration. The current beta tools retrieve information but do not change Journey Optimizer objects.
+
+  ## What you can do
+  - List campaigns and inspect audiences, schedules, channels, and content settings
+  - Review journey branches, conditions, and actions
+  - Find stopped campaigns, drafts, and incomplete channel configuration
+  - Check sender domains, unsubscribe settings, IP pools, marketing actions, and governance policies
+
+  ## Before connecting
+  You need an active Journey Optimizer license and View permission for the objects you want to inspect. Sign in with Adobe OAuth. Results are limited by your organization, sandbox, and permissions.
+
+  This integration is beta and may change. See the [official Journey Optimizer MCP guide](https://experienceleague.adobe.com/en/docs/journey-optimizer/using/content-management/combine/ajo-mcp).
+metadata:
+  categories: Marketing, Data & Analytics, Customer Experience
+icon: https://developer.adobe.com/internals/mcp-registry-web-app/v1.11.0/default_card_icon.6bb9c3a2.svg
+repoURL: https://experienceleague.adobe.com/en/docs/journey-optimizer/using/content-management/combine/ajo-mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://ajo-mcp.adobe.io/mcp

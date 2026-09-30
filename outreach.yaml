@@ -1,0 +1,27 @@
+name: Outreach
+entryKey: fragai-outreach
+shortDescription: Research revenue records, meetings, emails, sequences, prospects, accounts, and opportunities
+description: |
+  Research and act on Outreach revenue data, including prospects, accounts, opportunities, sequences, emails, meetings, and tasks.
+
+  ## What you can do
+  - Search revenue records, users, teams, sequence states, emails, and Kaia meetings
+  - Retrieve transcripts and prepare account or opportunity briefings
+  - Create supported prospects, accounts, opportunities, sequences, and tasks
+  - Add prospects to sequences and remove supported records when administrator settings allow it
+  - Discover your organization's valid filters, stages, schedules, rulesets, and input fields
+
+  ## Before connecting
+  - Use an active licensed Outreach user in an organization with Amplify and available credits
+  - An Outreach administrator must enable the MCP server; access follows the connected user's profile permissions
+  - Create actions are enabled by default and delete actions are normally disabled until an administrator enables them
+  - Confirm record IDs, recipients, and sequence membership before approving write or delete operations
+
+  See the official [Outreach MCP documentation](https://support.outreach.io/hc/en-us/articles/46370115253403-Outreach-MCP-Server) for licensing, controls, tools, and security guidance.
+metadata:
+  categories: Sales, CRM, Productivity
+icon: https://cdn.prod.website-files.com/696ea7504e736c595e9a2313/699fa86f95fdd7f81f024bc5_favicon.png
+repoURL: https://support.outreach.io/hc/en-us/articles/46370115253403-Outreach-MCP-Server
+runtime: remote
+remoteConfig:
+  fixedURL: https://api.outreach.io/mcp

@@ -1,0 +1,32 @@
+name: Affinity
+entryKey: fragai-affinity
+shortDescription: Work with Affinity relationships, meetings, notes, and deal pipelines
+description: |
+  Use an AI assistant to search relationship data and maintain permitted records in Affinity. Requests use the permissions of the Affinity user who created the API key.
+
+  ## What you can do
+  - Find people, companies, opportunities, meetings, notes, and workspace lists
+  - Review interaction history, relationship strength, transcripts, and upcoming meetings
+  - Create notes, reminders, opportunities, lists, and list entries
+  - Update entity fields and pipeline values
+
+  ## Before connecting
+  MCP access requires an Affinity Scale, Advanced, or Enterprise plan. Generate an API key for the user whose access should be used, then enter it when configuring the connection.
+
+  This server includes write operations. Review changes before approval. See the [official Affinity MCP documentation](https://developer.affinity.co/pages/mcp/introduction).
+metadata:
+  categories: CRM, Sales, Finance
+icon: https://developer.affinity.co/mintlify-assets/_mintlify/favicons/affinityco/CXvLshWNfONUoQ_Z/_generated/favicon/android-chrome-192x192.png
+repoURL: https://developer.affinity.co/pages/mcp/introduction
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.affinity.co/mcp
+
+config:
+  - name: Affinity API Key
+    description: Personal Affinity API key used to authorize requests with that user's permissions
+    key: Authorization
+    required: true
+    sensitive: true
+    prefix: "Bearer "
+    usage: header

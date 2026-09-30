@@ -1,0 +1,104 @@
+name: Exa Search
+entryKey: fragai-exa-search
+shortDescription: Search the web, retrieve pages, and run multi-step research with Exa
+upgradeNote: |
+  This entry now uses Exa's official hosted MCP server. Existing users must reconnect with an Exa API key and choose a tool profile. The hosted service adds advanced search, page retrieval, and optional Exa Agent research; tool names and parameters differ from the former hosted-by-FragAI entry.
+description: |
+  Connect FragAI to Exa's hosted MCP server for web search, clean page retrieval, and optional multi-step research.
+
+  ## What you can do
+  - Search the web and receive ready-to-use result content
+  - Fetch known webpages as clean markdown
+  - Use advanced controls for categories, domains, dates, extraction, and subpages
+  - Run Exa Agent for multi-step research and structured output when that profile is selected
+
+  ## Before connecting
+  - Create an Exa API key and select the smallest tool profile that meets the workflow
+  - Choose **Basic Search**, **Advanced Search**, or **Search + Research Agent** from the catalogue field
+  - Review Exa usage and pricing because searches and Agent runs may consume credits or incur charges
+  - Do not send secrets or private information in web-search queries
+
+  Setup details: [Exa MCP documentation](https://exa.ai/docs/get-started/exa-mcp).
+metadata:
+  categories: Retrieval & Search,Science & Research,Developer Tools
+icon: https://avatars.githubusercontent.com/u/77906174?v=4
+repoURL: https://exa.ai/docs/reference/exa-mcp
+config:
+  - name: Tool profile
+    key: EXA_TOOLS
+    description: Set of Exa search and research tools enabled for this connection
+    required: true
+    sensitive: false
+    options:
+      - name: Basic Search
+        value: web_search_exa,web_fetch_exa
+        description: Search the web and retrieve pages.
+      - name: Advanced Search
+        value: web_search_exa,web_fetch_exa,web_search_advanced_exa
+        description: Add advanced search controls.
+      - name: Search + Research Agent
+        value: web_search_exa,web_fetch_exa,web_search_advanced_exa,agent_run
+        description: Add Exa Agent for multi-step, usage-based research.
+    usage: env
+  - name: Exa API Key
+    description: Exa API key used to authorize searches and optional Agent runs
+    key: x-api-key
+    required: true
+    sensitive: true
+    usage: header
+runtime: remote
+remoteConfig:
+  urlTemplate: https://mcp.exa.ai/mcp?tools=${EXA_TOOLS}
+toolPreview:
+- name: web_search_exa
+  description: Search the web and return relevant results with clean extracted content.
+  params:
+    query: Natural-language search query describing the ideal page. Optionally include category:company or category:people to focus the search.
+    numResults: Number of search results to return. Defaults to 10.
+- name: web_search_advanced_exa
+  description: Run a web search with controls for categories, domains, dates, extraction, and subpages.
+  params:
+    additionalQueries: Additional query variations for broader search coverage.
+    category: Category to filter results.
+    contextMaxCharacters: Maximum characters for returned context.
+    enableHighlights: Whether to extract highlights.
+    enableSummary: Whether to generate result summaries.
+    endCrawlDate: Include results crawled before this ISO 8601 date.
+    endPublishedDate: Include results published before this ISO 8601 date.
+    excludeDomains: Domains to exclude.
+    excludeText: Text strings that exclude matching results when any are present.
+    highlightsMaxCharacters: Maximum characters of highlights per URL.
+    highlightsNumSentences: Deprecated sentence-count control, translated by the server to an approximate character limit. Use highlightsMaxCharacters instead.
+    highlightsPerUrl: Deprecated and ignored by the server. Use highlightsMaxCharacters instead.
+    highlightsQuery: Query used to select highlights.
+    includeDomains: Domains to include.
+    includeText: Text strings that must all be present in matching results.
+    livecrawlTimeout: Timeout in milliseconds for fetching fresh content.
+    maxAgeHours: Maximum age of cached content.
+    moderation: Whether to filter unsafe content.
+    numResults: Number of results to return.
+    query: Search query.
+    startCrawlDate: Include results crawled after this ISO 8601 date.
+    startPublishedDate: Include results published after this ISO 8601 date.
+    subpageTarget: Keywords for selecting subpages.
+    subpages: Number of subpages to crawl from each result.
+    summaryQuery: Query used to focus summaries.
+    textMaxCharacters: Maximum characters extracted per result.
+    type: Search type.
+    userLocation: Country code for geo-targeted results.
+- name: web_fetch_exa
+  description: Retrieve one or more known webpages as clean markdown.
+  params:
+    urls: URLs to read. Multiple URLs can be fetched in one request.
+    maxCharacters: Maximum characters to extract per page. Defaults to 3000.
+- name: agent_run
+  description: Start or continue an Exa Agent research task and return structured results.
+  params:
+    dataSources: Up to five Exa Connect providers to enable for the run.
+    effort: "Agent effort level: minimal, low, medium, high, xhigh, or auto. Defaults to low."
+    input: Additional input data and exclusions.
+    outputSchema: Schema for structured output.
+    previousRunId: Completed run ID to continue.
+    query: Natural-language research request.
+    runId: Running agent run ID to resume.
+    systemPrompt: Additional instructions for the agent.

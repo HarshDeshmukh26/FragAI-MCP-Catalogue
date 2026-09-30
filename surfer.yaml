@@ -1,0 +1,28 @@
+name: Surfer
+entryKey: fragai-surfer
+shortDescription: Create, optimize, and score SEO content with live Surfer data
+description: |
+  Create, optimize, and score SEO content using live Surfer recommendations, AI-search data, and brand context.
+
+  ## What you can do
+  - Create Content Editors for target keywords and generate articles with Surfer AI
+  - Optimize existing pages and review SEO or AI Search scores
+  - Adjust terms, topics, structure, competitors, and content guidelines
+  - Find pages to improve and new topics to cover
+  - Manage supported workspaces, brand knowledge, voices, and templates
+  - Retrieve AI visibility information from AI Tracker
+
+  ## Before connecting
+  - Use an eligible Surfer plan and sign in through OAuth
+  - Write and generation operations consume subscription limits; read-only requests do not
+  - AI-generated content may contain factual, legal, or brand errors
+  - Confirm the workspace, keyword, target page, brand voice, and expected credit usage before creating or optimizing content
+
+  See the official [Surfer MCP documentation](https://docs.surferseo.com/en/articles/12944186-surfer-mcp) for supported plans, tools, and usage limits.
+metadata:
+  categories: Marketing, Data & Analytics, SaaS & API Integrations
+icon: https://marketing-assets.surferseo.art/wf-cdn/62666115cfab458794bd512f/65eafaead35ce9113800c953_favicon-32.ico
+repoURL: https://docs.surferseo.com/en/articles/12944186-surfer-mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.surferseo.com/mcp

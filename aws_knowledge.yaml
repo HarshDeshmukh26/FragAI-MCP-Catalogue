@@ -1,0 +1,49 @@
+name: AWS Knowledge
+entryKey: fragai-aws-knowledge
+shortDescription: Search official AWS guidance and check regional service availability
+description: |
+  Use AWS's managed knowledge server to retrieve current AWS documentation and check where AWS APIs and CloudFormation resources are available.
+
+  ## What you can do
+  - Search official AWS documentation, references, guidance, and troubleshooting material
+  - Read supported AWS documentation pages as structured text
+  - Check regional availability for API operations and CloudFormation resource types
+  - List AWS regions and find related documentation
+
+  ## Before connecting
+  No AWS account, credentials, or API key is required. These tools retrieve public documentation and availability information; they do not access or change resources in an AWS account.
+
+  See the [official AWS Knowledge MCP repository](https://github.com/awslabs/mcp/tree/main/src/aws-knowledge-mcp-server).
+metadata:
+  categories: Documentation & Learning, Developer Tools
+icon: https://avatars.githubusercontent.com/u/3299148?s=48&v=4
+repoURL: https://github.com/awslabs/mcp/tree/main/src/aws-knowledge-mcp-server
+runtime: remote
+remoteConfig:
+  fixedURL: https://knowledge-mcp.global.api.aws
+toolPreview:
+- name: get_regional_availability
+  description: Check which AWS regions support selected SDK operations or CloudFormation resource types, including multiple checks in one request.
+  params:
+    region: Target AWS region code (e.g., us-east-1, eu-west-1, ap-southeast-2)
+    resource_type: Type of AWS resource to check - 'api' for API operations or 'cfn' for CloudFormation resources
+    filters: Optional list of specific resources to check. For APIs use format 'SdkServiceId+APIOperation' (e.g., ['IAM+GetSSHPublicKey']). For CloudFormation use resource type (e.g., ['AWS::EC2::Instance'])
+    next_token: Pagination token for retrieving additional results (only when no filters specified)
+- name: list_regions
+  description: Return AWS region codes and their readable region names.
+  params: {}
+- name: read_documentation
+  description: Retrieve a supported AWS documentation page as Markdown, with paging controls for long pages.
+  params:
+    url: URL of the AWS documentation page to read
+    max_length: Maximum number of characters to return (optional)
+    start_index: Starting character index for pagination of long documents (optional)
+- name: search_documentation
+  description: Search official AWS documentation, blogs, solutions, architecture guidance, and related AWS resources.
+  params:
+    search_phrase: Search phrase to use (use specific technical terms and include service names for better results)
+    limit: Maximum number of results to return (optional)
+- name: recommend
+  description: Find popular, recent, related, and commonly viewed-next documentation for a selected AWS documentation page.
+  params:
+    url: URL of the AWS documentation page to get recommendations for (must be from docs.aws.amazon.com domain)

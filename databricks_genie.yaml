@@ -1,0 +1,46 @@
+name: Databricks Genie Spaces
+entryKey: fragai-databricks-genie-spaces
+shortDescription: Ask natural-language questions about data in a Databricks Genie Space
+description: |
+  Connect FragAI to a Databricks-managed Genie Space MCP endpoint for conversational analytics governed by your workspace and Unity Catalog permissions.
+
+  ## What you can do
+  - Ask plain-language questions about data configured in the selected Genie Space
+  - Explore trends and business metrics through follow-up questions
+  - Run supported analysis using Databricks serverless SQL
+
+  ## Before connecting
+  - Confirm managed MCP servers are enabled for the Databricks workspace
+  - Obtain the workspace URL and the identifier of the Genie Space you are allowed to use
+  - Create a personal access token and store it securely
+  - Ensure the connected user has permission to access the selected space and its underlying data
+
+  Setup details: [Databricks managed MCP documentation](https://docs.databricks.com/aws/en/agents/mcp-tools).
+metadata:
+  categories: Data Analytics, Business Intelligence
+icon: https://avatars.githubusercontent.com/u/4998052?s=200&v=4
+repoURL: https://docs.databricks.com/aws/en/generative-ai/mcp/
+
+config:
+  - name: Databricks workspace hostname
+    key: DATABRICKS_WORKSPACE_URL
+    description: Full Databricks workspace URL, such as https://your-workspace.cloud.databricks.com
+    required: true
+    sensitive: false
+    usage: env
+  - name: Genie space ID
+    key: DATABRICKS_GENIE_SPACE_ID
+    description: Identifier of the Genie Space this connection should expose
+    required: true
+    sensitive: false
+    usage: env
+  - name: Personal Access Token
+    description: Personal access token authorized for the selected Genie Space
+    key: Authorization
+    required: true
+    sensitive: true
+    prefix: "Bearer "
+    usage: header
+runtime: remote
+remoteConfig:
+  urlTemplate: ${DATABRICKS_WORKSPACE_URL}/api/2.0/mcp/genie/${DATABRICKS_GENIE_SPACE_ID}

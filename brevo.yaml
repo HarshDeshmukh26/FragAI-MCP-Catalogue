@@ -1,0 +1,33 @@
+name: Brevo
+entryKey: fragai-brevo
+shortDescription: Review campaigns, contacts, segments, and templates in Brevo
+description: |
+  Connect FragAI to Brevo's remote MCP server to review marketing data and prepare campaign content. The connection uses a dedicated Brevo MCP token.
+
+  ## What you can do
+  - Review senders, contacts, lists, attributes, and audience segments
+  - Inspect email and SMS campaigns, including available A/B-test results
+  - Prepare draft email or SMS campaigns for review in Brevo
+  - Browse and create email templates, and send test messages when authorized
+
+  ## Before connecting
+  - Use a Brevo account that can access the marketing data required for your workflow
+  - Create an MCP token under **Account > SMTP & API > API Keys** and protect it like any other credential
+
+  Setup details: [Brevo MCP documentation](https://developers.brevo.com/docs/mcp-protocol).
+metadata:
+  categories: Marketing,Email,CRM
+icon: https://corp-backend.brevo.com/wp-content/uploads/2025/07/Brevo_logo.svg
+repoURL: https://developers.brevo.com/docs/mcp-protocol
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.brevo.com/v1/brevo/mcp
+
+config:
+  - name: Brevo MCP Token
+    description: Brevo MCP token used to authorize this catalogue connection
+    key: Authorization
+    required: true
+    sensitive: true
+    prefix: "Bearer "
+    usage: header

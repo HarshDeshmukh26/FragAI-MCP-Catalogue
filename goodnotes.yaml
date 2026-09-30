@@ -1,0 +1,26 @@
+name: Goodnotes
+entryKey: fragai-goodnotes
+shortDescription: Generate editable notes, whiteboards, illustrations, and diagrams for Goodnotes
+description: |
+  Connect FragAI to Goodnotes' public creation service to generate content that can be imported into the Goodnotes application.
+
+  ## What you can do
+  - Create formatted text documents from Markdown
+  - Draw editable illustrations, icons, and layouts from SVG
+  - Generate flowcharts, mind maps, and timelines from Mermaid
+  - Choose supported page colors and background patterns
+  - Open generated results in Goodnotes for further editing or sharing
+
+  ## Before connecting
+  - No credential is required to generate content
+  - Sign in to Goodnotes when importing a generated result
+  - The connector creates new content and cannot read or modify existing Goodnotes documents
+
+  Setup details: [Goodnotes integration documentation](https://support.goodnotes.com/hc/en-us/articles/15790373823887-Use-Goodnotes-in-ChatGPT-and-Claude).
+metadata:
+  categories: Productivity, Design, Education
+icon: https://cdn.prod.website-files.com/6978a92a56d24460cdf7442e/69ddf4810777de072d94b23f_68dff59f6dde021933bb00b3_Goodnotes-icon-256.png
+repoURL: https://support.goodnotes.com/hc/en-us/articles/15790373823887-Use-Goodnotes-in-ChatGPT-and-Claude
+runtime: remote
+remoteConfig:
+  fixedURL: https://claude-mcp-api.ml.goodnotes.com/mcp

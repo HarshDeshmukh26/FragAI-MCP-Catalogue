@@ -1,0 +1,25 @@
+name: Twilio Docs
+entryKey: fragai-twilio-docs
+shortDescription: Search Twilio API documentation and retrieve implementation guidance
+description: |
+  Search Twilio's public developer documentation for API specifications, endpoint details, implementation guidance, and code patterns.
+
+  ## What you can do
+  - Search documentation across Twilio APIs and products
+  - Retrieve focused API specifications and implementation examples
+  - Find guidance for messaging, voice, email, identity, customer data, contact centers, and conversational AI
+  - Use the documentation tools without connecting a Twilio account
+
+  ## Before connecting
+  - No Twilio account credentials are required for this documentation-only service
+  - The connector cannot send messages or modify Twilio resources
+  - Check API versions, regional behavior, pricing, compliance requirements, and current product documentation before implementing a production workflow
+
+  See the official [Twilio MCP documentation](https://www.twilio.com/docs/ai/mcp) for connection instructions and current capabilities.
+metadata:
+  categories: Developer Tools,Documentation,Communication
+icon: https://avatars.githubusercontent.com/u/109142?s=48&v=4
+repoURL: https://www.twilio.com/docs/ai/mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.twilio.com/docs

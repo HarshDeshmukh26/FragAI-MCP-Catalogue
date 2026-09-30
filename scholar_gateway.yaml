@@ -1,0 +1,26 @@
+name: Scholar Gateway
+entryKey: fragai-scholar-gateway
+shortDescription: Search peer-reviewed Wiley research with verifiable citations and DOI links
+description: |
+  Search peer-reviewed Wiley research and return evidence passages with citation metadata and DOI links.
+
+  ## What you can do
+  - Run semantic searches across Wiley journal content
+  - Ground literature reviews, academic writing, and grant proposals in peer-reviewed sources
+  - Retrieve source metadata and DOI links for verification
+  - Discover conceptually related research across supported disciplines
+
+  ## Before connecting
+  - Use eligible institutional access or a supported trial and sign in with CONNECT OAuth
+  - Verify your research affiliation when required
+  - Search results provide text and citation metadata but do not include charts, images, or other multimedia
+  - Review the complete paper and independent evidence before relying on a result for clinical, legal, or other high-impact decisions
+
+  See the official [Scholar Gateway documentation](https://docs.scholargateway.ai/) for access requirements, content coverage, and troubleshooting.
+metadata:
+  categories: Research, Education, Search
+icon: https://docs.scholargateway.ai/images/apple-touch-icon.png
+repoURL: https://docs.scholargateway.ai/
+runtime: remote
+remoteConfig:
+  fixedURL: https://connector.scholargateway.ai/mcp

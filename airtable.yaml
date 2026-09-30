@@ -1,0 +1,23 @@
+name: Airtable
+entryKey: fragai-airtable
+shortDescription: Find, analyze, create, and update information stored in Airtable
+description: |
+  Use an AI assistant to work with structured information in Airtable while keeping Airtable's existing user and base permissions in effect.
+
+  ## What you can do
+  - Find accessible bases and inspect tables, fields, and records
+  - Search and analyze operational data
+  - Create or update records, tables, and fields when permitted
+  - Limit the connection to selected bases and applications
+
+  ## Before connecting
+  Sign in with an Airtable account and authorize the bases the connection may use. An Airtable administrator may need to allow the integration. The server cannot access bases unavailable to the connected user.
+
+  See the [official Airtable MCP guide](https://support.airtable.com/using-the-airtable-mcp-server).
+metadata:
+  categories: Databases, Productivity, SaaS & API Integrations
+icon: https://airtable.com/favicon.ico
+repoURL: https://support.airtable.com/using-the-airtable-mcp-server
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.airtable.com/mcp

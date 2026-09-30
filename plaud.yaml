@@ -1,0 +1,26 @@
+name: Plaud
+entryKey: fragai-plaud
+shortDescription: Search Plaud recordings and retrieve transcripts, summaries, notes, and action items
+description: |
+  Search Plaud recordings and retrieve transcripts, summaries, notes, topics, and action items.
+
+  ## What you can do
+  - List and search recordings by name or date range
+  - Retrieve recording metadata and temporary audio download links
+  - Read transcripts with timestamps and speaker labels
+  - Access AI-generated notes, summaries, key topics, and action items
+  - Use meeting context to draft follow-ups and digests
+
+  ## Before connecting
+  - Sign in through Plaud OAuth and authorize access to your recordings
+  - Recording data can contain confidential, biometric, or personal information
+  - For HTTP clients, Plaud documents that data is processed in transit through its US-hosted MCP server; review consent and data-residency requirements first
+
+  See the official [Plaud MCP documentation](https://docs.plaud.ai/plaud-mcp-cli/mcp) for tools, data fields, and troubleshooting.
+metadata:
+  categories: Video & Audio, Productivity, Meetings
+icon: https://mintcdn.com/plaud/NcIGXAbuUj5XMDGP/assets/logo/light.svg
+repoURL: https://docs.plaud.ai/plaud-mcp-cli/mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.plaud.ai/mcp

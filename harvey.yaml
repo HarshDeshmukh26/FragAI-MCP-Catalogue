@@ -1,0 +1,27 @@
+name: Harvey
+entryKey: fragai-harvey
+shortDescription: Research legal questions and analyze permitted Harvey Vault documents
+description: |
+  Connect FragAI to Harvey's hosted MCP server for legal research and citation-backed analysis of documents available to the connected Harvey user.
+
+  ## What you can do
+  - Ask general legal-research questions using Harvey's enabled knowledge
+  - Analyze documents in accessible Vault projects with citations
+  - List permitted Vault projects and research sources
+  - Query specialized legal, regulatory, or tax databases enabled for the organization
+
+  ## Before connecting
+  - Use an active account in a Harvey organization with hosted MCP enabled
+  - Obtain the required Harvey OAuth client credentials for FragAI's redirect URI
+  - Confirm the user is entitled to each Vault project and knowledge source involved
+  - Have a qualified legal professional review outputs before relying on them
+
+  Access follows existing Harvey permissions. Setup details: [Harvey MCP documentation](https://developers.harvey.ai/guides/harvey_mcp).
+metadata:
+  categories: Legal, Research, Document Management
+icon: https://mintcdn.com/counselai/MseNlCOSIs-6XLeD/Harvey_Glyph.svg
+repoURL: https://developers.harvey.ai/guides/harvey_mcp
+runtime: remote
+remoteConfig:
+  fixedURL: https://api.harvey.ai/hosted_mcp/mcp
+  staticOAuthRequired: true

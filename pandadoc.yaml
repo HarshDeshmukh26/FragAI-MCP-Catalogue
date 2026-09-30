@@ -1,0 +1,25 @@
+name: PandaDoc
+entryKey: fragai-pandadoc
+shortDescription: Create, send, track, and manage PandaDoc documents
+description: |
+  Create, send, track, and manage PandaDoc documents and signature workflows.
+
+  ## What you can do
+  - Create documents from templates or Markdown
+  - Update, send, search, and list documents
+  - Retrieve document details, content, summaries, status, and audit trails
+  - Follow signature progress and make supported status changes
+
+  ## Before connecting
+  - Sign in to a PandaDoc account with access to the required workspace and documents
+  - Sending a document can notify recipients and start a legally significant signature workflow
+  - Review recipients, variables, pricing, and document content before approving create, send, or status-change actions
+
+  See the official [PandaDoc MCP documentation](https://developers.pandadoc.com/docs/how-to-use-the-pandadoc-mcp-server) for connection details and supported workflows.
+metadata:
+  categories: Document Management,Sales,Electronic Signatures
+icon: https://files.readme.io/6ffa2ec-small-icon-192-e5478bae7f.png
+repoURL: https://developers.pandadoc.com/docs/how-to-use-the-pandadoc-mcp-server
+runtime: remote
+remoteConfig:
+  fixedURL: https://mcp.pandadoc.com/v1/mcp
