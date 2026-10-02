@@ -1,0 +1,109 @@
+name: Vibe Prospecting
+entryKey: fragai-vibe-prospecting
+shortDescription: Find, match, enrich, and export companies and professional contacts using business data and buying signals
+description: |
+  Connect Vibe Prospecting by Explorium to search, match, and enrich companies
+  and professional contacts using provider-hosted business data.
+
+  ## Capabilities
+
+  - Find companies using industry, location, employee count, revenue, and
+    technology filters.
+  - Discover professional contacts using role, seniority, company, and other
+    targeting criteria.
+  - Match supplied company or contact records to Vibe Prospecting entities.
+  - Enrich companies and contacts with firmographic, technographic, and
+    professional information.
+  - Research business and professional events, including relevant buying
+    signals.
+  - Estimate credit usage before running larger operations.
+  - Retrieve generated datasets and export results to CSV.
+
+  ## What you'll need to connect
+
+  **Required:**
+
+  - A Vibe Prospecting or Explorium account. A free account is available.
+  - Authorization through the provider when prompted during the first tool call.
+
+  No API key, custom HTTP header, OAuth client ID, or client secret needs to be
+  entered in Governance Platform. Vibe Prospecting initiates its authorization
+  process when the connected user first invokes a tool.
+
+  See the [official MCP setup guide](https://www.vibeprospecting.ai/blog/how-to-install-vibe-prospecting-mcp-in-cursor-and-grok-bot).
+
+  ## Cost and usage considerations
+
+  Vibe Prospecting uses credits for prospect discovery, contact information,
+  and enrichment operations. Credit consumption varies by operation. Use the
+  cost-estimation tool and test with a small result set before requesting large
+  datasets or exports.
+
+  Review the [current pricing and credit information](https://www.vibeprospecting.ai/pricing)
+  before production use.
+
+  ## Privacy and data considerations
+
+  Results may contain professional names, employment information, business
+  contact details, email addresses, phone numbers, online identifiers, and
+  other enrichment data.
+
+  Only process or export data when your organization has an appropriate
+  business purpose and lawful basis. Do not submit confidential CRM records,
+  employee data, or other personal information unless its use has been
+  authorized.
+
+  Review Explorium's [privacy policy](https://www.vibeprospecting.ai/privacy-policy)
+  and applicable data-protection, marketing, and outreach requirements before
+  using results in production.
+
+  Provider data may be incomplete, outdated, or incorrectly matched. Verify
+  important records before using them for outreach, recruiting, compliance,
+  or other consequential decisions.
+
+metadata:
+  categories: Business
+
+icon: https://www.vibeprospecting.ai/_next/static/media/logo.6149e714.svg
+repoURL: https://www.vibeprospecting.ai/blog/how-to-install-vibe-prospecting-mcp-in-cursor-and-grok-bot
+
+runtime: remote
+remoteConfig:
+  fixedURL: https://vibeprospecting.explorium.ai/mcp
+
+toolPreview:
+  - name: fetch-entities
+    description: Search for companies or professional contacts using business, location, role, seniority, technology, and other targeting filters.
+
+  - name: enrich-business
+    description: Enrich company records with available firmographic, technographic, business, and market information.
+
+  - name: enrich-prospects
+    description: Enrich professional contact records with available role, employment, profile, and business contact information.
+
+  - name: match-business
+    description: Match supplied company names, domains, or other identifiers to corresponding business records.
+
+  - name: match-prospects
+    description: Match supplied names, profiles, contact details, or employment information to corresponding professional records.
+
+  - name: fetch-entities-statistics
+    description: Calculate result counts and summary statistics for a proposed company or professional search before retrieving the complete dataset.
+
+  - name: fetch-businesses-events
+    description: Retrieve available business events and buying signals such as funding, hiring, leadership, or technology changes.
+
+  - name: fetch-prospects-events
+    description: Retrieve available events and changes associated with matched professional contacts.
+
+  - name: get-dataset
+    description: Retrieve a previously generated Vibe Prospecting dataset and its available results.
+
+  - name: export-to-csv
+    description: Export a generated prospecting dataset to a CSV file for authorized downstream use.
+
+  - name: autocomplete
+    description: Find supported values and suggestions for search filters when constructing a prospecting request.
+
+  - name: estimate-cost
+    description: Estimate the Vibe Prospecting credit cost of an operation before executing it.
